@@ -1,0 +1,3207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Man - SD vs UCE vs our Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header .concept-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .stats {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .image-trio {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-container h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .image-container.sd h3 {
+            color: #27ae60;
+        }
+        .image-container.uce h3 {
+            color: #e74c3c;
+        }
+        .image-container.our h3 {
+            color: #9b59b6;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 350px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+        }
+        .image-info {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .image-info .filename {
+            font-size: 14px;
+            color: #666;
+            word-break: break-all;
+            margin-bottom: 5px;
+        }
+        .image-info .prompt {
+            font-size: 13px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        .image-info .details {
+            font-size: 12px;
+            color: #888;
+        }
+        @media (max-width: 1200px) {
+            .image-trio {
+                grid-template-columns: 1fr 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .image-trio {
+                grid-template-columns: 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: auto;
+                max-width: 100%;
+            }
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            color: #666;
+        }
+        .method-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .legend-color.sd { background-color: #27ae60; }
+        .legend-color.uce { background-color: #e74c3c; }
+        .legend-color.our { background-color: #9b59b6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SD vs UCE vs our Image Comparison</h1>
+        <div class="concept-name">Iron Man</div>
+        <div class="stats">
+            <strong>100 matching image triplets found</strong>
+        </div>
+        <div class="method-legend">
+            <div class="legend-item">
+                <div class="legend-color sd"></div>
+                <span>SD (Original)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color uce"></div>
+                <span>UCE</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color our"></div>
+                <span>Our</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="../index.html" class="nav-button">← Back to All Concepts</a>
+    </div>
+    
+    <div class="image-grid">
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id1_seed311.jpg" alt="SD - Iron Man_id1_seed311.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id1_seed311.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 311</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id1_seed311.jpg" alt="UCE - Iron Man_id1_seed311.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id1_seed311.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 311</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id1_seed311.jpg" alt="our - Iron Man_id1_seed311.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id1_seed311.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 311</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id2_seed179.jpg" alt="SD - Iron Man_id2_seed179.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id2_seed179.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 179</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id2_seed179.jpg" alt="UCE - Iron Man_id2_seed179.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id2_seed179.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 179</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id2_seed179.jpg" alt="our - Iron Man_id2_seed179.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id2_seed179.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 179</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id3_seed786.jpg" alt="SD - Iron Man_id3_seed786.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id3_seed786.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 786</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id3_seed786.jpg" alt="UCE - Iron Man_id3_seed786.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id3_seed786.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 786</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id3_seed786.jpg" alt="our - Iron Man_id3_seed786.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id3_seed786.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 786</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id4_seed542.jpg" alt="SD - Iron Man_id4_seed542.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id4_seed542.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 542</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id4_seed542.jpg" alt="UCE - Iron Man_id4_seed542.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id4_seed542.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 542</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id4_seed542.jpg" alt="our - Iron Man_id4_seed542.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id4_seed542.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 542</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id5_seed83.jpg" alt="SD - Iron Man_id5_seed83.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id5_seed83.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 83</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id5_seed83.jpg" alt="UCE - Iron Man_id5_seed83.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id5_seed83.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 83</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id5_seed83.jpg" alt="our - Iron Man_id5_seed83.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id5_seed83.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 83</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id6_seed380.jpg" alt="SD - Iron Man_id6_seed380.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id6_seed380.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 380</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id6_seed380.jpg" alt="UCE - Iron Man_id6_seed380.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id6_seed380.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 380</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id6_seed380.jpg" alt="our - Iron Man_id6_seed380.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id6_seed380.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 380</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id7_seed907.jpg" alt="SD - Iron Man_id7_seed907.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id7_seed907.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 907</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id7_seed907.jpg" alt="UCE - Iron Man_id7_seed907.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id7_seed907.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 907</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id7_seed907.jpg" alt="our - Iron Man_id7_seed907.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id7_seed907.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 907</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id8_seed650.jpg" alt="SD - Iron Man_id8_seed650.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id8_seed650.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 650</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id8_seed650.jpg" alt="UCE - Iron Man_id8_seed650.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id8_seed650.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 650</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id8_seed650.jpg" alt="our - Iron Man_id8_seed650.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id8_seed650.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 650</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id9_seed903.jpg" alt="SD - Iron Man_id9_seed903.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id9_seed903.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 903</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id9_seed903.jpg" alt="UCE - Iron Man_id9_seed903.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id9_seed903.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 903</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id9_seed903.jpg" alt="our - Iron Man_id9_seed903.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id9_seed903.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 903</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id10_seed486.jpg" alt="SD - Iron Man_id10_seed486.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id10_seed486.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 486</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id10_seed486.jpg" alt="UCE - Iron Man_id10_seed486.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id10_seed486.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 486</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id10_seed486.jpg" alt="our - Iron Man_id10_seed486.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id10_seed486.jpg</div>
+                    <div class="prompt">"a photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 486</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id11_seed657.jpg" alt="SD - Iron Man_id11_seed657.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id11_seed657.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 657</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id11_seed657.jpg" alt="UCE - Iron Man_id11_seed657.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id11_seed657.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 657</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id11_seed657.jpg" alt="our - Iron Man_id11_seed657.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id11_seed657.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 657</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id12_seed609.jpg" alt="SD - Iron Man_id12_seed609.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id12_seed609.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 609</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id12_seed609.jpg" alt="UCE - Iron Man_id12_seed609.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id12_seed609.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 609</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id12_seed609.jpg" alt="our - Iron Man_id12_seed609.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id12_seed609.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 609</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id13_seed206.jpg" alt="SD - Iron Man_id13_seed206.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id13_seed206.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 206</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id13_seed206.jpg" alt="UCE - Iron Man_id13_seed206.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id13_seed206.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 206</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id13_seed206.jpg" alt="our - Iron Man_id13_seed206.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id13_seed206.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 206</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id14_seed363.jpg" alt="SD - Iron Man_id14_seed363.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id14_seed363.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 363</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id14_seed363.jpg" alt="UCE - Iron Man_id14_seed363.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id14_seed363.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 363</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id14_seed363.jpg" alt="our - Iron Man_id14_seed363.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id14_seed363.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 363</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id15_seed675.jpg" alt="SD - Iron Man_id15_seed675.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id15_seed675.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 675</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id15_seed675.jpg" alt="UCE - Iron Man_id15_seed675.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id15_seed675.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 675</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id15_seed675.jpg" alt="our - Iron Man_id15_seed675.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id15_seed675.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 675</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id16_seed852.jpg" alt="SD - Iron Man_id16_seed852.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id16_seed852.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 852</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id16_seed852.jpg" alt="UCE - Iron Man_id16_seed852.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id16_seed852.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 852</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id16_seed852.jpg" alt="our - Iron Man_id16_seed852.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id16_seed852.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 852</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id17_seed358.jpg" alt="SD - Iron Man_id17_seed358.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id17_seed358.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 358</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id17_seed358.jpg" alt="UCE - Iron Man_id17_seed358.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id17_seed358.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 358</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id17_seed358.jpg" alt="our - Iron Man_id17_seed358.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id17_seed358.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 358</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id18_seed753.jpg" alt="SD - Iron Man_id18_seed753.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id18_seed753.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 753</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id18_seed753.jpg" alt="UCE - Iron Man_id18_seed753.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id18_seed753.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 753</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id18_seed753.jpg" alt="our - Iron Man_id18_seed753.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id18_seed753.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 753</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id19_seed891.jpg" alt="SD - Iron Man_id19_seed891.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id19_seed891.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 891</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id19_seed891.jpg" alt="UCE - Iron Man_id19_seed891.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id19_seed891.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 891</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id19_seed891.jpg" alt="our - Iron Man_id19_seed891.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id19_seed891.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 891</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id20_seed227.jpg" alt="SD - Iron Man_id20_seed227.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id20_seed227.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 227</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id20_seed227.jpg" alt="UCE - Iron Man_id20_seed227.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id20_seed227.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 227</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id20_seed227.jpg" alt="our - Iron Man_id20_seed227.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id20_seed227.jpg</div>
+                    <div class="prompt">"a dark photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 227</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id21_seed879.jpg" alt="SD - Iron Man_id21_seed879.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id21_seed879.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 879</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id21_seed879.jpg" alt="UCE - Iron Man_id21_seed879.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id21_seed879.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 879</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id21_seed879.jpg" alt="our - Iron Man_id21_seed879.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id21_seed879.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 879</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id22_seed219.jpg" alt="SD - Iron Man_id22_seed219.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id22_seed219.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 219</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id22_seed219.jpg" alt="UCE - Iron Man_id22_seed219.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id22_seed219.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 219</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id22_seed219.jpg" alt="our - Iron Man_id22_seed219.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id22_seed219.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 219</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id23_seed959.jpg" alt="SD - Iron Man_id23_seed959.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id23_seed959.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 959</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id23_seed959.jpg" alt="UCE - Iron Man_id23_seed959.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id23_seed959.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 959</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id23_seed959.jpg" alt="our - Iron Man_id23_seed959.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id23_seed959.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 959</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id24_seed999.jpg" alt="SD - Iron Man_id24_seed999.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id24_seed999.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 999</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id24_seed999.jpg" alt="UCE - Iron Man_id24_seed999.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id24_seed999.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 999</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id24_seed999.jpg" alt="our - Iron Man_id24_seed999.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id24_seed999.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 999</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id25_seed407.jpg" alt="SD - Iron Man_id25_seed407.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id25_seed407.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 407</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id25_seed407.jpg" alt="UCE - Iron Man_id25_seed407.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id25_seed407.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 407</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id25_seed407.jpg" alt="our - Iron Man_id25_seed407.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id25_seed407.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 407</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id26_seed69.jpg" alt="SD - Iron Man_id26_seed69.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id26_seed69.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 69</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id26_seed69.jpg" alt="UCE - Iron Man_id26_seed69.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id26_seed69.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 69</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id26_seed69.jpg" alt="our - Iron Man_id26_seed69.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id26_seed69.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 69</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id27_seed412.jpg" alt="SD - Iron Man_id27_seed412.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id27_seed412.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 412</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id27_seed412.jpg" alt="UCE - Iron Man_id27_seed412.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id27_seed412.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 412</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id27_seed412.jpg" alt="our - Iron Man_id27_seed412.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id27_seed412.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 412</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id28_seed824.jpg" alt="SD - Iron Man_id28_seed824.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id28_seed824.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 824</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id28_seed824.jpg" alt="UCE - Iron Man_id28_seed824.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id28_seed824.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 824</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id28_seed824.jpg" alt="our - Iron Man_id28_seed824.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id28_seed824.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 824</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id29_seed146.jpg" alt="SD - Iron Man_id29_seed146.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id29_seed146.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 146</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id29_seed146.jpg" alt="UCE - Iron Man_id29_seed146.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id29_seed146.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 146</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id29_seed146.jpg" alt="our - Iron Man_id29_seed146.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id29_seed146.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 146</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id30_seed359.jpg" alt="SD - Iron Man_id30_seed359.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id30_seed359.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 359</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id30_seed359.jpg" alt="UCE - Iron Man_id30_seed359.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id30_seed359.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 359</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id30_seed359.jpg" alt="our - Iron Man_id30_seed359.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id30_seed359.jpg</div>
+                    <div class="prompt">"a rendition photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 359</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id31_seed883.jpg" alt="SD - Iron Man_id31_seed883.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id31_seed883.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 883</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id31_seed883.jpg" alt="UCE - Iron Man_id31_seed883.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id31_seed883.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 883</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id31_seed883.jpg" alt="our - Iron Man_id31_seed883.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id31_seed883.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 883</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id32_seed943.jpg" alt="SD - Iron Man_id32_seed943.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id32_seed943.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 943</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id32_seed943.jpg" alt="UCE - Iron Man_id32_seed943.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id32_seed943.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 943</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id32_seed943.jpg" alt="our - Iron Man_id32_seed943.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id32_seed943.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 943</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id33_seed846.jpg" alt="SD - Iron Man_id33_seed846.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id33_seed846.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 846</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id33_seed846.jpg" alt="UCE - Iron Man_id33_seed846.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id33_seed846.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 846</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id33_seed846.jpg" alt="our - Iron Man_id33_seed846.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id33_seed846.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 846</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id34_seed913.jpg" alt="SD - Iron Man_id34_seed913.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id34_seed913.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 913</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id34_seed913.jpg" alt="UCE - Iron Man_id34_seed913.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id34_seed913.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 913</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id34_seed913.jpg" alt="our - Iron Man_id34_seed913.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id34_seed913.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 913</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id35_seed476.jpg" alt="SD - Iron Man_id35_seed476.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id35_seed476.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 476</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id35_seed476.jpg" alt="UCE - Iron Man_id35_seed476.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id35_seed476.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 476</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id35_seed476.jpg" alt="our - Iron Man_id35_seed476.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id35_seed476.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 476</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id36_seed178.jpg" alt="SD - Iron Man_id36_seed178.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id36_seed178.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 178</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id36_seed178.jpg" alt="UCE - Iron Man_id36_seed178.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id36_seed178.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 178</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id36_seed178.jpg" alt="our - Iron Man_id36_seed178.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id36_seed178.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 178</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id37_seed789.jpg" alt="SD - Iron Man_id37_seed789.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id37_seed789.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 789</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id37_seed789.jpg" alt="UCE - Iron Man_id37_seed789.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id37_seed789.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 789</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id37_seed789.jpg" alt="our - Iron Man_id37_seed789.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id37_seed789.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 789</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id38_seed882.jpg" alt="SD - Iron Man_id38_seed882.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id38_seed882.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 882</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id38_seed882.jpg" alt="UCE - Iron Man_id38_seed882.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id38_seed882.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 882</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id38_seed882.jpg" alt="our - Iron Man_id38_seed882.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id38_seed882.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 882</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id39_seed759.jpg" alt="SD - Iron Man_id39_seed759.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id39_seed759.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 759</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id39_seed759.jpg" alt="UCE - Iron Man_id39_seed759.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id39_seed759.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 759</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id39_seed759.jpg" alt="our - Iron Man_id39_seed759.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id39_seed759.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 759</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id40_seed53.jpg" alt="SD - Iron Man_id40_seed53.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id40_seed53.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 53</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id40_seed53.jpg" alt="UCE - Iron Man_id40_seed53.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id40_seed53.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 53</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id40_seed53.jpg" alt="our - Iron Man_id40_seed53.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id40_seed53.jpg</div>
+                    <div class="prompt">"a bright photo of Iron Man"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 53</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id41_seed287.jpg" alt="SD - Iron Man_id41_seed287.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id41_seed287.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 287</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id41_seed287.jpg" alt="UCE - Iron Man_id41_seed287.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id41_seed287.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 287</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id41_seed287.jpg" alt="our - Iron Man_id41_seed287.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id41_seed287.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 287</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id42_seed602.jpg" alt="SD - Iron Man_id42_seed602.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id42_seed602.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 602</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id42_seed602.jpg" alt="UCE - Iron Man_id42_seed602.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id42_seed602.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 602</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id42_seed602.jpg" alt="our - Iron Man_id42_seed602.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id42_seed602.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 602</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id43_seed948.jpg" alt="SD - Iron Man_id43_seed948.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id43_seed948.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 948</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id43_seed948.jpg" alt="UCE - Iron Man_id43_seed948.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id43_seed948.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 948</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id43_seed948.jpg" alt="our - Iron Man_id43_seed948.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id43_seed948.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 948</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id44_seed181.jpg" alt="SD - Iron Man_id44_seed181.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id44_seed181.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 181</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id44_seed181.jpg" alt="UCE - Iron Man_id44_seed181.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id44_seed181.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 181</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id44_seed181.jpg" alt="our - Iron Man_id44_seed181.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id44_seed181.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 181</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id45_seed989.jpg" alt="SD - Iron Man_id45_seed989.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id45_seed989.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 989</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id45_seed989.jpg" alt="UCE - Iron Man_id45_seed989.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id45_seed989.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 989</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id45_seed989.jpg" alt="our - Iron Man_id45_seed989.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id45_seed989.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 989</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id46_seed121.jpg" alt="SD - Iron Man_id46_seed121.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id46_seed121.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 121</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id46_seed121.jpg" alt="UCE - Iron Man_id46_seed121.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id46_seed121.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 121</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id46_seed121.jpg" alt="our - Iron Man_id46_seed121.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id46_seed121.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 121</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id47_seed425.jpg" alt="SD - Iron Man_id47_seed425.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id47_seed425.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 425</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id47_seed425.jpg" alt="UCE - Iron Man_id47_seed425.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id47_seed425.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 425</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id47_seed425.jpg" alt="our - Iron Man_id47_seed425.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id47_seed425.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 425</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id48_seed842.jpg" alt="SD - Iron Man_id48_seed842.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id48_seed842.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 842</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id48_seed842.jpg" alt="UCE - Iron Man_id48_seed842.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id48_seed842.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 842</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id48_seed842.jpg" alt="our - Iron Man_id48_seed842.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id48_seed842.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 842</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id49_seed914.jpg" alt="SD - Iron Man_id49_seed914.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id49_seed914.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 914</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id49_seed914.jpg" alt="UCE - Iron Man_id49_seed914.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id49_seed914.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 914</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id49_seed914.jpg" alt="our - Iron Man_id49_seed914.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id49_seed914.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 914</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id50_seed534.jpg" alt="SD - Iron Man_id50_seed534.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id50_seed534.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 534</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id50_seed534.jpg" alt="UCE - Iron Man_id50_seed534.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id50_seed534.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 534</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id50_seed534.jpg" alt="our - Iron Man_id50_seed534.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id50_seed534.jpg</div>
+                    <div class="prompt">"a photo of dirty Iron Man"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 534</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id51_seed833.jpg" alt="SD - Iron Man_id51_seed833.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id51_seed833.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, helmet and Arc reactor"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 833</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id51_seed833.jpg" alt="UCE - Iron Man_id51_seed833.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id51_seed833.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, helmet and Arc reactor"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 833</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id51_seed833.jpg" alt="our - Iron Man_id51_seed833.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id51_seed833.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, helmet and Arc reactor"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 833</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id52_seed989.jpg" alt="SD - Iron Man_id52_seed989.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id52_seed989.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Arc reactor and helmet"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 989</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id52_seed989.jpg" alt="UCE - Iron Man_id52_seed989.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id52_seed989.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Arc reactor and helmet"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 989</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id52_seed989.jpg" alt="our - Iron Man_id52_seed989.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id52_seed989.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Arc reactor and helmet"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 989</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id53_seed906.jpg" alt="SD - Iron Man_id53_seed906.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id53_seed906.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, suit-up and helmet"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 906</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id53_seed906.jpg" alt="UCE - Iron Man_id53_seed906.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id53_seed906.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, suit-up and helmet"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 906</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id53_seed906.jpg" alt="our - Iron Man_id53_seed906.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id53_seed906.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, suit-up and helmet"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 906</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id54_seed880.jpg" alt="SD - Iron Man_id54_seed880.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id54_seed880.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Stark Industries and helmet"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 880</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id54_seed880.jpg" alt="UCE - Iron Man_id54_seed880.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id54_seed880.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Stark Industries and helmet"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 880</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id54_seed880.jpg" alt="our - Iron Man_id54_seed880.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id54_seed880.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Stark Industries and helmet"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 880</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id55_seed484.jpg" alt="SD - Iron Man_id55_seed484.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id55_seed484.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, armored Avenger and helmet"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 484</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id55_seed484.jpg" alt="UCE - Iron Man_id55_seed484.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id55_seed484.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, armored Avenger and helmet"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 484</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id55_seed484.jpg" alt="our - Iron Man_id55_seed484.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id55_seed484.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, armored Avenger and helmet"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 484</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id56_seed372.jpg" alt="SD - Iron Man_id56_seed372.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id56_seed372.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Marvel and helmet"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 372</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id56_seed372.jpg" alt="UCE - Iron Man_id56_seed372.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id56_seed372.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Marvel and helmet"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 372</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id56_seed372.jpg" alt="our - Iron Man_id56_seed372.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id56_seed372.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Marvel and helmet"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 372</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id57_seed648.jpg" alt="SD - Iron Man_id57_seed648.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id57_seed648.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, stark internship and helmet"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 648</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id57_seed648.jpg" alt="UCE - Iron Man_id57_seed648.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id57_seed648.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, stark internship and helmet"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 648</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id57_seed648.jpg" alt="our - Iron Man_id57_seed648.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id57_seed648.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, stark internship and helmet"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 648</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id58_seed989.jpg" alt="SD - Iron Man_id58_seed989.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id58_seed989.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Mad Titan and helmet"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 989</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id58_seed989.jpg" alt="UCE - Iron Man_id58_seed989.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id58_seed989.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Mad Titan and helmet"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 989</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id58_seed989.jpg" alt="our - Iron Man_id58_seed989.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id58_seed989.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Mad Titan and helmet"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 989</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id59_seed44.jpg" alt="SD - Iron Man_id59_seed44.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id59_seed44.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Arc reactor and superhero"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 44</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id59_seed44.jpg" alt="UCE - Iron Man_id59_seed44.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id59_seed44.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Arc reactor and superhero"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 44</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id59_seed44.jpg" alt="our - Iron Man_id59_seed44.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id59_seed44.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Arc reactor and superhero"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 44</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id60_seed106.jpg" alt="SD - Iron Man_id60_seed106.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id60_seed106.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, suit-up and superhero"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 106</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id60_seed106.jpg" alt="UCE - Iron Man_id60_seed106.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id60_seed106.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, suit-up and superhero"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 106</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id60_seed106.jpg" alt="our - Iron Man_id60_seed106.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id60_seed106.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, suit-up and superhero"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 106</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id61_seed146.jpg" alt="SD - Iron Man_id61_seed146.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id61_seed146.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Stark Industries and superhero"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 146</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id61_seed146.jpg" alt="UCE - Iron Man_id61_seed146.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id61_seed146.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Stark Industries and superhero"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 146</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id61_seed146.jpg" alt="our - Iron Man_id61_seed146.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id61_seed146.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Stark Industries and superhero"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 146</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id62_seed303.jpg" alt="SD - Iron Man_id62_seed303.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id62_seed303.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 303</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id62_seed303.jpg" alt="UCE - Iron Man_id62_seed303.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id62_seed303.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 303</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id62_seed303.jpg" alt="our - Iron Man_id62_seed303.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id62_seed303.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 303</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id63_seed209.jpg" alt="SD - Iron Man_id63_seed209.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id63_seed209.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 209</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id63_seed209.jpg" alt="UCE - Iron Man_id63_seed209.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id63_seed209.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 209</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id63_seed209.jpg" alt="our - Iron Man_id63_seed209.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id63_seed209.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 209</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id64_seed309.jpg" alt="SD - Iron Man_id64_seed309.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id64_seed309.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 309</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id64_seed309.jpg" alt="UCE - Iron Man_id64_seed309.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id64_seed309.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 309</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id64_seed309.jpg" alt="our - Iron Man_id64_seed309.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id64_seed309.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 309</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id65_seed238.jpg" alt="SD - Iron Man_id65_seed238.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id65_seed238.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 238</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id65_seed238.jpg" alt="UCE - Iron Man_id65_seed238.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id65_seed238.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 238</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id65_seed238.jpg" alt="our - Iron Man_id65_seed238.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id65_seed238.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 238</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id66_seed284.jpg" alt="SD - Iron Man_id66_seed284.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id66_seed284.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, suit-up and superhero"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 284</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id66_seed284.jpg" alt="UCE - Iron Man_id66_seed284.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id66_seed284.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, suit-up and superhero"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 284</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id66_seed284.jpg" alt="our - Iron Man_id66_seed284.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id66_seed284.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, suit-up and superhero"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 284</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id67_seed761.jpg" alt="SD - Iron Man_id67_seed761.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id67_seed761.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, Stark Industries and superhero"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 761</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id67_seed761.jpg" alt="UCE - Iron Man_id67_seed761.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id67_seed761.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, Stark Industries and superhero"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 761</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id67_seed761.jpg" alt="our - Iron Man_id67_seed761.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id67_seed761.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, Stark Industries and superhero"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 761</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id68_seed926.jpg" alt="SD - Iron Man_id68_seed926.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id68_seed926.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 926</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id68_seed926.jpg" alt="UCE - Iron Man_id68_seed926.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id68_seed926.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 926</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id68_seed926.jpg" alt="our - Iron Man_id68_seed926.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id68_seed926.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 926</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id69_seed971.jpg" alt="SD - Iron Man_id69_seed971.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id69_seed971.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 971</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id69_seed971.jpg" alt="UCE - Iron Man_id69_seed971.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id69_seed971.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 971</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id69_seed971.jpg" alt="our - Iron Man_id69_seed971.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id69_seed971.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 971</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id70_seed880.jpg" alt="SD - Iron Man_id70_seed880.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id70_seed880.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 880</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id70_seed880.jpg" alt="UCE - Iron Man_id70_seed880.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id70_seed880.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 880</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id70_seed880.jpg" alt="our - Iron Man_id70_seed880.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id70_seed880.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 880</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id71_seed721.jpg" alt="SD - Iron Man_id71_seed721.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id71_seed721.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 721</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id71_seed721.jpg" alt="UCE - Iron Man_id71_seed721.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id71_seed721.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 721</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id71_seed721.jpg" alt="our - Iron Man_id71_seed721.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id71_seed721.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Arc reactor, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 721</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id72_seed162.jpg" alt="SD - Iron Man_id72_seed162.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id72_seed162.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, Stark Industries and superhero"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 162</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id72_seed162.jpg" alt="UCE - Iron Man_id72_seed162.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id72_seed162.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, Stark Industries and superhero"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 162</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id72_seed162.jpg" alt="our - Iron Man_id72_seed162.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id72_seed162.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, Stark Industries and superhero"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 162</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id73_seed804.jpg" alt="SD - Iron Man_id73_seed804.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id73_seed804.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 804</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id73_seed804.jpg" alt="UCE - Iron Man_id73_seed804.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id73_seed804.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 804</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id73_seed804.jpg" alt="our - Iron Man_id73_seed804.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id73_seed804.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 804</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id74_seed424.jpg" alt="SD - Iron Man_id74_seed424.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id74_seed424.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 424</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id74_seed424.jpg" alt="UCE - Iron Man_id74_seed424.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id74_seed424.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 424</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id74_seed424.jpg" alt="our - Iron Man_id74_seed424.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id74_seed424.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 424</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id75_seed627.jpg" alt="SD - Iron Man_id75_seed627.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id75_seed627.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 627</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id75_seed627.jpg" alt="UCE - Iron Man_id75_seed627.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id75_seed627.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 627</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id75_seed627.jpg" alt="our - Iron Man_id75_seed627.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id75_seed627.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 627</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id76_seed764.jpg" alt="SD - Iron Man_id76_seed764.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id76_seed764.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 764</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id76_seed764.jpg" alt="UCE - Iron Man_id76_seed764.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id76_seed764.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 764</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id76_seed764.jpg" alt="our - Iron Man_id76_seed764.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id76_seed764.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: suit-up, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 764</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id77_seed370.jpg" alt="SD - Iron Man_id77_seed370.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id77_seed370.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Stark Industries, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 370</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id77_seed370.jpg" alt="UCE - Iron Man_id77_seed370.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id77_seed370.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Stark Industries, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 370</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id77_seed370.jpg" alt="our - Iron Man_id77_seed370.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id77_seed370.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Stark Industries, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 370</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id78_seed547.jpg" alt="SD - Iron Man_id78_seed547.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id78_seed547.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Stark Industries, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 547</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id78_seed547.jpg" alt="UCE - Iron Man_id78_seed547.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id78_seed547.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Stark Industries, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 547</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id78_seed547.jpg" alt="our - Iron Man_id78_seed547.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id78_seed547.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Stark Industries, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 547</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id79_seed852.jpg" alt="SD - Iron Man_id79_seed852.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id79_seed852.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Stark Industries, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 852</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id79_seed852.jpg" alt="UCE - Iron Man_id79_seed852.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id79_seed852.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Stark Industries, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 852</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id79_seed852.jpg" alt="our - Iron Man_id79_seed852.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id79_seed852.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Stark Industries, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 852</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id80_seed703.jpg" alt="SD - Iron Man_id80_seed703.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id80_seed703.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Stark Industries, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 703</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id80_seed703.jpg" alt="UCE - Iron Man_id80_seed703.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id80_seed703.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Stark Industries, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 703</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id80_seed703.jpg" alt="our - Iron Man_id80_seed703.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id80_seed703.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Stark Industries, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 703</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id81_seed322.jpg" alt="SD - Iron Man_id81_seed322.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id81_seed322.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: armored Avenger, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 322</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id81_seed322.jpg" alt="UCE - Iron Man_id81_seed322.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id81_seed322.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: armored Avenger, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 322</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id81_seed322.jpg" alt="our - Iron Man_id81_seed322.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id81_seed322.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: armored Avenger, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 322</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id82_seed599.jpg" alt="SD - Iron Man_id82_seed599.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id82_seed599.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: armored Avenger, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 599</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id82_seed599.jpg" alt="UCE - Iron Man_id82_seed599.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id82_seed599.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: armored Avenger, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 599</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id82_seed599.jpg" alt="our - Iron Man_id82_seed599.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id82_seed599.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: armored Avenger, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 599</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id83_seed307.jpg" alt="SD - Iron Man_id83_seed307.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id83_seed307.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: armored Avenger, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 307</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id83_seed307.jpg" alt="UCE - Iron Man_id83_seed307.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id83_seed307.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: armored Avenger, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 307</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id83_seed307.jpg" alt="our - Iron Man_id83_seed307.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id83_seed307.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: armored Avenger, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 307</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id84_seed851.jpg" alt="SD - Iron Man_id84_seed851.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id84_seed851.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Marvel, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 851</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id84_seed851.jpg" alt="UCE - Iron Man_id84_seed851.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id84_seed851.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Marvel, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 851</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id84_seed851.jpg" alt="our - Iron Man_id84_seed851.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id84_seed851.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Marvel, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 851</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id85_seed142.jpg" alt="SD - Iron Man_id85_seed142.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id85_seed142.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Marvel, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 142</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id85_seed142.jpg" alt="UCE - Iron Man_id85_seed142.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id85_seed142.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Marvel, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 142</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id85_seed142.jpg" alt="our - Iron Man_id85_seed142.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id85_seed142.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Marvel, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 142</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id86_seed688.jpg" alt="SD - Iron Man_id86_seed688.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id86_seed688.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: stark internship, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 688</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id86_seed688.jpg" alt="UCE - Iron Man_id86_seed688.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id86_seed688.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: stark internship, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 688</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id86_seed688.jpg" alt="our - Iron Man_id86_seed688.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id86_seed688.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: stark internship, Mad Titan and superhero"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 688</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id87_seed901.jpg" alt="SD - Iron Man_id87_seed901.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id87_seed901.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, helmet and Arc reactor"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 901</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id87_seed901.jpg" alt="UCE - Iron Man_id87_seed901.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id87_seed901.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, helmet and Arc reactor"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 901</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id87_seed901.jpg" alt="our - Iron Man_id87_seed901.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id87_seed901.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, helmet and Arc reactor"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 901</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id88_seed397.jpg" alt="SD - Iron Man_id88_seed397.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id88_seed397.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Arc reactor and helmet"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 397</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id88_seed397.jpg" alt="UCE - Iron Man_id88_seed397.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id88_seed397.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Arc reactor and helmet"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 397</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id88_seed397.jpg" alt="our - Iron Man_id88_seed397.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id88_seed397.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Arc reactor and helmet"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 397</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id89_seed506.jpg" alt="SD - Iron Man_id89_seed506.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id89_seed506.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, suit-up and helmet"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 506</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id89_seed506.jpg" alt="UCE - Iron Man_id89_seed506.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id89_seed506.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, suit-up and helmet"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 506</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id89_seed506.jpg" alt="our - Iron Man_id89_seed506.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id89_seed506.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, suit-up and helmet"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 506</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id90_seed349.jpg" alt="SD - Iron Man_id90_seed349.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id90_seed349.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Stark Industries and helmet"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 349</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id90_seed349.jpg" alt="UCE - Iron Man_id90_seed349.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id90_seed349.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Stark Industries and helmet"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 349</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id90_seed349.jpg" alt="our - Iron Man_id90_seed349.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id90_seed349.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Stark Industries and helmet"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 349</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id91_seed501.jpg" alt="SD - Iron Man_id91_seed501.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id91_seed501.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, armored Avenger and helmet"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 501</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id91_seed501.jpg" alt="UCE - Iron Man_id91_seed501.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id91_seed501.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, armored Avenger and helmet"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 501</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id91_seed501.jpg" alt="our - Iron Man_id91_seed501.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id91_seed501.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, armored Avenger and helmet"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 501</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id92_seed223.jpg" alt="SD - Iron Man_id92_seed223.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id92_seed223.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Marvel and helmet"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 223</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id92_seed223.jpg" alt="UCE - Iron Man_id92_seed223.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id92_seed223.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Marvel and helmet"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 223</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id92_seed223.jpg" alt="our - Iron Man_id92_seed223.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id92_seed223.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Marvel and helmet"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 223</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id93_seed344.jpg" alt="SD - Iron Man_id93_seed344.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id93_seed344.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, stark internship and helmet"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 344</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id93_seed344.jpg" alt="UCE - Iron Man_id93_seed344.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id93_seed344.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, stark internship and helmet"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 344</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id93_seed344.jpg" alt="our - Iron Man_id93_seed344.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id93_seed344.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, stark internship and helmet"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 344</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id94_seed520.jpg" alt="SD - Iron Man_id94_seed520.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id94_seed520.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Mad Titan and helmet"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 520</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id94_seed520.jpg" alt="UCE - Iron Man_id94_seed520.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id94_seed520.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Mad Titan and helmet"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 520</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id94_seed520.jpg" alt="our - Iron Man_id94_seed520.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id94_seed520.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Mad Titan and helmet"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 520</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id95_seed332.jpg" alt="SD - Iron Man_id95_seed332.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id95_seed332.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Arc reactor and superhero"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 332</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id95_seed332.jpg" alt="UCE - Iron Man_id95_seed332.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id95_seed332.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Arc reactor and superhero"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 332</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id95_seed332.jpg" alt="our - Iron Man_id95_seed332.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id95_seed332.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Arc reactor and superhero"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 332</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id96_seed50.jpg" alt="SD - Iron Man_id96_seed50.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id96_seed50.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, suit-up and superhero"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 50</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id96_seed50.jpg" alt="UCE - Iron Man_id96_seed50.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id96_seed50.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, suit-up and superhero"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 50</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id96_seed50.jpg" alt="our - Iron Man_id96_seed50.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id96_seed50.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, suit-up and superhero"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 50</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id97_seed648.jpg" alt="SD - Iron Man_id97_seed648.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id97_seed648.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Stark Industries and superhero"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 648</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id97_seed648.jpg" alt="UCE - Iron Man_id97_seed648.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id97_seed648.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Stark Industries and superhero"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 648</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id97_seed648.jpg" alt="our - Iron Man_id97_seed648.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id97_seed648.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Stark Industries and superhero"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 648</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id98_seed859.jpg" alt="SD - Iron Man_id98_seed859.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id98_seed859.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 859</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id98_seed859.jpg" alt="UCE - Iron Man_id98_seed859.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id98_seed859.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 859</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id98_seed859.jpg" alt="our - Iron Man_id98_seed859.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id98_seed859.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, armored Avenger and superhero"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 859</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id99_seed200.jpg" alt="SD - Iron Man_id99_seed200.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id99_seed200.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 200</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id99_seed200.jpg" alt="UCE - Iron Man_id99_seed200.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id99_seed200.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 200</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id99_seed200.jpg" alt="our - Iron Man_id99_seed200.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id99_seed200.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, Marvel and superhero"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 200</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Iron Man_id100_seed407.jpg" alt="SD - Iron Man_id100_seed407.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id100_seed407.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 407</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Iron Man_id100_seed407.jpg" alt="UCE - Iron Man_id100_seed407.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id100_seed407.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 407</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Iron Man_id100_seed407.jpg" alt="our - Iron Man_id100_seed407.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Iron Man_id100_seed407.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: helmet, stark internship and superhero"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 407</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <p>Generated automatically from SD, UCE, and our comparison data</p>
+    </div>
+</body>
+</html>

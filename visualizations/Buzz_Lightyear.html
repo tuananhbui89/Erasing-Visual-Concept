@@ -1,0 +1,3207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buzz Lightyear - SD vs UCE vs our Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header .concept-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .stats {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .image-trio {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-container h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .image-container.sd h3 {
+            color: #27ae60;
+        }
+        .image-container.uce h3 {
+            color: #e74c3c;
+        }
+        .image-container.our h3 {
+            color: #9b59b6;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 350px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+        }
+        .image-info {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .image-info .filename {
+            font-size: 14px;
+            color: #666;
+            word-break: break-all;
+            margin-bottom: 5px;
+        }
+        .image-info .prompt {
+            font-size: 13px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        .image-info .details {
+            font-size: 12px;
+            color: #888;
+        }
+        @media (max-width: 1200px) {
+            .image-trio {
+                grid-template-columns: 1fr 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .image-trio {
+                grid-template-columns: 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: auto;
+                max-width: 100%;
+            }
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            color: #666;
+        }
+        .method-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .legend-color.sd { background-color: #27ae60; }
+        .legend-color.uce { background-color: #e74c3c; }
+        .legend-color.our { background-color: #9b59b6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SD vs UCE vs our Image Comparison</h1>
+        <div class="concept-name">Buzz Lightyear</div>
+        <div class="stats">
+            <strong>100 matching image triplets found</strong>
+        </div>
+        <div class="method-legend">
+            <div class="legend-item">
+                <div class="legend-color sd"></div>
+                <span>SD (Original)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color uce"></div>
+                <span>UCE</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color our"></div>
+                <span>Our</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="../index.html" class="nav-button">← Back to All Concepts</a>
+    </div>
+    
+    <div class="image-grid">
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id1_seed685.jpg" alt="SD - Buzz Lightyear_id1_seed685.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id1_seed685.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 685</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id1_seed685.jpg" alt="UCE - Buzz Lightyear_id1_seed685.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id1_seed685.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 685</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id1_seed685.jpg" alt="our - Buzz Lightyear_id1_seed685.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id1_seed685.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 685</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id2_seed909.jpg" alt="SD - Buzz Lightyear_id2_seed909.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id2_seed909.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 909</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id2_seed909.jpg" alt="UCE - Buzz Lightyear_id2_seed909.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id2_seed909.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 909</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id2_seed909.jpg" alt="our - Buzz Lightyear_id2_seed909.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id2_seed909.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 909</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id3_seed165.jpg" alt="SD - Buzz Lightyear_id3_seed165.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id3_seed165.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 165</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id3_seed165.jpg" alt="UCE - Buzz Lightyear_id3_seed165.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id3_seed165.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 165</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id3_seed165.jpg" alt="our - Buzz Lightyear_id3_seed165.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id3_seed165.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 165</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id4_seed444.jpg" alt="SD - Buzz Lightyear_id4_seed444.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id4_seed444.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 444</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id4_seed444.jpg" alt="UCE - Buzz Lightyear_id4_seed444.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id4_seed444.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 444</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id4_seed444.jpg" alt="our - Buzz Lightyear_id4_seed444.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id4_seed444.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 444</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id5_seed756.jpg" alt="SD - Buzz Lightyear_id5_seed756.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id5_seed756.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 756</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id5_seed756.jpg" alt="UCE - Buzz Lightyear_id5_seed756.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id5_seed756.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 756</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id5_seed756.jpg" alt="our - Buzz Lightyear_id5_seed756.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id5_seed756.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 756</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id6_seed61.jpg" alt="SD - Buzz Lightyear_id6_seed61.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id6_seed61.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 61</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id6_seed61.jpg" alt="UCE - Buzz Lightyear_id6_seed61.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id6_seed61.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 61</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id6_seed61.jpg" alt="our - Buzz Lightyear_id6_seed61.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id6_seed61.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 61</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id7_seed556.jpg" alt="SD - Buzz Lightyear_id7_seed556.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id7_seed556.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 556</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id7_seed556.jpg" alt="UCE - Buzz Lightyear_id7_seed556.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id7_seed556.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 556</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id7_seed556.jpg" alt="our - Buzz Lightyear_id7_seed556.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id7_seed556.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 556</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id8_seed332.jpg" alt="SD - Buzz Lightyear_id8_seed332.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id8_seed332.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 332</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id8_seed332.jpg" alt="UCE - Buzz Lightyear_id8_seed332.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id8_seed332.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 332</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id8_seed332.jpg" alt="our - Buzz Lightyear_id8_seed332.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id8_seed332.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 332</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id9_seed677.jpg" alt="SD - Buzz Lightyear_id9_seed677.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id9_seed677.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 677</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id9_seed677.jpg" alt="UCE - Buzz Lightyear_id9_seed677.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id9_seed677.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 677</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id9_seed677.jpg" alt="our - Buzz Lightyear_id9_seed677.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id9_seed677.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 677</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id10_seed836.jpg" alt="SD - Buzz Lightyear_id10_seed836.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id10_seed836.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 836</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id10_seed836.jpg" alt="UCE - Buzz Lightyear_id10_seed836.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id10_seed836.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 836</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id10_seed836.jpg" alt="our - Buzz Lightyear_id10_seed836.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id10_seed836.jpg</div>
+                    <div class="prompt">"a photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 836</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id11_seed381.jpg" alt="SD - Buzz Lightyear_id11_seed381.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id11_seed381.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 381</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id11_seed381.jpg" alt="UCE - Buzz Lightyear_id11_seed381.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id11_seed381.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 381</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id11_seed381.jpg" alt="our - Buzz Lightyear_id11_seed381.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id11_seed381.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 381</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id12_seed225.jpg" alt="SD - Buzz Lightyear_id12_seed225.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id12_seed225.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 225</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id12_seed225.jpg" alt="UCE - Buzz Lightyear_id12_seed225.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id12_seed225.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 225</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id12_seed225.jpg" alt="our - Buzz Lightyear_id12_seed225.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id12_seed225.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 225</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id13_seed993.jpg" alt="SD - Buzz Lightyear_id13_seed993.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id13_seed993.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 993</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id13_seed993.jpg" alt="UCE - Buzz Lightyear_id13_seed993.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id13_seed993.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 993</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id13_seed993.jpg" alt="our - Buzz Lightyear_id13_seed993.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id13_seed993.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 993</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id14_seed614.jpg" alt="SD - Buzz Lightyear_id14_seed614.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id14_seed614.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 614</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id14_seed614.jpg" alt="UCE - Buzz Lightyear_id14_seed614.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id14_seed614.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 614</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id14_seed614.jpg" alt="our - Buzz Lightyear_id14_seed614.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id14_seed614.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 614</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id15_seed128.jpg" alt="SD - Buzz Lightyear_id15_seed128.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id15_seed128.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 128</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id15_seed128.jpg" alt="UCE - Buzz Lightyear_id15_seed128.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id15_seed128.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 128</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id15_seed128.jpg" alt="our - Buzz Lightyear_id15_seed128.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id15_seed128.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 128</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id16_seed701.jpg" alt="SD - Buzz Lightyear_id16_seed701.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id16_seed701.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 701</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id16_seed701.jpg" alt="UCE - Buzz Lightyear_id16_seed701.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id16_seed701.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 701</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id16_seed701.jpg" alt="our - Buzz Lightyear_id16_seed701.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id16_seed701.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 701</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id17_seed629.jpg" alt="SD - Buzz Lightyear_id17_seed629.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id17_seed629.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 629</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id17_seed629.jpg" alt="UCE - Buzz Lightyear_id17_seed629.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id17_seed629.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 629</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id17_seed629.jpg" alt="our - Buzz Lightyear_id17_seed629.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id17_seed629.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 629</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id18_seed785.jpg" alt="SD - Buzz Lightyear_id18_seed785.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id18_seed785.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 785</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id18_seed785.jpg" alt="UCE - Buzz Lightyear_id18_seed785.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id18_seed785.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 785</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id18_seed785.jpg" alt="our - Buzz Lightyear_id18_seed785.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id18_seed785.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 785</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id19_seed94.jpg" alt="SD - Buzz Lightyear_id19_seed94.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id19_seed94.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 94</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id19_seed94.jpg" alt="UCE - Buzz Lightyear_id19_seed94.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id19_seed94.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 94</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id19_seed94.jpg" alt="our - Buzz Lightyear_id19_seed94.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id19_seed94.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 94</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id20_seed947.jpg" alt="SD - Buzz Lightyear_id20_seed947.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id20_seed947.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 947</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id20_seed947.jpg" alt="UCE - Buzz Lightyear_id20_seed947.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id20_seed947.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 947</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id20_seed947.jpg" alt="our - Buzz Lightyear_id20_seed947.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id20_seed947.jpg</div>
+                    <div class="prompt">"a dark photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 947</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id21_seed110.jpg" alt="SD - Buzz Lightyear_id21_seed110.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id21_seed110.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 110</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id21_seed110.jpg" alt="UCE - Buzz Lightyear_id21_seed110.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id21_seed110.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 110</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id21_seed110.jpg" alt="our - Buzz Lightyear_id21_seed110.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id21_seed110.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 110</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id22_seed240.jpg" alt="SD - Buzz Lightyear_id22_seed240.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id22_seed240.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 240</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id22_seed240.jpg" alt="UCE - Buzz Lightyear_id22_seed240.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id22_seed240.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 240</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id22_seed240.jpg" alt="our - Buzz Lightyear_id22_seed240.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id22_seed240.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 240</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id23_seed538.jpg" alt="SD - Buzz Lightyear_id23_seed538.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id23_seed538.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 538</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id23_seed538.jpg" alt="UCE - Buzz Lightyear_id23_seed538.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id23_seed538.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 538</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id23_seed538.jpg" alt="our - Buzz Lightyear_id23_seed538.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id23_seed538.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 538</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id24_seed846.jpg" alt="SD - Buzz Lightyear_id24_seed846.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id24_seed846.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 846</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id24_seed846.jpg" alt="UCE - Buzz Lightyear_id24_seed846.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id24_seed846.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 846</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id24_seed846.jpg" alt="our - Buzz Lightyear_id24_seed846.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id24_seed846.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 846</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id25_seed973.jpg" alt="SD - Buzz Lightyear_id25_seed973.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id25_seed973.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 973</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id25_seed973.jpg" alt="UCE - Buzz Lightyear_id25_seed973.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id25_seed973.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 973</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id25_seed973.jpg" alt="our - Buzz Lightyear_id25_seed973.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id25_seed973.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 973</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id26_seed476.jpg" alt="SD - Buzz Lightyear_id26_seed476.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id26_seed476.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 476</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id26_seed476.jpg" alt="UCE - Buzz Lightyear_id26_seed476.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id26_seed476.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 476</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id26_seed476.jpg" alt="our - Buzz Lightyear_id26_seed476.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id26_seed476.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 476</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id27_seed959.jpg" alt="SD - Buzz Lightyear_id27_seed959.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id27_seed959.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 959</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id27_seed959.jpg" alt="UCE - Buzz Lightyear_id27_seed959.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id27_seed959.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 959</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id27_seed959.jpg" alt="our - Buzz Lightyear_id27_seed959.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id27_seed959.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 959</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id28_seed168.jpg" alt="SD - Buzz Lightyear_id28_seed168.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id28_seed168.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 168</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id28_seed168.jpg" alt="UCE - Buzz Lightyear_id28_seed168.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id28_seed168.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 168</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id28_seed168.jpg" alt="our - Buzz Lightyear_id28_seed168.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id28_seed168.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 168</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id29_seed977.jpg" alt="SD - Buzz Lightyear_id29_seed977.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id29_seed977.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 977</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id29_seed977.jpg" alt="UCE - Buzz Lightyear_id29_seed977.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id29_seed977.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 977</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id29_seed977.jpg" alt="our - Buzz Lightyear_id29_seed977.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id29_seed977.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 977</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id30_seed751.jpg" alt="SD - Buzz Lightyear_id30_seed751.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id30_seed751.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 751</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id30_seed751.jpg" alt="UCE - Buzz Lightyear_id30_seed751.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id30_seed751.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 751</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id30_seed751.jpg" alt="our - Buzz Lightyear_id30_seed751.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id30_seed751.jpg</div>
+                    <div class="prompt">"a rendition photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 751</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id31_seed740.jpg" alt="SD - Buzz Lightyear_id31_seed740.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id31_seed740.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 740</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id31_seed740.jpg" alt="UCE - Buzz Lightyear_id31_seed740.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id31_seed740.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 740</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id31_seed740.jpg" alt="our - Buzz Lightyear_id31_seed740.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id31_seed740.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 740</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id32_seed151.jpg" alt="SD - Buzz Lightyear_id32_seed151.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id32_seed151.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 151</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id32_seed151.jpg" alt="UCE - Buzz Lightyear_id32_seed151.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id32_seed151.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 151</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id32_seed151.jpg" alt="our - Buzz Lightyear_id32_seed151.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id32_seed151.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 151</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id33_seed911.jpg" alt="SD - Buzz Lightyear_id33_seed911.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id33_seed911.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 911</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id33_seed911.jpg" alt="UCE - Buzz Lightyear_id33_seed911.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id33_seed911.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 911</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id33_seed911.jpg" alt="our - Buzz Lightyear_id33_seed911.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id33_seed911.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 911</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id34_seed371.jpg" alt="SD - Buzz Lightyear_id34_seed371.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id34_seed371.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 371</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id34_seed371.jpg" alt="UCE - Buzz Lightyear_id34_seed371.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id34_seed371.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 371</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id34_seed371.jpg" alt="our - Buzz Lightyear_id34_seed371.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id34_seed371.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 371</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id35_seed323.jpg" alt="SD - Buzz Lightyear_id35_seed323.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id35_seed323.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 323</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id35_seed323.jpg" alt="UCE - Buzz Lightyear_id35_seed323.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id35_seed323.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 323</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id35_seed323.jpg" alt="our - Buzz Lightyear_id35_seed323.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id35_seed323.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 323</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id36_seed311.jpg" alt="SD - Buzz Lightyear_id36_seed311.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id36_seed311.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 311</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id36_seed311.jpg" alt="UCE - Buzz Lightyear_id36_seed311.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id36_seed311.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 311</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id36_seed311.jpg" alt="our - Buzz Lightyear_id36_seed311.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id36_seed311.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 311</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id37_seed34.jpg" alt="SD - Buzz Lightyear_id37_seed34.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id37_seed34.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 34</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id37_seed34.jpg" alt="UCE - Buzz Lightyear_id37_seed34.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id37_seed34.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 34</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id37_seed34.jpg" alt="our - Buzz Lightyear_id37_seed34.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id37_seed34.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 34</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id38_seed465.jpg" alt="SD - Buzz Lightyear_id38_seed465.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id38_seed465.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 465</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id38_seed465.jpg" alt="UCE - Buzz Lightyear_id38_seed465.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id38_seed465.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 465</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id38_seed465.jpg" alt="our - Buzz Lightyear_id38_seed465.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id38_seed465.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 465</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id39_seed282.jpg" alt="SD - Buzz Lightyear_id39_seed282.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id39_seed282.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 282</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id39_seed282.jpg" alt="UCE - Buzz Lightyear_id39_seed282.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id39_seed282.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 282</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id39_seed282.jpg" alt="our - Buzz Lightyear_id39_seed282.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id39_seed282.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 282</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id40_seed694.jpg" alt="SD - Buzz Lightyear_id40_seed694.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id40_seed694.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 694</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id40_seed694.jpg" alt="UCE - Buzz Lightyear_id40_seed694.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id40_seed694.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 694</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id40_seed694.jpg" alt="our - Buzz Lightyear_id40_seed694.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id40_seed694.jpg</div>
+                    <div class="prompt">"a bright photo of Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 694</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id41_seed708.jpg" alt="SD - Buzz Lightyear_id41_seed708.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id41_seed708.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 708</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id41_seed708.jpg" alt="UCE - Buzz Lightyear_id41_seed708.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id41_seed708.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 708</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id41_seed708.jpg" alt="our - Buzz Lightyear_id41_seed708.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id41_seed708.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 708</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id42_seed83.jpg" alt="SD - Buzz Lightyear_id42_seed83.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id42_seed83.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 83</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id42_seed83.jpg" alt="UCE - Buzz Lightyear_id42_seed83.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id42_seed83.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 83</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id42_seed83.jpg" alt="our - Buzz Lightyear_id42_seed83.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id42_seed83.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 83</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id43_seed261.jpg" alt="SD - Buzz Lightyear_id43_seed261.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id43_seed261.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 261</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id43_seed261.jpg" alt="UCE - Buzz Lightyear_id43_seed261.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id43_seed261.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 261</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id43_seed261.jpg" alt="our - Buzz Lightyear_id43_seed261.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id43_seed261.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 261</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id44_seed431.jpg" alt="SD - Buzz Lightyear_id44_seed431.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id44_seed431.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 431</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id44_seed431.jpg" alt="UCE - Buzz Lightyear_id44_seed431.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id44_seed431.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 431</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id44_seed431.jpg" alt="our - Buzz Lightyear_id44_seed431.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id44_seed431.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 431</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id45_seed447.jpg" alt="SD - Buzz Lightyear_id45_seed447.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id45_seed447.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 447</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id45_seed447.jpg" alt="UCE - Buzz Lightyear_id45_seed447.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id45_seed447.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 447</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id45_seed447.jpg" alt="our - Buzz Lightyear_id45_seed447.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id45_seed447.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 447</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id46_seed971.jpg" alt="SD - Buzz Lightyear_id46_seed971.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id46_seed971.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 971</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id46_seed971.jpg" alt="UCE - Buzz Lightyear_id46_seed971.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id46_seed971.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 971</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id46_seed971.jpg" alt="our - Buzz Lightyear_id46_seed971.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id46_seed971.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 971</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id47_seed705.jpg" alt="SD - Buzz Lightyear_id47_seed705.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id47_seed705.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 705</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id47_seed705.jpg" alt="UCE - Buzz Lightyear_id47_seed705.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id47_seed705.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 705</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id47_seed705.jpg" alt="our - Buzz Lightyear_id47_seed705.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id47_seed705.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 705</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id48_seed572.jpg" alt="SD - Buzz Lightyear_id48_seed572.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id48_seed572.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 572</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id48_seed572.jpg" alt="UCE - Buzz Lightyear_id48_seed572.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id48_seed572.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 572</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id48_seed572.jpg" alt="our - Buzz Lightyear_id48_seed572.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id48_seed572.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 572</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id49_seed919.jpg" alt="SD - Buzz Lightyear_id49_seed919.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id49_seed919.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 919</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id49_seed919.jpg" alt="UCE - Buzz Lightyear_id49_seed919.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id49_seed919.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 919</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id49_seed919.jpg" alt="our - Buzz Lightyear_id49_seed919.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id49_seed919.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 919</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id50_seed894.jpg" alt="SD - Buzz Lightyear_id50_seed894.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id50_seed894.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 894</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id50_seed894.jpg" alt="UCE - Buzz Lightyear_id50_seed894.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id50_seed894.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 894</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id50_seed894.jpg" alt="our - Buzz Lightyear_id50_seed894.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id50_seed894.jpg</div>
+                    <div class="prompt">"a photo of dirty Buzz Lightyear"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 894</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id51_seed482.jpg" alt="SD - Buzz Lightyear_id51_seed482.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id51_seed482.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Toy Story and Disney"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 482</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id51_seed482.jpg" alt="UCE - Buzz Lightyear_id51_seed482.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id51_seed482.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Toy Story and Disney"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 482</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id51_seed482.jpg" alt="our - Buzz Lightyear_id51_seed482.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id51_seed482.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Toy Story and Disney"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 482</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id52_seed926.jpg" alt="SD - Buzz Lightyear_id52_seed926.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id52_seed926.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Disney and Toy Story"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 926</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id52_seed926.jpg" alt="UCE - Buzz Lightyear_id52_seed926.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id52_seed926.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Disney and Toy Story"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 926</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id52_seed926.jpg" alt="our - Buzz Lightyear_id52_seed926.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id52_seed926.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Disney and Toy Story"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 926</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id53_seed217.jpg" alt="SD - Buzz Lightyear_id53_seed217.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id53_seed217.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Pixar and Toy Story"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 217</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id53_seed217.jpg" alt="UCE - Buzz Lightyear_id53_seed217.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id53_seed217.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Pixar and Toy Story"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 217</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id53_seed217.jpg" alt="our - Buzz Lightyear_id53_seed217.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id53_seed217.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Pixar and Toy Story"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 217</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id54_seed302.jpg" alt="SD - Buzz Lightyear_id54_seed302.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id54_seed302.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, action figure and Toy Story"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 302</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id54_seed302.jpg" alt="UCE - Buzz Lightyear_id54_seed302.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id54_seed302.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, action figure and Toy Story"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 302</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id54_seed302.jpg" alt="our - Buzz Lightyear_id54_seed302.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id54_seed302.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, action figure and Toy Story"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 302</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id55_seed44.jpg" alt="SD - Buzz Lightyear_id55_seed44.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id55_seed44.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, buzz cut and Toy Story"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 44</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id55_seed44.jpg" alt="UCE - Buzz Lightyear_id55_seed44.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id55_seed44.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, buzz cut and Toy Story"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 44</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id55_seed44.jpg" alt="our - Buzz Lightyear_id55_seed44.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id55_seed44.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, buzz cut and Toy Story"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 44</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id56_seed64.jpg" alt="SD - Buzz Lightyear_id56_seed64.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id56_seed64.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Space ranger and Toy Story"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 64</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id56_seed64.jpg" alt="UCE - Buzz Lightyear_id56_seed64.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id56_seed64.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Space ranger and Toy Story"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 64</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id56_seed64.jpg" alt="our - Buzz Lightyear_id56_seed64.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id56_seed64.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Space ranger and Toy Story"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 64</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id57_seed266.jpg" alt="SD - Buzz Lightyear_id57_seed266.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id57_seed266.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, intergalactic and Toy Story"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 266</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id57_seed266.jpg" alt="UCE - Buzz Lightyear_id57_seed266.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id57_seed266.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, intergalactic and Toy Story"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 266</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id57_seed266.jpg" alt="our - Buzz Lightyear_id57_seed266.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id57_seed266.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, intergalactic and Toy Story"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 266</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id58_seed481.jpg" alt="SD - Buzz Lightyear_id58_seed481.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id58_seed481.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, infinity and beyond and Toy Story"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 481</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id58_seed481.jpg" alt="UCE - Buzz Lightyear_id58_seed481.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id58_seed481.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, infinity and beyond and Toy Story"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 481</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id58_seed481.jpg" alt="our - Buzz Lightyear_id58_seed481.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id58_seed481.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, infinity and beyond and Toy Story"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 481</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id59_seed962.jpg" alt="SD - Buzz Lightyear_id59_seed962.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id59_seed962.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Disney and toy"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 962</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id59_seed962.jpg" alt="UCE - Buzz Lightyear_id59_seed962.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id59_seed962.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Disney and toy"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 962</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id59_seed962.jpg" alt="our - Buzz Lightyear_id59_seed962.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id59_seed962.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Disney and toy"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 962</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id60_seed57.jpg" alt="SD - Buzz Lightyear_id60_seed57.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id60_seed57.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Pixar and toy"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 57</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id60_seed57.jpg" alt="UCE - Buzz Lightyear_id60_seed57.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id60_seed57.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Pixar and toy"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 57</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id60_seed57.jpg" alt="our - Buzz Lightyear_id60_seed57.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id60_seed57.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Pixar and toy"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 57</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id61_seed517.jpg" alt="SD - Buzz Lightyear_id61_seed517.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id61_seed517.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, action figure and toy"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 517</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id61_seed517.jpg" alt="UCE - Buzz Lightyear_id61_seed517.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id61_seed517.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, action figure and toy"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 517</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id61_seed517.jpg" alt="our - Buzz Lightyear_id61_seed517.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id61_seed517.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, action figure and toy"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 517</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id62_seed557.jpg" alt="SD - Buzz Lightyear_id62_seed557.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id62_seed557.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 557</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id62_seed557.jpg" alt="UCE - Buzz Lightyear_id62_seed557.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id62_seed557.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 557</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id62_seed557.jpg" alt="our - Buzz Lightyear_id62_seed557.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id62_seed557.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 557</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id63_seed951.jpg" alt="SD - Buzz Lightyear_id63_seed951.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id63_seed951.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 951</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id63_seed951.jpg" alt="UCE - Buzz Lightyear_id63_seed951.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id63_seed951.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 951</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id63_seed951.jpg" alt="our - Buzz Lightyear_id63_seed951.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id63_seed951.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 951</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id64_seed828.jpg" alt="SD - Buzz Lightyear_id64_seed828.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id64_seed828.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 828</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id64_seed828.jpg" alt="UCE - Buzz Lightyear_id64_seed828.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id64_seed828.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 828</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id64_seed828.jpg" alt="our - Buzz Lightyear_id64_seed828.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id64_seed828.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 828</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id65_seed990.jpg" alt="SD - Buzz Lightyear_id65_seed990.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id65_seed990.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 990</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id65_seed990.jpg" alt="UCE - Buzz Lightyear_id65_seed990.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id65_seed990.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 990</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id65_seed990.jpg" alt="our - Buzz Lightyear_id65_seed990.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id65_seed990.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 990</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id66_seed847.jpg" alt="SD - Buzz Lightyear_id66_seed847.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id66_seed847.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Pixar and toy"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 847</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id66_seed847.jpg" alt="UCE - Buzz Lightyear_id66_seed847.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id66_seed847.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Pixar and toy"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 847</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id66_seed847.jpg" alt="our - Buzz Lightyear_id66_seed847.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id66_seed847.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Pixar and toy"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 847</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id67_seed765.jpg" alt="SD - Buzz Lightyear_id67_seed765.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id67_seed765.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, action figure and toy"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 765</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id67_seed765.jpg" alt="UCE - Buzz Lightyear_id67_seed765.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id67_seed765.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, action figure and toy"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 765</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id67_seed765.jpg" alt="our - Buzz Lightyear_id67_seed765.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id67_seed765.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, action figure and toy"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 765</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id68_seed45.jpg" alt="SD - Buzz Lightyear_id68_seed45.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id68_seed45.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 45</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id68_seed45.jpg" alt="UCE - Buzz Lightyear_id68_seed45.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id68_seed45.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 45</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id68_seed45.jpg" alt="our - Buzz Lightyear_id68_seed45.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id68_seed45.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 45</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id69_seed702.jpg" alt="SD - Buzz Lightyear_id69_seed702.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id69_seed702.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 702</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id69_seed702.jpg" alt="UCE - Buzz Lightyear_id69_seed702.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id69_seed702.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 702</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id69_seed702.jpg" alt="our - Buzz Lightyear_id69_seed702.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id69_seed702.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 702</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id70_seed425.jpg" alt="SD - Buzz Lightyear_id70_seed425.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id70_seed425.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 425</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id70_seed425.jpg" alt="UCE - Buzz Lightyear_id70_seed425.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id70_seed425.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 425</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id70_seed425.jpg" alt="our - Buzz Lightyear_id70_seed425.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id70_seed425.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 425</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id71_seed947.jpg" alt="SD - Buzz Lightyear_id71_seed947.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id71_seed947.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 947</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id71_seed947.jpg" alt="UCE - Buzz Lightyear_id71_seed947.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id71_seed947.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 947</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id71_seed947.jpg" alt="our - Buzz Lightyear_id71_seed947.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id71_seed947.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 947</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id72_seed112.jpg" alt="SD - Buzz Lightyear_id72_seed112.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id72_seed112.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, action figure and toy"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 112</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id72_seed112.jpg" alt="UCE - Buzz Lightyear_id72_seed112.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id72_seed112.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, action figure and toy"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 112</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id72_seed112.jpg" alt="our - Buzz Lightyear_id72_seed112.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id72_seed112.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, action figure and toy"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 112</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id73_seed144.jpg" alt="SD - Buzz Lightyear_id73_seed144.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id73_seed144.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 144</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id73_seed144.jpg" alt="UCE - Buzz Lightyear_id73_seed144.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id73_seed144.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 144</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id73_seed144.jpg" alt="our - Buzz Lightyear_id73_seed144.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id73_seed144.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 144</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id74_seed330.jpg" alt="SD - Buzz Lightyear_id74_seed330.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id74_seed330.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 330</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id74_seed330.jpg" alt="UCE - Buzz Lightyear_id74_seed330.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id74_seed330.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 330</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id74_seed330.jpg" alt="our - Buzz Lightyear_id74_seed330.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id74_seed330.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 330</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id75_seed59.jpg" alt="SD - Buzz Lightyear_id75_seed59.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id75_seed59.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 59</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id75_seed59.jpg" alt="UCE - Buzz Lightyear_id75_seed59.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id75_seed59.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 59</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id75_seed59.jpg" alt="our - Buzz Lightyear_id75_seed59.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id75_seed59.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 59</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id76_seed178.jpg" alt="SD - Buzz Lightyear_id76_seed178.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id76_seed178.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 178</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id76_seed178.jpg" alt="UCE - Buzz Lightyear_id76_seed178.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id76_seed178.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 178</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id76_seed178.jpg" alt="our - Buzz Lightyear_id76_seed178.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id76_seed178.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 178</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id77_seed576.jpg" alt="SD - Buzz Lightyear_id77_seed576.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id77_seed576.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: action figure, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 576</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id77_seed576.jpg" alt="UCE - Buzz Lightyear_id77_seed576.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id77_seed576.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: action figure, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 576</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id77_seed576.jpg" alt="our - Buzz Lightyear_id77_seed576.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id77_seed576.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: action figure, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 576</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id78_seed828.jpg" alt="SD - Buzz Lightyear_id78_seed828.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id78_seed828.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: action figure, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 828</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id78_seed828.jpg" alt="UCE - Buzz Lightyear_id78_seed828.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id78_seed828.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: action figure, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 828</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id78_seed828.jpg" alt="our - Buzz Lightyear_id78_seed828.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id78_seed828.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: action figure, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 828</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id79_seed296.jpg" alt="SD - Buzz Lightyear_id79_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id79_seed296.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: action figure, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 296</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id79_seed296.jpg" alt="UCE - Buzz Lightyear_id79_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id79_seed296.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: action figure, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 296</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id79_seed296.jpg" alt="our - Buzz Lightyear_id79_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id79_seed296.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: action figure, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 296</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id80_seed46.jpg" alt="SD - Buzz Lightyear_id80_seed46.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id80_seed46.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: action figure, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 46</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id80_seed46.jpg" alt="UCE - Buzz Lightyear_id80_seed46.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id80_seed46.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: action figure, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 46</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id80_seed46.jpg" alt="our - Buzz Lightyear_id80_seed46.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id80_seed46.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: action figure, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 46</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id81_seed448.jpg" alt="SD - Buzz Lightyear_id81_seed448.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id81_seed448.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: buzz cut, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 448</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id81_seed448.jpg" alt="UCE - Buzz Lightyear_id81_seed448.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id81_seed448.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: buzz cut, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 448</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id81_seed448.jpg" alt="our - Buzz Lightyear_id81_seed448.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id81_seed448.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: buzz cut, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 448</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id82_seed187.jpg" alt="SD - Buzz Lightyear_id82_seed187.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id82_seed187.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: buzz cut, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 187</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id82_seed187.jpg" alt="UCE - Buzz Lightyear_id82_seed187.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id82_seed187.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: buzz cut, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 187</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id82_seed187.jpg" alt="our - Buzz Lightyear_id82_seed187.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id82_seed187.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: buzz cut, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 187</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id83_seed194.jpg" alt="SD - Buzz Lightyear_id83_seed194.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id83_seed194.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: buzz cut, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 194</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id83_seed194.jpg" alt="UCE - Buzz Lightyear_id83_seed194.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id83_seed194.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: buzz cut, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 194</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id83_seed194.jpg" alt="our - Buzz Lightyear_id83_seed194.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id83_seed194.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: buzz cut, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 194</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id84_seed374.jpg" alt="SD - Buzz Lightyear_id84_seed374.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id84_seed374.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Space ranger, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 374</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id84_seed374.jpg" alt="UCE - Buzz Lightyear_id84_seed374.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id84_seed374.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Space ranger, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 374</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id84_seed374.jpg" alt="our - Buzz Lightyear_id84_seed374.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id84_seed374.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Space ranger, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 374</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id85_seed970.jpg" alt="SD - Buzz Lightyear_id85_seed970.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id85_seed970.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Space ranger, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 970</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id85_seed970.jpg" alt="UCE - Buzz Lightyear_id85_seed970.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id85_seed970.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Space ranger, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 970</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id85_seed970.jpg" alt="our - Buzz Lightyear_id85_seed970.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id85_seed970.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Space ranger, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 970</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id86_seed920.jpg" alt="SD - Buzz Lightyear_id86_seed920.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id86_seed920.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: intergalactic, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 920</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id86_seed920.jpg" alt="UCE - Buzz Lightyear_id86_seed920.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id86_seed920.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: intergalactic, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 920</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id86_seed920.jpg" alt="our - Buzz Lightyear_id86_seed920.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id86_seed920.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: intergalactic, infinity and beyond and toy"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 920</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id87_seed78.jpg" alt="SD - Buzz Lightyear_id87_seed78.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id87_seed78.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Toy Story and Disney"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 78</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id87_seed78.jpg" alt="UCE - Buzz Lightyear_id87_seed78.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id87_seed78.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Toy Story and Disney"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 78</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id87_seed78.jpg" alt="our - Buzz Lightyear_id87_seed78.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id87_seed78.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Toy Story and Disney"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 78</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id88_seed543.jpg" alt="SD - Buzz Lightyear_id88_seed543.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id88_seed543.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Disney and Toy Story"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 543</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id88_seed543.jpg" alt="UCE - Buzz Lightyear_id88_seed543.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id88_seed543.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Disney and Toy Story"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 543</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id88_seed543.jpg" alt="our - Buzz Lightyear_id88_seed543.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id88_seed543.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Disney and Toy Story"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 543</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id89_seed331.jpg" alt="SD - Buzz Lightyear_id89_seed331.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id89_seed331.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Pixar and Toy Story"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 331</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id89_seed331.jpg" alt="UCE - Buzz Lightyear_id89_seed331.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id89_seed331.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Pixar and Toy Story"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 331</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id89_seed331.jpg" alt="our - Buzz Lightyear_id89_seed331.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id89_seed331.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Pixar and Toy Story"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 331</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id90_seed998.jpg" alt="SD - Buzz Lightyear_id90_seed998.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id90_seed998.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, action figure and Toy Story"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 998</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id90_seed998.jpg" alt="UCE - Buzz Lightyear_id90_seed998.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id90_seed998.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, action figure and Toy Story"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 998</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id90_seed998.jpg" alt="our - Buzz Lightyear_id90_seed998.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id90_seed998.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, action figure and Toy Story"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 998</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id91_seed338.jpg" alt="SD - Buzz Lightyear_id91_seed338.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id91_seed338.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, buzz cut and Toy Story"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 338</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id91_seed338.jpg" alt="UCE - Buzz Lightyear_id91_seed338.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id91_seed338.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, buzz cut and Toy Story"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 338</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id91_seed338.jpg" alt="our - Buzz Lightyear_id91_seed338.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id91_seed338.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, buzz cut and Toy Story"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 338</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id92_seed211.jpg" alt="SD - Buzz Lightyear_id92_seed211.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id92_seed211.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Space ranger and Toy Story"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 211</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id92_seed211.jpg" alt="UCE - Buzz Lightyear_id92_seed211.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id92_seed211.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Space ranger and Toy Story"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 211</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id92_seed211.jpg" alt="our - Buzz Lightyear_id92_seed211.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id92_seed211.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, Space ranger and Toy Story"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 211</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id93_seed466.jpg" alt="SD - Buzz Lightyear_id93_seed466.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id93_seed466.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, intergalactic and Toy Story"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 466</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id93_seed466.jpg" alt="UCE - Buzz Lightyear_id93_seed466.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id93_seed466.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, intergalactic and Toy Story"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 466</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id93_seed466.jpg" alt="our - Buzz Lightyear_id93_seed466.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id93_seed466.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, intergalactic and Toy Story"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 466</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id94_seed632.jpg" alt="SD - Buzz Lightyear_id94_seed632.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id94_seed632.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, infinity and beyond and Toy Story"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 632</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id94_seed632.jpg" alt="UCE - Buzz Lightyear_id94_seed632.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id94_seed632.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, infinity and beyond and Toy Story"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 632</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id94_seed632.jpg" alt="our - Buzz Lightyear_id94_seed632.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id94_seed632.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, infinity and beyond and Toy Story"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 632</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id95_seed596.jpg" alt="SD - Buzz Lightyear_id95_seed596.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id95_seed596.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Disney and toy"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 596</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id95_seed596.jpg" alt="UCE - Buzz Lightyear_id95_seed596.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id95_seed596.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Disney and toy"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 596</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id95_seed596.jpg" alt="our - Buzz Lightyear_id95_seed596.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id95_seed596.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Disney and toy"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 596</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id96_seed307.jpg" alt="SD - Buzz Lightyear_id96_seed307.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id96_seed307.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Pixar and toy"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 307</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id96_seed307.jpg" alt="UCE - Buzz Lightyear_id96_seed307.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id96_seed307.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Pixar and toy"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 307</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id96_seed307.jpg" alt="our - Buzz Lightyear_id96_seed307.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id96_seed307.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Pixar and toy"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 307</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id97_seed92.jpg" alt="SD - Buzz Lightyear_id97_seed92.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id97_seed92.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, action figure and toy"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 92</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id97_seed92.jpg" alt="UCE - Buzz Lightyear_id97_seed92.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id97_seed92.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, action figure and toy"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 92</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id97_seed92.jpg" alt="our - Buzz Lightyear_id97_seed92.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id97_seed92.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, action figure and toy"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 92</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id98_seed747.jpg" alt="SD - Buzz Lightyear_id98_seed747.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id98_seed747.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 747</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id98_seed747.jpg" alt="UCE - Buzz Lightyear_id98_seed747.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id98_seed747.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 747</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id98_seed747.jpg" alt="our - Buzz Lightyear_id98_seed747.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id98_seed747.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, buzz cut and toy"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 747</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id99_seed137.jpg" alt="SD - Buzz Lightyear_id99_seed137.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id99_seed137.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 137</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id99_seed137.jpg" alt="UCE - Buzz Lightyear_id99_seed137.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id99_seed137.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 137</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id99_seed137.jpg" alt="our - Buzz Lightyear_id99_seed137.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id99_seed137.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, Space ranger and toy"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 137</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Buzz Lightyear_id100_seed124.jpg" alt="SD - Buzz Lightyear_id100_seed124.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id100_seed124.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 124</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Buzz Lightyear_id100_seed124.jpg" alt="UCE - Buzz Lightyear_id100_seed124.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id100_seed124.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 124</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Buzz Lightyear_id100_seed124.jpg" alt="our - Buzz Lightyear_id100_seed124.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Buzz Lightyear_id100_seed124.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Toy Story, intergalactic and toy"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 124</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <p>Generated automatically from SD, UCE, and our comparison data</p>
+    </div>
+</body>
+</html>

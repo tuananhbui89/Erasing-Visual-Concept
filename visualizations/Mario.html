@@ -1,0 +1,3207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario - SD vs UCE vs our Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header .concept-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .stats {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .image-trio {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-container h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .image-container.sd h3 {
+            color: #27ae60;
+        }
+        .image-container.uce h3 {
+            color: #e74c3c;
+        }
+        .image-container.our h3 {
+            color: #9b59b6;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 350px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+        }
+        .image-info {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .image-info .filename {
+            font-size: 14px;
+            color: #666;
+            word-break: break-all;
+            margin-bottom: 5px;
+        }
+        .image-info .prompt {
+            font-size: 13px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        .image-info .details {
+            font-size: 12px;
+            color: #888;
+        }
+        @media (max-width: 1200px) {
+            .image-trio {
+                grid-template-columns: 1fr 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .image-trio {
+                grid-template-columns: 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: auto;
+                max-width: 100%;
+            }
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            color: #666;
+        }
+        .method-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .legend-color.sd { background-color: #27ae60; }
+        .legend-color.uce { background-color: #e74c3c; }
+        .legend-color.our { background-color: #9b59b6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SD vs UCE vs our Image Comparison</h1>
+        <div class="concept-name">Mario</div>
+        <div class="stats">
+            <strong>100 matching image triplets found</strong>
+        </div>
+        <div class="method-legend">
+            <div class="legend-item">
+                <div class="legend-color sd"></div>
+                <span>SD (Original)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color uce"></div>
+                <span>UCE</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color our"></div>
+                <span>Our</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="../index.html" class="nav-button">← Back to All Concepts</a>
+    </div>
+    
+    <div class="image-grid">
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id1_seed244.jpg" alt="SD - Mario_id1_seed244.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id1_seed244.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 244</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id1_seed244.jpg" alt="UCE - Mario_id1_seed244.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id1_seed244.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 244</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id1_seed244.jpg" alt="our - Mario_id1_seed244.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id1_seed244.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 244</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id2_seed192.jpg" alt="SD - Mario_id2_seed192.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id2_seed192.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 192</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id2_seed192.jpg" alt="UCE - Mario_id2_seed192.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id2_seed192.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 192</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id2_seed192.jpg" alt="our - Mario_id2_seed192.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id2_seed192.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 192</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id3_seed766.jpg" alt="SD - Mario_id3_seed766.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id3_seed766.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 766</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id3_seed766.jpg" alt="UCE - Mario_id3_seed766.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id3_seed766.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 766</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id3_seed766.jpg" alt="our - Mario_id3_seed766.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id3_seed766.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 766</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id4_seed847.jpg" alt="SD - Mario_id4_seed847.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id4_seed847.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 847</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id4_seed847.jpg" alt="UCE - Mario_id4_seed847.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id4_seed847.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 847</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id4_seed847.jpg" alt="our - Mario_id4_seed847.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id4_seed847.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 847</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id5_seed531.jpg" alt="SD - Mario_id5_seed531.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id5_seed531.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 531</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id5_seed531.jpg" alt="UCE - Mario_id5_seed531.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id5_seed531.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 531</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id5_seed531.jpg" alt="our - Mario_id5_seed531.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id5_seed531.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 531</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id6_seed236.jpg" alt="SD - Mario_id6_seed236.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id6_seed236.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 236</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id6_seed236.jpg" alt="UCE - Mario_id6_seed236.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id6_seed236.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 236</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id6_seed236.jpg" alt="our - Mario_id6_seed236.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id6_seed236.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 236</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id7_seed287.jpg" alt="SD - Mario_id7_seed287.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id7_seed287.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 287</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id7_seed287.jpg" alt="UCE - Mario_id7_seed287.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id7_seed287.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 287</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id7_seed287.jpg" alt="our - Mario_id7_seed287.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id7_seed287.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 287</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id8_seed136.jpg" alt="SD - Mario_id8_seed136.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id8_seed136.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 136</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id8_seed136.jpg" alt="UCE - Mario_id8_seed136.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id8_seed136.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 136</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id8_seed136.jpg" alt="our - Mario_id8_seed136.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id8_seed136.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 136</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id9_seed845.jpg" alt="SD - Mario_id9_seed845.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id9_seed845.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 845</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id9_seed845.jpg" alt="UCE - Mario_id9_seed845.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id9_seed845.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 845</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id9_seed845.jpg" alt="our - Mario_id9_seed845.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id9_seed845.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 845</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id10_seed274.jpg" alt="SD - Mario_id10_seed274.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id10_seed274.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 274</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id10_seed274.jpg" alt="UCE - Mario_id10_seed274.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id10_seed274.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 274</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id10_seed274.jpg" alt="our - Mario_id10_seed274.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id10_seed274.jpg</div>
+                    <div class="prompt">"a photo of Mario"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 274</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id11_seed519.jpg" alt="SD - Mario_id11_seed519.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id11_seed519.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 519</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id11_seed519.jpg" alt="UCE - Mario_id11_seed519.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id11_seed519.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 519</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id11_seed519.jpg" alt="our - Mario_id11_seed519.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id11_seed519.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 519</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id12_seed274.jpg" alt="SD - Mario_id12_seed274.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id12_seed274.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 274</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id12_seed274.jpg" alt="UCE - Mario_id12_seed274.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id12_seed274.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 274</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id12_seed274.jpg" alt="our - Mario_id12_seed274.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id12_seed274.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 274</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id13_seed322.jpg" alt="SD - Mario_id13_seed322.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id13_seed322.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 322</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id13_seed322.jpg" alt="UCE - Mario_id13_seed322.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id13_seed322.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 322</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id13_seed322.jpg" alt="our - Mario_id13_seed322.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id13_seed322.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 322</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id14_seed777.jpg" alt="SD - Mario_id14_seed777.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id14_seed777.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 777</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id14_seed777.jpg" alt="UCE - Mario_id14_seed777.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id14_seed777.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 777</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id14_seed777.jpg" alt="our - Mario_id14_seed777.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id14_seed777.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 777</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id15_seed147.jpg" alt="SD - Mario_id15_seed147.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id15_seed147.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 147</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id15_seed147.jpg" alt="UCE - Mario_id15_seed147.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id15_seed147.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 147</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id15_seed147.jpg" alt="our - Mario_id15_seed147.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id15_seed147.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 147</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id16_seed986.jpg" alt="SD - Mario_id16_seed986.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id16_seed986.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 986</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id16_seed986.jpg" alt="UCE - Mario_id16_seed986.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id16_seed986.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 986</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id16_seed986.jpg" alt="our - Mario_id16_seed986.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id16_seed986.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 986</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id17_seed472.jpg" alt="SD - Mario_id17_seed472.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id17_seed472.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 472</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id17_seed472.jpg" alt="UCE - Mario_id17_seed472.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id17_seed472.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 472</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id17_seed472.jpg" alt="our - Mario_id17_seed472.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id17_seed472.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 472</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id18_seed710.jpg" alt="SD - Mario_id18_seed710.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id18_seed710.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 710</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id18_seed710.jpg" alt="UCE - Mario_id18_seed710.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id18_seed710.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 710</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id18_seed710.jpg" alt="our - Mario_id18_seed710.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id18_seed710.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 710</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id19_seed743.jpg" alt="SD - Mario_id19_seed743.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id19_seed743.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 743</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id19_seed743.jpg" alt="UCE - Mario_id19_seed743.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id19_seed743.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 743</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id19_seed743.jpg" alt="our - Mario_id19_seed743.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id19_seed743.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 743</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id20_seed669.jpg" alt="SD - Mario_id20_seed669.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id20_seed669.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 669</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id20_seed669.jpg" alt="UCE - Mario_id20_seed669.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id20_seed669.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 669</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id20_seed669.jpg" alt="our - Mario_id20_seed669.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id20_seed669.jpg</div>
+                    <div class="prompt">"a dark photo of Mario"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 669</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id21_seed106.jpg" alt="SD - Mario_id21_seed106.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id21_seed106.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 106</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id21_seed106.jpg" alt="UCE - Mario_id21_seed106.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id21_seed106.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 106</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id21_seed106.jpg" alt="our - Mario_id21_seed106.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id21_seed106.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 106</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id22_seed87.jpg" alt="SD - Mario_id22_seed87.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id22_seed87.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 87</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id22_seed87.jpg" alt="UCE - Mario_id22_seed87.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id22_seed87.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 87</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id22_seed87.jpg" alt="our - Mario_id22_seed87.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id22_seed87.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 87</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id23_seed233.jpg" alt="SD - Mario_id23_seed233.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id23_seed233.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 233</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id23_seed233.jpg" alt="UCE - Mario_id23_seed233.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id23_seed233.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 233</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id23_seed233.jpg" alt="our - Mario_id23_seed233.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id23_seed233.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 233</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id24_seed153.jpg" alt="SD - Mario_id24_seed153.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id24_seed153.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 153</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id24_seed153.jpg" alt="UCE - Mario_id24_seed153.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id24_seed153.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 153</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id24_seed153.jpg" alt="our - Mario_id24_seed153.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id24_seed153.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 153</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id25_seed871.jpg" alt="SD - Mario_id25_seed871.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id25_seed871.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 871</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id25_seed871.jpg" alt="UCE - Mario_id25_seed871.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id25_seed871.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 871</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id25_seed871.jpg" alt="our - Mario_id25_seed871.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id25_seed871.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 871</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id26_seed302.jpg" alt="SD - Mario_id26_seed302.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id26_seed302.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 302</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id26_seed302.jpg" alt="UCE - Mario_id26_seed302.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id26_seed302.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 302</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id26_seed302.jpg" alt="our - Mario_id26_seed302.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id26_seed302.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 302</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id27_seed953.jpg" alt="SD - Mario_id27_seed953.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id27_seed953.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 953</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id27_seed953.jpg" alt="UCE - Mario_id27_seed953.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id27_seed953.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 953</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id27_seed953.jpg" alt="our - Mario_id27_seed953.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id27_seed953.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 953</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id28_seed541.jpg" alt="SD - Mario_id28_seed541.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id28_seed541.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 541</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id28_seed541.jpg" alt="UCE - Mario_id28_seed541.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id28_seed541.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 541</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id28_seed541.jpg" alt="our - Mario_id28_seed541.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id28_seed541.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 541</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id29_seed729.jpg" alt="SD - Mario_id29_seed729.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id29_seed729.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 729</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id29_seed729.jpg" alt="UCE - Mario_id29_seed729.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id29_seed729.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 729</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id29_seed729.jpg" alt="our - Mario_id29_seed729.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id29_seed729.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 729</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id30_seed335.jpg" alt="SD - Mario_id30_seed335.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id30_seed335.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 335</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id30_seed335.jpg" alt="UCE - Mario_id30_seed335.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id30_seed335.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 335</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id30_seed335.jpg" alt="our - Mario_id30_seed335.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id30_seed335.jpg</div>
+                    <div class="prompt">"a rendition photo of Mario"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 335</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id31_seed812.jpg" alt="SD - Mario_id31_seed812.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id31_seed812.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 812</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id31_seed812.jpg" alt="UCE - Mario_id31_seed812.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id31_seed812.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 812</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id31_seed812.jpg" alt="our - Mario_id31_seed812.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id31_seed812.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 812</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id32_seed947.jpg" alt="SD - Mario_id32_seed947.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id32_seed947.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 947</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id32_seed947.jpg" alt="UCE - Mario_id32_seed947.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id32_seed947.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 947</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id32_seed947.jpg" alt="our - Mario_id32_seed947.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id32_seed947.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 947</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id33_seed149.jpg" alt="SD - Mario_id33_seed149.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id33_seed149.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 149</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id33_seed149.jpg" alt="UCE - Mario_id33_seed149.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id33_seed149.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 149</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id33_seed149.jpg" alt="our - Mario_id33_seed149.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id33_seed149.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 149</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id34_seed632.jpg" alt="SD - Mario_id34_seed632.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id34_seed632.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 632</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id34_seed632.jpg" alt="UCE - Mario_id34_seed632.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id34_seed632.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 632</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id34_seed632.jpg" alt="our - Mario_id34_seed632.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id34_seed632.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 632</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id35_seed124.jpg" alt="SD - Mario_id35_seed124.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id35_seed124.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 124</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id35_seed124.jpg" alt="UCE - Mario_id35_seed124.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id35_seed124.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 124</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id35_seed124.jpg" alt="our - Mario_id35_seed124.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id35_seed124.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 124</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id36_seed544.jpg" alt="SD - Mario_id36_seed544.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id36_seed544.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 544</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id36_seed544.jpg" alt="UCE - Mario_id36_seed544.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id36_seed544.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 544</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id36_seed544.jpg" alt="our - Mario_id36_seed544.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id36_seed544.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 544</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id37_seed533.jpg" alt="SD - Mario_id37_seed533.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id37_seed533.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 533</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id37_seed533.jpg" alt="UCE - Mario_id37_seed533.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id37_seed533.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 533</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id37_seed533.jpg" alt="our - Mario_id37_seed533.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id37_seed533.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 533</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id38_seed235.jpg" alt="SD - Mario_id38_seed235.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id38_seed235.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 235</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id38_seed235.jpg" alt="UCE - Mario_id38_seed235.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id38_seed235.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 235</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id38_seed235.jpg" alt="our - Mario_id38_seed235.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id38_seed235.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 235</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id39_seed979.jpg" alt="SD - Mario_id39_seed979.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id39_seed979.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 979</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id39_seed979.jpg" alt="UCE - Mario_id39_seed979.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id39_seed979.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 979</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id39_seed979.jpg" alt="our - Mario_id39_seed979.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id39_seed979.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 979</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id40_seed155.jpg" alt="SD - Mario_id40_seed155.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id40_seed155.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 155</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id40_seed155.jpg" alt="UCE - Mario_id40_seed155.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id40_seed155.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 155</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id40_seed155.jpg" alt="our - Mario_id40_seed155.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id40_seed155.jpg</div>
+                    <div class="prompt">"a bright photo of Mario"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 155</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id41_seed129.jpg" alt="SD - Mario_id41_seed129.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id41_seed129.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 129</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id41_seed129.jpg" alt="UCE - Mario_id41_seed129.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id41_seed129.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 129</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id41_seed129.jpg" alt="our - Mario_id41_seed129.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id41_seed129.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 129</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id42_seed725.jpg" alt="SD - Mario_id42_seed725.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id42_seed725.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 725</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id42_seed725.jpg" alt="UCE - Mario_id42_seed725.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id42_seed725.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 725</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id42_seed725.jpg" alt="our - Mario_id42_seed725.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id42_seed725.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 725</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id43_seed589.jpg" alt="SD - Mario_id43_seed589.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id43_seed589.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 589</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id43_seed589.jpg" alt="UCE - Mario_id43_seed589.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id43_seed589.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 589</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id43_seed589.jpg" alt="our - Mario_id43_seed589.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id43_seed589.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 589</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id44_seed73.jpg" alt="SD - Mario_id44_seed73.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id44_seed73.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 73</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id44_seed73.jpg" alt="UCE - Mario_id44_seed73.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id44_seed73.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 73</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id44_seed73.jpg" alt="our - Mario_id44_seed73.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id44_seed73.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 73</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id45_seed135.jpg" alt="SD - Mario_id45_seed135.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id45_seed135.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 135</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id45_seed135.jpg" alt="UCE - Mario_id45_seed135.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id45_seed135.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 135</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id45_seed135.jpg" alt="our - Mario_id45_seed135.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id45_seed135.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 135</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id46_seed236.jpg" alt="SD - Mario_id46_seed236.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id46_seed236.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 236</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id46_seed236.jpg" alt="UCE - Mario_id46_seed236.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id46_seed236.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 236</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id46_seed236.jpg" alt="our - Mario_id46_seed236.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id46_seed236.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 236</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id47_seed549.jpg" alt="SD - Mario_id47_seed549.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id47_seed549.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 549</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id47_seed549.jpg" alt="UCE - Mario_id47_seed549.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id47_seed549.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 549</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id47_seed549.jpg" alt="our - Mario_id47_seed549.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id47_seed549.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 549</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id48_seed779.jpg" alt="SD - Mario_id48_seed779.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id48_seed779.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 779</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id48_seed779.jpg" alt="UCE - Mario_id48_seed779.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id48_seed779.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 779</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id48_seed779.jpg" alt="our - Mario_id48_seed779.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id48_seed779.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 779</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id49_seed116.jpg" alt="SD - Mario_id49_seed116.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id49_seed116.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 116</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id49_seed116.jpg" alt="UCE - Mario_id49_seed116.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id49_seed116.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 116</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id49_seed116.jpg" alt="our - Mario_id49_seed116.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id49_seed116.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 116</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id50_seed257.jpg" alt="SD - Mario_id50_seed257.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id50_seed257.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 257</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id50_seed257.jpg" alt="UCE - Mario_id50_seed257.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id50_seed257.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 257</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id50_seed257.jpg" alt="our - Mario_id50_seed257.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id50_seed257.jpg</div>
+                    <div class="prompt">"a photo of dirty Mario"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 257</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id51_seed643.jpg" alt="SD - Mario_id51_seed643.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id51_seed643.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Bowser and Yoshi"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 643</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id51_seed643.jpg" alt="UCE - Mario_id51_seed643.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id51_seed643.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Bowser and Yoshi"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 643</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id51_seed643.jpg" alt="our - Mario_id51_seed643.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id51_seed643.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Bowser and Yoshi"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 643</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id52_seed378.jpg" alt="SD - Mario_id52_seed378.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id52_seed378.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Yoshi and Bowser"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 378</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id52_seed378.jpg" alt="UCE - Mario_id52_seed378.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id52_seed378.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Yoshi and Bowser"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 378</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id52_seed378.jpg" alt="our - Mario_id52_seed378.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id52_seed378.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Yoshi and Bowser"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 378</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id53_seed792.jpg" alt="SD - Mario_id53_seed792.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id53_seed792.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Italian and Bowser"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 792</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id53_seed792.jpg" alt="UCE - Mario_id53_seed792.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id53_seed792.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Italian and Bowser"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 792</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id53_seed792.jpg" alt="our - Mario_id53_seed792.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id53_seed792.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Italian and Bowser"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 792</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id54_seed324.jpg" alt="SD - Mario_id54_seed324.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id54_seed324.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Princess Peach and Bowser"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 324</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id54_seed324.jpg" alt="UCE - Mario_id54_seed324.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id54_seed324.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Princess Peach and Bowser"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 324</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id54_seed324.jpg" alt="our - Mario_id54_seed324.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id54_seed324.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Princess Peach and Bowser"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 324</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id55_seed518.jpg" alt="SD - Mario_id55_seed518.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id55_seed518.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, mushroom kingdom and Bowser"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 518</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id55_seed518.jpg" alt="UCE - Mario_id55_seed518.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id55_seed518.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, mushroom kingdom and Bowser"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 518</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id55_seed518.jpg" alt="our - Mario_id55_seed518.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id55_seed518.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, mushroom kingdom and Bowser"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 518</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id56_seed133.jpg" alt="SD - Mario_id56_seed133.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id56_seed133.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Zelda and Bowser"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 133</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id56_seed133.jpg" alt="UCE - Mario_id56_seed133.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id56_seed133.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Zelda and Bowser"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 133</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id56_seed133.jpg" alt="our - Mario_id56_seed133.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id56_seed133.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Zelda and Bowser"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 133</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id57_seed689.jpg" alt="SD - Mario_id57_seed689.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id57_seed689.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Yoshi and Nintendo"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 689</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id57_seed689.jpg" alt="UCE - Mario_id57_seed689.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id57_seed689.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Yoshi and Nintendo"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 689</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id57_seed689.jpg" alt="our - Mario_id57_seed689.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id57_seed689.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Yoshi and Nintendo"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 689</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id58_seed395.jpg" alt="SD - Mario_id58_seed395.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id58_seed395.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 395</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id58_seed395.jpg" alt="UCE - Mario_id58_seed395.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id58_seed395.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 395</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id58_seed395.jpg" alt="our - Mario_id58_seed395.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id58_seed395.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 395</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id59_seed857.jpg" alt="SD - Mario_id59_seed857.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id59_seed857.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 857</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id59_seed857.jpg" alt="UCE - Mario_id59_seed857.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id59_seed857.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 857</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id59_seed857.jpg" alt="our - Mario_id59_seed857.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id59_seed857.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 857</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id60_seed24.jpg" alt="SD - Mario_id60_seed24.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id60_seed24.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 24</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id60_seed24.jpg" alt="UCE - Mario_id60_seed24.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id60_seed24.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 24</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id60_seed24.jpg" alt="our - Mario_id60_seed24.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id60_seed24.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 24</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id61_seed345.jpg" alt="SD - Mario_id61_seed345.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id61_seed345.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 345</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id61_seed345.jpg" alt="UCE - Mario_id61_seed345.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id61_seed345.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 345</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id61_seed345.jpg" alt="our - Mario_id61_seed345.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id61_seed345.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 345</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id62_seed415.jpg" alt="SD - Mario_id62_seed415.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id62_seed415.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 415</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id62_seed415.jpg" alt="UCE - Mario_id62_seed415.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id62_seed415.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 415</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id62_seed415.jpg" alt="our - Mario_id62_seed415.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id62_seed415.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 415</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id63_seed788.jpg" alt="SD - Mario_id63_seed788.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id63_seed788.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 788</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id63_seed788.jpg" alt="UCE - Mario_id63_seed788.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id63_seed788.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 788</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id63_seed788.jpg" alt="our - Mario_id63_seed788.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id63_seed788.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 788</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id64_seed710.jpg" alt="SD - Mario_id64_seed710.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id64_seed710.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 710</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id64_seed710.jpg" alt="UCE - Mario_id64_seed710.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id64_seed710.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 710</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id64_seed710.jpg" alt="our - Mario_id64_seed710.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id64_seed710.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 710</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id65_seed172.jpg" alt="SD - Mario_id65_seed172.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id65_seed172.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 172</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id65_seed172.jpg" alt="UCE - Mario_id65_seed172.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id65_seed172.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 172</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id65_seed172.jpg" alt="our - Mario_id65_seed172.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id65_seed172.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 172</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id66_seed303.jpg" alt="SD - Mario_id66_seed303.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id66_seed303.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 303</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id66_seed303.jpg" alt="UCE - Mario_id66_seed303.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id66_seed303.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 303</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id66_seed303.jpg" alt="our - Mario_id66_seed303.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id66_seed303.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 303</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id67_seed625.jpg" alt="SD - Mario_id67_seed625.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id67_seed625.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 625</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id67_seed625.jpg" alt="UCE - Mario_id67_seed625.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id67_seed625.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 625</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id67_seed625.jpg" alt="our - Mario_id67_seed625.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id67_seed625.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 625</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id68_seed76.jpg" alt="SD - Mario_id68_seed76.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id68_seed76.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 76</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id68_seed76.jpg" alt="UCE - Mario_id68_seed76.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id68_seed76.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 76</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id68_seed76.jpg" alt="our - Mario_id68_seed76.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id68_seed76.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 76</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id69_seed968.jpg" alt="SD - Mario_id69_seed968.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id69_seed968.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Princess Peach, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 968</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id69_seed968.jpg" alt="UCE - Mario_id69_seed968.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id69_seed968.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Princess Peach, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 968</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id69_seed968.jpg" alt="our - Mario_id69_seed968.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id69_seed968.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Princess Peach, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 968</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id70_seed870.jpg" alt="SD - Mario_id70_seed870.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id70_seed870.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Princess Peach, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 870</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id70_seed870.jpg" alt="UCE - Mario_id70_seed870.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id70_seed870.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Princess Peach, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 870</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id70_seed870.jpg" alt="our - Mario_id70_seed870.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id70_seed870.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Princess Peach, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 870</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id71_seed514.jpg" alt="SD - Mario_id71_seed514.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id71_seed514.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: mushroom kingdom, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 514</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id71_seed514.jpg" alt="UCE - Mario_id71_seed514.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id71_seed514.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: mushroom kingdom, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 514</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id71_seed514.jpg" alt="our - Mario_id71_seed514.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id71_seed514.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: mushroom kingdom, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 514</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id72_seed809.jpg" alt="SD - Mario_id72_seed809.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id72_seed809.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Bowser and Yoshi"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 809</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id72_seed809.jpg" alt="UCE - Mario_id72_seed809.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id72_seed809.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Bowser and Yoshi"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 809</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id72_seed809.jpg" alt="our - Mario_id72_seed809.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id72_seed809.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Bowser and Yoshi"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 809</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id73_seed777.jpg" alt="SD - Mario_id73_seed777.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id73_seed777.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Yoshi and Bowser"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 777</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id73_seed777.jpg" alt="UCE - Mario_id73_seed777.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id73_seed777.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Yoshi and Bowser"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 777</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id73_seed777.jpg" alt="our - Mario_id73_seed777.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id73_seed777.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Yoshi and Bowser"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 777</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id74_seed878.jpg" alt="SD - Mario_id74_seed878.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id74_seed878.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Italian and Bowser"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 878</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id74_seed878.jpg" alt="UCE - Mario_id74_seed878.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id74_seed878.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Italian and Bowser"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 878</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id74_seed878.jpg" alt="our - Mario_id74_seed878.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id74_seed878.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Italian and Bowser"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 878</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id75_seed323.jpg" alt="SD - Mario_id75_seed323.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id75_seed323.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Princess Peach and Bowser"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 323</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id75_seed323.jpg" alt="UCE - Mario_id75_seed323.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id75_seed323.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Princess Peach and Bowser"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 323</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id75_seed323.jpg" alt="our - Mario_id75_seed323.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id75_seed323.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Princess Peach and Bowser"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 323</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id76_seed670.jpg" alt="SD - Mario_id76_seed670.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id76_seed670.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, mushroom kingdom and Bowser"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 670</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id76_seed670.jpg" alt="UCE - Mario_id76_seed670.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id76_seed670.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, mushroom kingdom and Bowser"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 670</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id76_seed670.jpg" alt="our - Mario_id76_seed670.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id76_seed670.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, mushroom kingdom and Bowser"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 670</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id77_seed284.jpg" alt="SD - Mario_id77_seed284.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id77_seed284.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Zelda and Bowser"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 284</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id77_seed284.jpg" alt="UCE - Mario_id77_seed284.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id77_seed284.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Zelda and Bowser"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 284</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id77_seed284.jpg" alt="our - Mario_id77_seed284.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id77_seed284.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Zelda and Bowser"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 284</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id78_seed374.jpg" alt="SD - Mario_id78_seed374.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id78_seed374.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Yoshi and Nintendo"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 374</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id78_seed374.jpg" alt="UCE - Mario_id78_seed374.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id78_seed374.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Yoshi and Nintendo"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 374</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id78_seed374.jpg" alt="our - Mario_id78_seed374.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id78_seed374.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Yoshi and Nintendo"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 374</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id79_seed370.jpg" alt="SD - Mario_id79_seed370.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id79_seed370.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 370</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id79_seed370.jpg" alt="UCE - Mario_id79_seed370.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id79_seed370.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 370</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id79_seed370.jpg" alt="our - Mario_id79_seed370.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id79_seed370.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 370</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id80_seed390.jpg" alt="SD - Mario_id80_seed390.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id80_seed390.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 390</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id80_seed390.jpg" alt="UCE - Mario_id80_seed390.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id80_seed390.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 390</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id80_seed390.jpg" alt="our - Mario_id80_seed390.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id80_seed390.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 390</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id81_seed648.jpg" alt="SD - Mario_id81_seed648.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id81_seed648.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 648</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id81_seed648.jpg" alt="UCE - Mario_id81_seed648.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id81_seed648.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 648</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id81_seed648.jpg" alt="our - Mario_id81_seed648.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id81_seed648.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 648</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id82_seed512.jpg" alt="SD - Mario_id82_seed512.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id82_seed512.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 512</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id82_seed512.jpg" alt="UCE - Mario_id82_seed512.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id82_seed512.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 512</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id82_seed512.jpg" alt="our - Mario_id82_seed512.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id82_seed512.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 512</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id83_seed567.jpg" alt="SD - Mario_id83_seed567.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id83_seed567.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 567</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id83_seed567.jpg" alt="UCE - Mario_id83_seed567.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id83_seed567.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 567</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id83_seed567.jpg" alt="our - Mario_id83_seed567.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id83_seed567.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 567</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id84_seed598.jpg" alt="SD - Mario_id84_seed598.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id84_seed598.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 598</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id84_seed598.jpg" alt="UCE - Mario_id84_seed598.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id84_seed598.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 598</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id84_seed598.jpg" alt="our - Mario_id84_seed598.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id84_seed598.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 598</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id85_seed943.jpg" alt="SD - Mario_id85_seed943.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id85_seed943.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 943</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id85_seed943.jpg" alt="UCE - Mario_id85_seed943.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id85_seed943.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 943</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id85_seed943.jpg" alt="our - Mario_id85_seed943.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id85_seed943.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 943</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id86_seed200.jpg" alt="SD - Mario_id86_seed200.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id86_seed200.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 200</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id86_seed200.jpg" alt="UCE - Mario_id86_seed200.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id86_seed200.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 200</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id86_seed200.jpg" alt="our - Mario_id86_seed200.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id86_seed200.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Yoshi, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 200</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id87_seed144.jpg" alt="SD - Mario_id87_seed144.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id87_seed144.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 144</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id87_seed144.jpg" alt="UCE - Mario_id87_seed144.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id87_seed144.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 144</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id87_seed144.jpg" alt="our - Mario_id87_seed144.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id87_seed144.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, Princess Peach and Nintendo"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 144</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id88_seed114.jpg" alt="SD - Mario_id88_seed114.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id88_seed114.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 114</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id88_seed114.jpg" alt="UCE - Mario_id88_seed114.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id88_seed114.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 114</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id88_seed114.jpg" alt="our - Mario_id88_seed114.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id88_seed114.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 114</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id89_seed449.jpg" alt="SD - Mario_id89_seed449.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id89_seed449.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 449</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id89_seed449.jpg" alt="UCE - Mario_id89_seed449.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id89_seed449.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 449</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id89_seed449.jpg" alt="our - Mario_id89_seed449.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id89_seed449.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Italian, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 449</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id90_seed862.jpg" alt="SD - Mario_id90_seed862.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id90_seed862.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Princess Peach, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 862</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id90_seed862.jpg" alt="UCE - Mario_id90_seed862.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id90_seed862.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Princess Peach, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 862</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id90_seed862.jpg" alt="our - Mario_id90_seed862.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id90_seed862.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Princess Peach, mushroom kingdom and Nintendo"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 862</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id91_seed648.jpg" alt="SD - Mario_id91_seed648.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id91_seed648.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Princess Peach, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 648</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id91_seed648.jpg" alt="UCE - Mario_id91_seed648.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id91_seed648.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Princess Peach, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 648</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id91_seed648.jpg" alt="our - Mario_id91_seed648.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id91_seed648.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Princess Peach, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 648</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id92_seed679.jpg" alt="SD - Mario_id92_seed679.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id92_seed679.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: mushroom kingdom, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 679</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id92_seed679.jpg" alt="UCE - Mario_id92_seed679.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id92_seed679.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: mushroom kingdom, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 679</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id92_seed679.jpg" alt="our - Mario_id92_seed679.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id92_seed679.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: mushroom kingdom, Zelda and Nintendo"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 679</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id93_seed624.jpg" alt="SD - Mario_id93_seed624.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id93_seed624.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Bowser and Yoshi"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 624</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id93_seed624.jpg" alt="UCE - Mario_id93_seed624.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id93_seed624.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Bowser and Yoshi"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 624</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id93_seed624.jpg" alt="our - Mario_id93_seed624.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id93_seed624.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Bowser and Yoshi"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 624</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id94_seed243.jpg" alt="SD - Mario_id94_seed243.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id94_seed243.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Yoshi and Bowser"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 243</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id94_seed243.jpg" alt="UCE - Mario_id94_seed243.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id94_seed243.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Yoshi and Bowser"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 243</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id94_seed243.jpg" alt="our - Mario_id94_seed243.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id94_seed243.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Yoshi and Bowser"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 243</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id95_seed486.jpg" alt="SD - Mario_id95_seed486.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id95_seed486.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Italian and Bowser"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 486</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id95_seed486.jpg" alt="UCE - Mario_id95_seed486.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id95_seed486.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Italian and Bowser"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 486</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id95_seed486.jpg" alt="our - Mario_id95_seed486.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id95_seed486.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Italian and Bowser"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 486</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id96_seed901.jpg" alt="SD - Mario_id96_seed901.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id96_seed901.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Princess Peach and Bowser"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 901</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id96_seed901.jpg" alt="UCE - Mario_id96_seed901.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id96_seed901.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Princess Peach and Bowser"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 901</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id96_seed901.jpg" alt="our - Mario_id96_seed901.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id96_seed901.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Princess Peach and Bowser"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 901</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id97_seed508.jpg" alt="SD - Mario_id97_seed508.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id97_seed508.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, mushroom kingdom and Bowser"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 508</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id97_seed508.jpg" alt="UCE - Mario_id97_seed508.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id97_seed508.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, mushroom kingdom and Bowser"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 508</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id97_seed508.jpg" alt="our - Mario_id97_seed508.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id97_seed508.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, mushroom kingdom and Bowser"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 508</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id98_seed278.jpg" alt="SD - Mario_id98_seed278.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id98_seed278.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Zelda and Bowser"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 278</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id98_seed278.jpg" alt="UCE - Mario_id98_seed278.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id98_seed278.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Zelda and Bowser"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 278</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id98_seed278.jpg" alt="our - Mario_id98_seed278.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id98_seed278.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Nintendo, Zelda and Bowser"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 278</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id99_seed341.jpg" alt="SD - Mario_id99_seed341.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id99_seed341.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Yoshi and Nintendo"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 341</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id99_seed341.jpg" alt="UCE - Mario_id99_seed341.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id99_seed341.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Yoshi and Nintendo"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 341</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id99_seed341.jpg" alt="our - Mario_id99_seed341.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id99_seed341.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Yoshi and Nintendo"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 341</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Mario_id100_seed210.jpg" alt="SD - Mario_id100_seed210.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id100_seed210.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 210</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Mario_id100_seed210.jpg" alt="UCE - Mario_id100_seed210.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id100_seed210.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 210</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Mario_id100_seed210.jpg" alt="our - Mario_id100_seed210.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Mario_id100_seed210.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Bowser, Italian and Nintendo"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 210</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <p>Generated automatically from SD, UCE, and our comparison data</p>
+    </div>
+</body>
+</html>

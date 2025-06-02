@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SD vs UCE vs our - All Concepts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #666;
+            font-size: 18px;
+        }
+        .method-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .legend-color.sd { background-color: #27ae60; }
+        .legend-color.uce { background-color: #e74c3c; }
+        .legend-color.our { background-color: #9b59b6; }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .concept-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .concept-card:hover {
+            transform: translateY(-5px);
+        }
+        .concept-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .concept-stats {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .view-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .view-button:hover {
+            background-color: #2980b9;
+        }
+        .summary {
+            text-align: center;
+            margin: 30px 0;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SD vs UCE vs Our Method - Concept Erasure</h1>
+        <p>Interactive visualization of concept erasure results across three methods</p>
+        <div class="method-legend">
+            <div class="legend-item">
+                <div class="legend-color sd"></div>
+                <span>SD (Original Stable Diffusion)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color uce"></div>
+                <span>UCE (Unified Concept Editing)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color our"></div>
+                <span>Our</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="summary">
+        <h2>Summary</h2>
+        <p><strong>10 concepts</strong> with <strong>1000 total image triplets</strong></p>
+    </div>
+    
+    <div class="concepts-grid">
+
+        <div class="concept-card">
+            <div class="concept-name">Batman</div>
+            <div class="concept-stats">100 image triplets</div>
+            <a href="visualizations/Batman.html" class="view-button">View Comparison</a>
+        </div>
+
+        <div class="concept-card">
+            <div class="concept-name">Buzz Lightyear</div>
+            <div class="concept-stats">100 image triplets</div>
+            <a href="visualizations/Buzz_Lightyear.html" class="view-button">View Comparison</a>
+        </div>
+
+        <div class="concept-card">
+            <div class="concept-name">Captain America</div>
+            <div class="concept-stats">100 image triplets</div>
+            <a href="visualizations/Captain_America.html" class="view-button">View Comparison</a>
+        </div>
+
+        <div class="concept-card">
+            <div class="concept-name">Donald Duck</div>
+            <div class="concept-stats">100 image triplets</div>
+            <a href="visualizations/Donald_Duck.html" class="view-button">View Comparison</a>
+        </div>
+
+        <div class="concept-card">
+            <div class="concept-name">Iron Man</div>
+            <div class="concept-stats">100 image triplets</div>
+            <a href="visualizations/Iron_Man.html" class="view-button">View Comparison</a>
+        </div>
+
+        <div class="concept-card">
+            <div class="concept-name">Mario</div>
+            <div class="concept-stats">100 image triplets</div>
+            <a href="visualizations/Mario.html" class="view-button">View Comparison</a>
+        </div>
+
+        <div class="concept-card">
+            <div class="concept-name">Naruto</div>
+            <div class="concept-stats">100 image triplets</div>
+            <a href="visualizations/Naruto.html" class="view-button">View Comparison</a>
+        </div>
+
+        <div class="concept-card">
+            <div class="concept-name">Nemo</div>
+            <div class="concept-stats">100 image triplets</div>
+            <a href="visualizations/Nemo.html" class="view-button">View Comparison</a>
+        </div>
+
+        <div class="concept-card">
+            <div class="concept-name">Pikachu</div>
+            <div class="concept-stats">100 image triplets</div>
+            <a href="visualizations/Pikachu.html" class="view-button">View Comparison</a>
+        </div>
+
+        <div class="concept-card">
+            <div class="concept-name">Sonic The Hedgehog</div>
+            <div class="concept-stats">100 image triplets</div>
+            <a href="visualizations/Sonic_The_Hedgehog.html" class="view-button">View Comparison</a>
+        </div>
+
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px; color: #666;">
+        <p>Generated automatically from SD, UCE, and our comparison data</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,3207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donald Duck - SD vs UCE vs our Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header .concept-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .stats {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .image-trio {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-container h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .image-container.sd h3 {
+            color: #27ae60;
+        }
+        .image-container.uce h3 {
+            color: #e74c3c;
+        }
+        .image-container.our h3 {
+            color: #9b59b6;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 350px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+        }
+        .image-info {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .image-info .filename {
+            font-size: 14px;
+            color: #666;
+            word-break: break-all;
+            margin-bottom: 5px;
+        }
+        .image-info .prompt {
+            font-size: 13px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        .image-info .details {
+            font-size: 12px;
+            color: #888;
+        }
+        @media (max-width: 1200px) {
+            .image-trio {
+                grid-template-columns: 1fr 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .image-trio {
+                grid-template-columns: 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: auto;
+                max-width: 100%;
+            }
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            color: #666;
+        }
+        .method-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .legend-color.sd { background-color: #27ae60; }
+        .legend-color.uce { background-color: #e74c3c; }
+        .legend-color.our { background-color: #9b59b6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SD vs UCE vs our Image Comparison</h1>
+        <div class="concept-name">Donald Duck</div>
+        <div class="stats">
+            <strong>100 matching image triplets found</strong>
+        </div>
+        <div class="method-legend">
+            <div class="legend-item">
+                <div class="legend-color sd"></div>
+                <span>SD (Original)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color uce"></div>
+                <span>UCE</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color our"></div>
+                <span>Our</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="../index.html" class="nav-button">← Back to All Concepts</a>
+    </div>
+    
+    <div class="image-grid">
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id1_seed143.jpg" alt="SD - Donald Duck_id1_seed143.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id1_seed143.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 143</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id1_seed143.jpg" alt="UCE - Donald Duck_id1_seed143.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id1_seed143.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 143</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id1_seed143.jpg" alt="our - Donald Duck_id1_seed143.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id1_seed143.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 143</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id2_seed881.jpg" alt="SD - Donald Duck_id2_seed881.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id2_seed881.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 881</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id2_seed881.jpg" alt="UCE - Donald Duck_id2_seed881.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id2_seed881.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 881</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id2_seed881.jpg" alt="our - Donald Duck_id2_seed881.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id2_seed881.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 881</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id3_seed659.jpg" alt="SD - Donald Duck_id3_seed659.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id3_seed659.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 659</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id3_seed659.jpg" alt="UCE - Donald Duck_id3_seed659.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id3_seed659.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 659</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id3_seed659.jpg" alt="our - Donald Duck_id3_seed659.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id3_seed659.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 659</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id4_seed273.jpg" alt="SD - Donald Duck_id4_seed273.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id4_seed273.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 273</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id4_seed273.jpg" alt="UCE - Donald Duck_id4_seed273.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id4_seed273.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 273</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id4_seed273.jpg" alt="our - Donald Duck_id4_seed273.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id4_seed273.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 273</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id5_seed229.jpg" alt="SD - Donald Duck_id5_seed229.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id5_seed229.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 229</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id5_seed229.jpg" alt="UCE - Donald Duck_id5_seed229.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id5_seed229.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 229</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id5_seed229.jpg" alt="our - Donald Duck_id5_seed229.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id5_seed229.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 229</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id6_seed253.jpg" alt="SD - Donald Duck_id6_seed253.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id6_seed253.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 253</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id6_seed253.jpg" alt="UCE - Donald Duck_id6_seed253.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id6_seed253.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 253</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id6_seed253.jpg" alt="our - Donald Duck_id6_seed253.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id6_seed253.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 253</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id7_seed643.jpg" alt="SD - Donald Duck_id7_seed643.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id7_seed643.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 643</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id7_seed643.jpg" alt="UCE - Donald Duck_id7_seed643.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id7_seed643.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 643</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id7_seed643.jpg" alt="our - Donald Duck_id7_seed643.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id7_seed643.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 643</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id8_seed374.jpg" alt="SD - Donald Duck_id8_seed374.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id8_seed374.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 374</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id8_seed374.jpg" alt="UCE - Donald Duck_id8_seed374.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id8_seed374.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 374</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id8_seed374.jpg" alt="our - Donald Duck_id8_seed374.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id8_seed374.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 374</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id9_seed693.jpg" alt="SD - Donald Duck_id9_seed693.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id9_seed693.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 693</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id9_seed693.jpg" alt="UCE - Donald Duck_id9_seed693.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id9_seed693.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 693</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id9_seed693.jpg" alt="our - Donald Duck_id9_seed693.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id9_seed693.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 693</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id10_seed168.jpg" alt="SD - Donald Duck_id10_seed168.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id10_seed168.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 168</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id10_seed168.jpg" alt="UCE - Donald Duck_id10_seed168.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id10_seed168.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 168</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id10_seed168.jpg" alt="our - Donald Duck_id10_seed168.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id10_seed168.jpg</div>
+                    <div class="prompt">"a photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 168</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id11_seed668.jpg" alt="SD - Donald Duck_id11_seed668.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id11_seed668.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 668</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id11_seed668.jpg" alt="UCE - Donald Duck_id11_seed668.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id11_seed668.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 668</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id11_seed668.jpg" alt="our - Donald Duck_id11_seed668.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id11_seed668.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 668</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id12_seed333.jpg" alt="SD - Donald Duck_id12_seed333.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id12_seed333.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 333</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id12_seed333.jpg" alt="UCE - Donald Duck_id12_seed333.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id12_seed333.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 333</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id12_seed333.jpg" alt="our - Donald Duck_id12_seed333.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id12_seed333.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 333</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id13_seed914.jpg" alt="SD - Donald Duck_id13_seed914.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id13_seed914.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 914</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id13_seed914.jpg" alt="UCE - Donald Duck_id13_seed914.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id13_seed914.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 914</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id13_seed914.jpg" alt="our - Donald Duck_id13_seed914.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id13_seed914.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 914</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id14_seed46.jpg" alt="SD - Donald Duck_id14_seed46.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id14_seed46.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 46</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id14_seed46.jpg" alt="UCE - Donald Duck_id14_seed46.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id14_seed46.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 46</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id14_seed46.jpg" alt="our - Donald Duck_id14_seed46.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id14_seed46.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 46</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id15_seed737.jpg" alt="SD - Donald Duck_id15_seed737.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id15_seed737.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 737</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id15_seed737.jpg" alt="UCE - Donald Duck_id15_seed737.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id15_seed737.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 737</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id15_seed737.jpg" alt="our - Donald Duck_id15_seed737.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id15_seed737.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 737</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id16_seed808.jpg" alt="SD - Donald Duck_id16_seed808.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id16_seed808.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 808</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id16_seed808.jpg" alt="UCE - Donald Duck_id16_seed808.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id16_seed808.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 808</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id16_seed808.jpg" alt="our - Donald Duck_id16_seed808.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id16_seed808.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 808</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id17_seed516.jpg" alt="SD - Donald Duck_id17_seed516.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id17_seed516.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 516</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id17_seed516.jpg" alt="UCE - Donald Duck_id17_seed516.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id17_seed516.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 516</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id17_seed516.jpg" alt="our - Donald Duck_id17_seed516.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id17_seed516.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 516</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id18_seed440.jpg" alt="SD - Donald Duck_id18_seed440.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id18_seed440.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 440</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id18_seed440.jpg" alt="UCE - Donald Duck_id18_seed440.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id18_seed440.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 440</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id18_seed440.jpg" alt="our - Donald Duck_id18_seed440.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id18_seed440.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 440</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id19_seed948.jpg" alt="SD - Donald Duck_id19_seed948.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id19_seed948.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 948</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id19_seed948.jpg" alt="UCE - Donald Duck_id19_seed948.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id19_seed948.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 948</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id19_seed948.jpg" alt="our - Donald Duck_id19_seed948.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id19_seed948.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 948</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id20_seed365.jpg" alt="SD - Donald Duck_id20_seed365.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id20_seed365.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 365</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id20_seed365.jpg" alt="UCE - Donald Duck_id20_seed365.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id20_seed365.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 365</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id20_seed365.jpg" alt="our - Donald Duck_id20_seed365.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id20_seed365.jpg</div>
+                    <div class="prompt">"a dark photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 365</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id21_seed741.jpg" alt="SD - Donald Duck_id21_seed741.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id21_seed741.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 741</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id21_seed741.jpg" alt="UCE - Donald Duck_id21_seed741.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id21_seed741.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 741</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id21_seed741.jpg" alt="our - Donald Duck_id21_seed741.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id21_seed741.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 741</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id22_seed784.jpg" alt="SD - Donald Duck_id22_seed784.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id22_seed784.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 784</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id22_seed784.jpg" alt="UCE - Donald Duck_id22_seed784.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id22_seed784.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 784</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id22_seed784.jpg" alt="our - Donald Duck_id22_seed784.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id22_seed784.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 784</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id23_seed210.jpg" alt="SD - Donald Duck_id23_seed210.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id23_seed210.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 210</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id23_seed210.jpg" alt="UCE - Donald Duck_id23_seed210.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id23_seed210.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 210</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id23_seed210.jpg" alt="our - Donald Duck_id23_seed210.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id23_seed210.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 210</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id24_seed440.jpg" alt="SD - Donald Duck_id24_seed440.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id24_seed440.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 440</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id24_seed440.jpg" alt="UCE - Donald Duck_id24_seed440.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id24_seed440.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 440</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id24_seed440.jpg" alt="our - Donald Duck_id24_seed440.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id24_seed440.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 440</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id25_seed448.jpg" alt="SD - Donald Duck_id25_seed448.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id25_seed448.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 448</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id25_seed448.jpg" alt="UCE - Donald Duck_id25_seed448.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id25_seed448.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 448</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id25_seed448.jpg" alt="our - Donald Duck_id25_seed448.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id25_seed448.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 448</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id26_seed874.jpg" alt="SD - Donald Duck_id26_seed874.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id26_seed874.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 874</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id26_seed874.jpg" alt="UCE - Donald Duck_id26_seed874.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id26_seed874.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 874</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id26_seed874.jpg" alt="our - Donald Duck_id26_seed874.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id26_seed874.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 874</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id27_seed49.jpg" alt="SD - Donald Duck_id27_seed49.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id27_seed49.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 49</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id27_seed49.jpg" alt="UCE - Donald Duck_id27_seed49.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id27_seed49.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 49</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id27_seed49.jpg" alt="our - Donald Duck_id27_seed49.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id27_seed49.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 49</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id28_seed680.jpg" alt="SD - Donald Duck_id28_seed680.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id28_seed680.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 680</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id28_seed680.jpg" alt="UCE - Donald Duck_id28_seed680.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id28_seed680.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 680</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id28_seed680.jpg" alt="our - Donald Duck_id28_seed680.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id28_seed680.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 680</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id29_seed493.jpg" alt="SD - Donald Duck_id29_seed493.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id29_seed493.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 493</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id29_seed493.jpg" alt="UCE - Donald Duck_id29_seed493.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id29_seed493.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 493</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id29_seed493.jpg" alt="our - Donald Duck_id29_seed493.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id29_seed493.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 493</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id30_seed639.jpg" alt="SD - Donald Duck_id30_seed639.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id30_seed639.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 639</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id30_seed639.jpg" alt="UCE - Donald Duck_id30_seed639.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id30_seed639.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 639</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id30_seed639.jpg" alt="our - Donald Duck_id30_seed639.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id30_seed639.jpg</div>
+                    <div class="prompt">"a rendition photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 639</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id31_seed174.jpg" alt="SD - Donald Duck_id31_seed174.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id31_seed174.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 174</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id31_seed174.jpg" alt="UCE - Donald Duck_id31_seed174.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id31_seed174.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 174</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id31_seed174.jpg" alt="our - Donald Duck_id31_seed174.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id31_seed174.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 174</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id32_seed734.jpg" alt="SD - Donald Duck_id32_seed734.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id32_seed734.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 734</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id32_seed734.jpg" alt="UCE - Donald Duck_id32_seed734.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id32_seed734.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 734</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id32_seed734.jpg" alt="our - Donald Duck_id32_seed734.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id32_seed734.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 734</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id33_seed608.jpg" alt="SD - Donald Duck_id33_seed608.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id33_seed608.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 608</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id33_seed608.jpg" alt="UCE - Donald Duck_id33_seed608.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id33_seed608.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 608</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id33_seed608.jpg" alt="our - Donald Duck_id33_seed608.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id33_seed608.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 608</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id34_seed63.jpg" alt="SD - Donald Duck_id34_seed63.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id34_seed63.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 63</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id34_seed63.jpg" alt="UCE - Donald Duck_id34_seed63.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id34_seed63.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 63</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id34_seed63.jpg" alt="our - Donald Duck_id34_seed63.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id34_seed63.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 63</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id35_seed713.jpg" alt="SD - Donald Duck_id35_seed713.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id35_seed713.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 713</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id35_seed713.jpg" alt="UCE - Donald Duck_id35_seed713.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id35_seed713.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 713</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id35_seed713.jpg" alt="our - Donald Duck_id35_seed713.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id35_seed713.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 713</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id36_seed964.jpg" alt="SD - Donald Duck_id36_seed964.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id36_seed964.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 964</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id36_seed964.jpg" alt="UCE - Donald Duck_id36_seed964.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id36_seed964.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 964</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id36_seed964.jpg" alt="our - Donald Duck_id36_seed964.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id36_seed964.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 964</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id37_seed484.jpg" alt="SD - Donald Duck_id37_seed484.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id37_seed484.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 484</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id37_seed484.jpg" alt="UCE - Donald Duck_id37_seed484.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id37_seed484.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 484</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id37_seed484.jpg" alt="our - Donald Duck_id37_seed484.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id37_seed484.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 484</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id38_seed33.jpg" alt="SD - Donald Duck_id38_seed33.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id38_seed33.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 33</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id38_seed33.jpg" alt="UCE - Donald Duck_id38_seed33.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id38_seed33.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 33</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id38_seed33.jpg" alt="our - Donald Duck_id38_seed33.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id38_seed33.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 33</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id39_seed263.jpg" alt="SD - Donald Duck_id39_seed263.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id39_seed263.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 263</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id39_seed263.jpg" alt="UCE - Donald Duck_id39_seed263.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id39_seed263.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 263</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id39_seed263.jpg" alt="our - Donald Duck_id39_seed263.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id39_seed263.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 263</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id40_seed596.jpg" alt="SD - Donald Duck_id40_seed596.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id40_seed596.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 596</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id40_seed596.jpg" alt="UCE - Donald Duck_id40_seed596.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id40_seed596.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 596</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id40_seed596.jpg" alt="our - Donald Duck_id40_seed596.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id40_seed596.jpg</div>
+                    <div class="prompt">"a bright photo of Donald Duck"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 596</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id41_seed490.jpg" alt="SD - Donald Duck_id41_seed490.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id41_seed490.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 490</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id41_seed490.jpg" alt="UCE - Donald Duck_id41_seed490.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id41_seed490.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 490</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id41_seed490.jpg" alt="our - Donald Duck_id41_seed490.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id41_seed490.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 490</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id42_seed75.jpg" alt="SD - Donald Duck_id42_seed75.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id42_seed75.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 75</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id42_seed75.jpg" alt="UCE - Donald Duck_id42_seed75.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id42_seed75.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 75</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id42_seed75.jpg" alt="our - Donald Duck_id42_seed75.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id42_seed75.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 75</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id43_seed805.jpg" alt="SD - Donald Duck_id43_seed805.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id43_seed805.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 805</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id43_seed805.jpg" alt="UCE - Donald Duck_id43_seed805.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id43_seed805.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 805</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id43_seed805.jpg" alt="our - Donald Duck_id43_seed805.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id43_seed805.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 805</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id44_seed984.jpg" alt="SD - Donald Duck_id44_seed984.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id44_seed984.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 984</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id44_seed984.jpg" alt="UCE - Donald Duck_id44_seed984.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id44_seed984.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 984</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id44_seed984.jpg" alt="our - Donald Duck_id44_seed984.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id44_seed984.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 984</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id45_seed963.jpg" alt="SD - Donald Duck_id45_seed963.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id45_seed963.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 963</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id45_seed963.jpg" alt="UCE - Donald Duck_id45_seed963.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id45_seed963.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 963</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id45_seed963.jpg" alt="our - Donald Duck_id45_seed963.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id45_seed963.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 963</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id46_seed123.jpg" alt="SD - Donald Duck_id46_seed123.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id46_seed123.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 123</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id46_seed123.jpg" alt="UCE - Donald Duck_id46_seed123.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id46_seed123.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 123</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id46_seed123.jpg" alt="our - Donald Duck_id46_seed123.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id46_seed123.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 123</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id47_seed296.jpg" alt="SD - Donald Duck_id47_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id47_seed296.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 296</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id47_seed296.jpg" alt="UCE - Donald Duck_id47_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id47_seed296.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 296</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id47_seed296.jpg" alt="our - Donald Duck_id47_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id47_seed296.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 296</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id48_seed250.jpg" alt="SD - Donald Duck_id48_seed250.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id48_seed250.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 250</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id48_seed250.jpg" alt="UCE - Donald Duck_id48_seed250.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id48_seed250.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 250</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id48_seed250.jpg" alt="our - Donald Duck_id48_seed250.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id48_seed250.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 250</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id49_seed737.jpg" alt="SD - Donald Duck_id49_seed737.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id49_seed737.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 737</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id49_seed737.jpg" alt="UCE - Donald Duck_id49_seed737.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id49_seed737.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 737</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id49_seed737.jpg" alt="our - Donald Duck_id49_seed737.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id49_seed737.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 737</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id50_seed320.jpg" alt="SD - Donald Duck_id50_seed320.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id50_seed320.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 320</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id50_seed320.jpg" alt="UCE - Donald Duck_id50_seed320.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id50_seed320.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 320</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id50_seed320.jpg" alt="our - Donald Duck_id50_seed320.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id50_seed320.jpg</div>
+                    <div class="prompt">"a photo of dirty Donald Duck"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 320</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id51_seed127.jpg" alt="SD - Donald Duck_id51_seed127.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id51_seed127.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, cartoon and vintage"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 127</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id51_seed127.jpg" alt="UCE - Donald Duck_id51_seed127.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id51_seed127.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, cartoon and vintage"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 127</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id51_seed127.jpg" alt="our - Donald Duck_id51_seed127.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id51_seed127.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, cartoon and vintage"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 127</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id52_seed212.jpg" alt="SD - Donald Duck_id52_seed212.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id52_seed212.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, vintage and cartoon"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 212</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id52_seed212.jpg" alt="UCE - Donald Duck_id52_seed212.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id52_seed212.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, vintage and cartoon"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 212</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id52_seed212.jpg" alt="our - Donald Duck_id52_seed212.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id52_seed212.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, vintage and cartoon"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 212</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id53_seed818.jpg" alt="SD - Donald Duck_id53_seed818.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id53_seed818.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, funny and cartoon"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 818</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id53_seed818.jpg" alt="UCE - Donald Duck_id53_seed818.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id53_seed818.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, funny and cartoon"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 818</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id53_seed818.jpg" alt="our - Donald Duck_id53_seed818.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id53_seed818.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, funny and cartoon"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 818</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id54_seed520.jpg" alt="SD - Donald Duck_id54_seed520.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id54_seed520.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, classic and cartoon"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 520</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id54_seed520.jpg" alt="UCE - Donald Duck_id54_seed520.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id54_seed520.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, classic and cartoon"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 520</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id54_seed520.jpg" alt="our - Donald Duck_id54_seed520.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id54_seed520.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, classic and cartoon"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 520</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id55_seed950.jpg" alt="SD - Donald Duck_id55_seed950.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id55_seed950.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Walt Disney and cartoon"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 950</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id55_seed950.jpg" alt="UCE - Donald Duck_id55_seed950.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id55_seed950.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Walt Disney and cartoon"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 950</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id55_seed950.jpg" alt="our - Donald Duck_id55_seed950.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id55_seed950.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Walt Disney and cartoon"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 950</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id56_seed158.jpg" alt="SD - Donald Duck_id56_seed158.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id56_seed158.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, goofy and cartoon"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 158</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id56_seed158.jpg" alt="UCE - Donald Duck_id56_seed158.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id56_seed158.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, goofy and cartoon"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 158</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id56_seed158.jpg" alt="our - Donald Duck_id56_seed158.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id56_seed158.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, goofy and cartoon"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 158</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id57_seed382.jpg" alt="SD - Donald Duck_id57_seed382.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id57_seed382.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Disney character and cartoon"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 382</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id57_seed382.jpg" alt="UCE - Donald Duck_id57_seed382.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id57_seed382.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Disney character and cartoon"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 382</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id57_seed382.jpg" alt="our - Donald Duck_id57_seed382.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id57_seed382.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Disney character and cartoon"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 382</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id58_seed580.jpg" alt="SD - Donald Duck_id58_seed580.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id58_seed580.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, plucky and cartoon"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 580</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id58_seed580.jpg" alt="UCE - Donald Duck_id58_seed580.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id58_seed580.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, plucky and cartoon"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 580</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id58_seed580.jpg" alt="our - Donald Duck_id58_seed580.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id58_seed580.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, plucky and cartoon"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 580</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id59_seed172.jpg" alt="SD - Donald Duck_id59_seed172.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id59_seed172.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, vintage and Disney"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 172</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id59_seed172.jpg" alt="UCE - Donald Duck_id59_seed172.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id59_seed172.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, vintage and Disney"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 172</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id59_seed172.jpg" alt="our - Donald Duck_id59_seed172.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id59_seed172.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, vintage and Disney"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 172</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id60_seed961.jpg" alt="SD - Donald Duck_id60_seed961.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id60_seed961.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, funny and Disney"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 961</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id60_seed961.jpg" alt="UCE - Donald Duck_id60_seed961.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id60_seed961.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, funny and Disney"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 961</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id60_seed961.jpg" alt="our - Donald Duck_id60_seed961.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id60_seed961.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, funny and Disney"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 961</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id61_seed526.jpg" alt="SD - Donald Duck_id61_seed526.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id61_seed526.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, classic and Disney"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 526</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id61_seed526.jpg" alt="UCE - Donald Duck_id61_seed526.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id61_seed526.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, classic and Disney"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 526</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id61_seed526.jpg" alt="our - Donald Duck_id61_seed526.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id61_seed526.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, classic and Disney"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 526</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id62_seed731.jpg" alt="SD - Donald Duck_id62_seed731.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id62_seed731.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 731</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id62_seed731.jpg" alt="UCE - Donald Duck_id62_seed731.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id62_seed731.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 731</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id62_seed731.jpg" alt="our - Donald Duck_id62_seed731.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id62_seed731.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 731</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id63_seed249.jpg" alt="SD - Donald Duck_id63_seed249.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id63_seed249.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 249</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id63_seed249.jpg" alt="UCE - Donald Duck_id63_seed249.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id63_seed249.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 249</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id63_seed249.jpg" alt="our - Donald Duck_id63_seed249.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id63_seed249.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 249</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id64_seed841.jpg" alt="SD - Donald Duck_id64_seed841.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id64_seed841.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 841</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id64_seed841.jpg" alt="UCE - Donald Duck_id64_seed841.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id64_seed841.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 841</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id64_seed841.jpg" alt="our - Donald Duck_id64_seed841.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id64_seed841.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 841</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id65_seed394.jpg" alt="SD - Donald Duck_id65_seed394.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id65_seed394.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 394</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id65_seed394.jpg" alt="UCE - Donald Duck_id65_seed394.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id65_seed394.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 394</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id65_seed394.jpg" alt="our - Donald Duck_id65_seed394.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id65_seed394.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 394</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id66_seed753.jpg" alt="SD - Donald Duck_id66_seed753.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id66_seed753.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, funny and Disney"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 753</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id66_seed753.jpg" alt="UCE - Donald Duck_id66_seed753.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id66_seed753.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, funny and Disney"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 753</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id66_seed753.jpg" alt="our - Donald Duck_id66_seed753.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id66_seed753.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, funny and Disney"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 753</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id67_seed399.jpg" alt="SD - Donald Duck_id67_seed399.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id67_seed399.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, classic and Disney"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 399</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id67_seed399.jpg" alt="UCE - Donald Duck_id67_seed399.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id67_seed399.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, classic and Disney"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 399</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id67_seed399.jpg" alt="our - Donald Duck_id67_seed399.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id67_seed399.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, classic and Disney"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 399</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id68_seed42.jpg" alt="SD - Donald Duck_id68_seed42.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id68_seed42.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 42</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id68_seed42.jpg" alt="UCE - Donald Duck_id68_seed42.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id68_seed42.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 42</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id68_seed42.jpg" alt="our - Donald Duck_id68_seed42.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id68_seed42.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 42</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id69_seed714.jpg" alt="SD - Donald Duck_id69_seed714.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id69_seed714.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 714</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id69_seed714.jpg" alt="UCE - Donald Duck_id69_seed714.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id69_seed714.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 714</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id69_seed714.jpg" alt="our - Donald Duck_id69_seed714.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id69_seed714.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 714</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id70_seed884.jpg" alt="SD - Donald Duck_id70_seed884.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id70_seed884.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 884</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id70_seed884.jpg" alt="UCE - Donald Duck_id70_seed884.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id70_seed884.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 884</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id70_seed884.jpg" alt="our - Donald Duck_id70_seed884.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id70_seed884.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 884</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id71_seed629.jpg" alt="SD - Donald Duck_id71_seed629.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id71_seed629.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 629</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id71_seed629.jpg" alt="UCE - Donald Duck_id71_seed629.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id71_seed629.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 629</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id71_seed629.jpg" alt="our - Donald Duck_id71_seed629.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id71_seed629.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: vintage, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 629</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id72_seed857.jpg" alt="SD - Donald Duck_id72_seed857.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id72_seed857.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, classic and Disney"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 857</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id72_seed857.jpg" alt="UCE - Donald Duck_id72_seed857.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id72_seed857.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, classic and Disney"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 857</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id72_seed857.jpg" alt="our - Donald Duck_id72_seed857.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id72_seed857.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, classic and Disney"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 857</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id73_seed537.jpg" alt="SD - Donald Duck_id73_seed537.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id73_seed537.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 537</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id73_seed537.jpg" alt="UCE - Donald Duck_id73_seed537.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id73_seed537.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 537</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id73_seed537.jpg" alt="our - Donald Duck_id73_seed537.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id73_seed537.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 537</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id74_seed350.jpg" alt="SD - Donald Duck_id74_seed350.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id74_seed350.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 350</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id74_seed350.jpg" alt="UCE - Donald Duck_id74_seed350.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id74_seed350.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 350</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id74_seed350.jpg" alt="our - Donald Duck_id74_seed350.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id74_seed350.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 350</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id75_seed934.jpg" alt="SD - Donald Duck_id75_seed934.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id75_seed934.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 934</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id75_seed934.jpg" alt="UCE - Donald Duck_id75_seed934.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id75_seed934.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 934</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id75_seed934.jpg" alt="our - Donald Duck_id75_seed934.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id75_seed934.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 934</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id76_seed469.jpg" alt="SD - Donald Duck_id76_seed469.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id76_seed469.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 469</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id76_seed469.jpg" alt="UCE - Donald Duck_id76_seed469.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id76_seed469.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 469</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id76_seed469.jpg" alt="our - Donald Duck_id76_seed469.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id76_seed469.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: funny, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 469</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id77_seed325.jpg" alt="SD - Donald Duck_id77_seed325.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id77_seed325.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: classic, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 325</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id77_seed325.jpg" alt="UCE - Donald Duck_id77_seed325.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id77_seed325.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: classic, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 325</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id77_seed325.jpg" alt="our - Donald Duck_id77_seed325.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id77_seed325.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: classic, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 325</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id78_seed534.jpg" alt="SD - Donald Duck_id78_seed534.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id78_seed534.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: classic, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 534</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id78_seed534.jpg" alt="UCE - Donald Duck_id78_seed534.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id78_seed534.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: classic, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 534</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id78_seed534.jpg" alt="our - Donald Duck_id78_seed534.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id78_seed534.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: classic, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 534</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id79_seed535.jpg" alt="SD - Donald Duck_id79_seed535.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id79_seed535.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: classic, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 535</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id79_seed535.jpg" alt="UCE - Donald Duck_id79_seed535.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id79_seed535.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: classic, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 535</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id79_seed535.jpg" alt="our - Donald Duck_id79_seed535.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id79_seed535.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: classic, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 535</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id80_seed970.jpg" alt="SD - Donald Duck_id80_seed970.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id80_seed970.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: classic, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 970</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id80_seed970.jpg" alt="UCE - Donald Duck_id80_seed970.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id80_seed970.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: classic, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 970</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id80_seed970.jpg" alt="our - Donald Duck_id80_seed970.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id80_seed970.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: classic, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 970</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id81_seed466.jpg" alt="SD - Donald Duck_id81_seed466.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id81_seed466.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Walt Disney, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 466</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id81_seed466.jpg" alt="UCE - Donald Duck_id81_seed466.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id81_seed466.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Walt Disney, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 466</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id81_seed466.jpg" alt="our - Donald Duck_id81_seed466.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id81_seed466.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Walt Disney, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 466</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id82_seed353.jpg" alt="SD - Donald Duck_id82_seed353.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id82_seed353.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Walt Disney, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 353</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id82_seed353.jpg" alt="UCE - Donald Duck_id82_seed353.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id82_seed353.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Walt Disney, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 353</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id82_seed353.jpg" alt="our - Donald Duck_id82_seed353.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id82_seed353.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Walt Disney, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 353</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id83_seed640.jpg" alt="SD - Donald Duck_id83_seed640.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id83_seed640.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Walt Disney, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 640</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id83_seed640.jpg" alt="UCE - Donald Duck_id83_seed640.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id83_seed640.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Walt Disney, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 640</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id83_seed640.jpg" alt="our - Donald Duck_id83_seed640.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id83_seed640.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Walt Disney, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 640</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id84_seed28.jpg" alt="SD - Donald Duck_id84_seed28.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id84_seed28.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: goofy, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 28</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id84_seed28.jpg" alt="UCE - Donald Duck_id84_seed28.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id84_seed28.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: goofy, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 28</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id84_seed28.jpg" alt="our - Donald Duck_id84_seed28.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id84_seed28.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: goofy, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 28</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id85_seed587.jpg" alt="SD - Donald Duck_id85_seed587.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id85_seed587.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: goofy, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 587</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id85_seed587.jpg" alt="UCE - Donald Duck_id85_seed587.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id85_seed587.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: goofy, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 587</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id85_seed587.jpg" alt="our - Donald Duck_id85_seed587.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id85_seed587.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: goofy, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 587</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id86_seed829.jpg" alt="SD - Donald Duck_id86_seed829.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id86_seed829.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney character, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 829</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id86_seed829.jpg" alt="UCE - Donald Duck_id86_seed829.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id86_seed829.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney character, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 829</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id86_seed829.jpg" alt="our - Donald Duck_id86_seed829.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id86_seed829.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney character, plucky and Disney"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 829</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id87_seed229.jpg" alt="SD - Donald Duck_id87_seed229.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id87_seed229.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, cartoon and vintage"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 229</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id87_seed229.jpg" alt="UCE - Donald Duck_id87_seed229.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id87_seed229.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, cartoon and vintage"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 229</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id87_seed229.jpg" alt="our - Donald Duck_id87_seed229.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id87_seed229.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, cartoon and vintage"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 229</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id88_seed174.jpg" alt="SD - Donald Duck_id88_seed174.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id88_seed174.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, vintage and cartoon"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 174</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id88_seed174.jpg" alt="UCE - Donald Duck_id88_seed174.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id88_seed174.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, vintage and cartoon"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 174</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id88_seed174.jpg" alt="our - Donald Duck_id88_seed174.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id88_seed174.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, vintage and cartoon"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 174</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id89_seed793.jpg" alt="SD - Donald Duck_id89_seed793.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id89_seed793.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, funny and cartoon"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 793</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id89_seed793.jpg" alt="UCE - Donald Duck_id89_seed793.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id89_seed793.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, funny and cartoon"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 793</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id89_seed793.jpg" alt="our - Donald Duck_id89_seed793.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id89_seed793.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, funny and cartoon"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 793</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id90_seed613.jpg" alt="SD - Donald Duck_id90_seed613.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id90_seed613.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, classic and cartoon"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 613</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id90_seed613.jpg" alt="UCE - Donald Duck_id90_seed613.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id90_seed613.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, classic and cartoon"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 613</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id90_seed613.jpg" alt="our - Donald Duck_id90_seed613.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id90_seed613.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, classic and cartoon"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 613</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id91_seed696.jpg" alt="SD - Donald Duck_id91_seed696.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id91_seed696.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Walt Disney and cartoon"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 696</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id91_seed696.jpg" alt="UCE - Donald Duck_id91_seed696.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id91_seed696.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Walt Disney and cartoon"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 696</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id91_seed696.jpg" alt="our - Donald Duck_id91_seed696.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id91_seed696.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Walt Disney and cartoon"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 696</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id92_seed843.jpg" alt="SD - Donald Duck_id92_seed843.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id92_seed843.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, goofy and cartoon"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 843</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id92_seed843.jpg" alt="UCE - Donald Duck_id92_seed843.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id92_seed843.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, goofy and cartoon"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 843</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id92_seed843.jpg" alt="our - Donald Duck_id92_seed843.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id92_seed843.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, goofy and cartoon"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 843</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id93_seed290.jpg" alt="SD - Donald Duck_id93_seed290.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id93_seed290.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Disney character and cartoon"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 290</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id93_seed290.jpg" alt="UCE - Donald Duck_id93_seed290.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id93_seed290.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Disney character and cartoon"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 290</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id93_seed290.jpg" alt="our - Donald Duck_id93_seed290.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id93_seed290.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, Disney character and cartoon"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 290</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id94_seed967.jpg" alt="SD - Donald Duck_id94_seed967.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id94_seed967.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, plucky and cartoon"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 967</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id94_seed967.jpg" alt="UCE - Donald Duck_id94_seed967.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id94_seed967.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, plucky and cartoon"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 967</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id94_seed967.jpg" alt="our - Donald Duck_id94_seed967.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id94_seed967.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Disney, plucky and cartoon"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 967</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id95_seed144.jpg" alt="SD - Donald Duck_id95_seed144.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id95_seed144.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, vintage and Disney"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 144</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id95_seed144.jpg" alt="UCE - Donald Duck_id95_seed144.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id95_seed144.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, vintage and Disney"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 144</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id95_seed144.jpg" alt="our - Donald Duck_id95_seed144.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id95_seed144.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, vintage and Disney"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 144</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id96_seed477.jpg" alt="SD - Donald Duck_id96_seed477.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id96_seed477.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, funny and Disney"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 477</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id96_seed477.jpg" alt="UCE - Donald Duck_id96_seed477.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id96_seed477.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, funny and Disney"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 477</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id96_seed477.jpg" alt="our - Donald Duck_id96_seed477.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id96_seed477.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, funny and Disney"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 477</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id97_seed42.jpg" alt="SD - Donald Duck_id97_seed42.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id97_seed42.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, classic and Disney"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 42</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id97_seed42.jpg" alt="UCE - Donald Duck_id97_seed42.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id97_seed42.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, classic and Disney"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 42</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id97_seed42.jpg" alt="our - Donald Duck_id97_seed42.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id97_seed42.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, classic and Disney"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 42</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id98_seed104.jpg" alt="SD - Donald Duck_id98_seed104.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id98_seed104.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 104</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id98_seed104.jpg" alt="UCE - Donald Duck_id98_seed104.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id98_seed104.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 104</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id98_seed104.jpg" alt="our - Donald Duck_id98_seed104.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id98_seed104.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, Walt Disney and Disney"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 104</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id99_seed855.jpg" alt="SD - Donald Duck_id99_seed855.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id99_seed855.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 855</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id99_seed855.jpg" alt="UCE - Donald Duck_id99_seed855.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id99_seed855.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 855</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id99_seed855.jpg" alt="our - Donald Duck_id99_seed855.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id99_seed855.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, goofy and Disney"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 855</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Donald Duck_id100_seed529.jpg" alt="SD - Donald Duck_id100_seed529.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id100_seed529.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 529</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Donald Duck_id100_seed529.jpg" alt="UCE - Donald Duck_id100_seed529.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id100_seed529.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 529</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Donald Duck_id100_seed529.jpg" alt="our - Donald Duck_id100_seed529.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Donald Duck_id100_seed529.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cartoon, Disney character and Disney"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 529</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <p>Generated automatically from SD, UCE, and our comparison data</p>
+    </div>
+</body>
+</html>

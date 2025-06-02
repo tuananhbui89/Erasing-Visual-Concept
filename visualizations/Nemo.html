@@ -1,0 +1,3207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nemo - SD vs UCE vs our Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header .concept-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .stats {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .image-trio {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-container h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .image-container.sd h3 {
+            color: #27ae60;
+        }
+        .image-container.uce h3 {
+            color: #e74c3c;
+        }
+        .image-container.our h3 {
+            color: #9b59b6;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 350px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+        }
+        .image-info {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .image-info .filename {
+            font-size: 14px;
+            color: #666;
+            word-break: break-all;
+            margin-bottom: 5px;
+        }
+        .image-info .prompt {
+            font-size: 13px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        .image-info .details {
+            font-size: 12px;
+            color: #888;
+        }
+        @media (max-width: 1200px) {
+            .image-trio {
+                grid-template-columns: 1fr 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .image-trio {
+                grid-template-columns: 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: auto;
+                max-width: 100%;
+            }
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            color: #666;
+        }
+        .method-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .legend-color.sd { background-color: #27ae60; }
+        .legend-color.uce { background-color: #e74c3c; }
+        .legend-color.our { background-color: #9b59b6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SD vs UCE vs our Image Comparison</h1>
+        <div class="concept-name">Nemo</div>
+        <div class="stats">
+            <strong>100 matching image triplets found</strong>
+        </div>
+        <div class="method-legend">
+            <div class="legend-item">
+                <div class="legend-color sd"></div>
+                <span>SD (Original)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color uce"></div>
+                <span>UCE</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color our"></div>
+                <span>Our</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="../index.html" class="nav-button">← Back to All Concepts</a>
+    </div>
+    
+    <div class="image-grid">
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id1_seed432.jpg" alt="SD - Nemo_id1_seed432.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id1_seed432.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 432</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id1_seed432.jpg" alt="UCE - Nemo_id1_seed432.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id1_seed432.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 432</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id1_seed432.jpg" alt="our - Nemo_id1_seed432.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id1_seed432.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 432</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id2_seed555.jpg" alt="SD - Nemo_id2_seed555.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id2_seed555.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 555</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id2_seed555.jpg" alt="UCE - Nemo_id2_seed555.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id2_seed555.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 555</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id2_seed555.jpg" alt="our - Nemo_id2_seed555.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id2_seed555.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 555</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id3_seed432.jpg" alt="SD - Nemo_id3_seed432.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id3_seed432.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 432</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id3_seed432.jpg" alt="UCE - Nemo_id3_seed432.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id3_seed432.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 432</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id3_seed432.jpg" alt="our - Nemo_id3_seed432.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id3_seed432.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 432</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id4_seed615.jpg" alt="SD - Nemo_id4_seed615.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id4_seed615.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 615</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id4_seed615.jpg" alt="UCE - Nemo_id4_seed615.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id4_seed615.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 615</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id4_seed615.jpg" alt="our - Nemo_id4_seed615.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id4_seed615.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 615</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id5_seed724.jpg" alt="SD - Nemo_id5_seed724.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id5_seed724.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 724</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id5_seed724.jpg" alt="UCE - Nemo_id5_seed724.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id5_seed724.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 724</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id5_seed724.jpg" alt="our - Nemo_id5_seed724.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id5_seed724.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 724</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id6_seed195.jpg" alt="SD - Nemo_id6_seed195.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id6_seed195.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 195</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id6_seed195.jpg" alt="UCE - Nemo_id6_seed195.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id6_seed195.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 195</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id6_seed195.jpg" alt="our - Nemo_id6_seed195.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id6_seed195.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 195</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id7_seed580.jpg" alt="SD - Nemo_id7_seed580.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id7_seed580.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 580</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id7_seed580.jpg" alt="UCE - Nemo_id7_seed580.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id7_seed580.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 580</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id7_seed580.jpg" alt="our - Nemo_id7_seed580.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id7_seed580.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 580</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id8_seed505.jpg" alt="SD - Nemo_id8_seed505.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id8_seed505.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 505</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id8_seed505.jpg" alt="UCE - Nemo_id8_seed505.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id8_seed505.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 505</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id8_seed505.jpg" alt="our - Nemo_id8_seed505.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id8_seed505.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 505</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id9_seed767.jpg" alt="SD - Nemo_id9_seed767.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id9_seed767.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 767</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id9_seed767.jpg" alt="UCE - Nemo_id9_seed767.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id9_seed767.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 767</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id9_seed767.jpg" alt="our - Nemo_id9_seed767.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id9_seed767.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 767</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id10_seed624.jpg" alt="SD - Nemo_id10_seed624.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id10_seed624.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 624</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id10_seed624.jpg" alt="UCE - Nemo_id10_seed624.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id10_seed624.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 624</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id10_seed624.jpg" alt="our - Nemo_id10_seed624.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id10_seed624.jpg</div>
+                    <div class="prompt">"a photo of Nemo"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 624</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id11_seed279.jpg" alt="SD - Nemo_id11_seed279.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id11_seed279.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 279</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id11_seed279.jpg" alt="UCE - Nemo_id11_seed279.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id11_seed279.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 279</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id11_seed279.jpg" alt="our - Nemo_id11_seed279.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id11_seed279.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 279</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id12_seed533.jpg" alt="SD - Nemo_id12_seed533.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id12_seed533.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 533</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id12_seed533.jpg" alt="UCE - Nemo_id12_seed533.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id12_seed533.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 533</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id12_seed533.jpg" alt="our - Nemo_id12_seed533.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id12_seed533.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 533</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id13_seed39.jpg" alt="SD - Nemo_id13_seed39.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id13_seed39.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 39</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id13_seed39.jpg" alt="UCE - Nemo_id13_seed39.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id13_seed39.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 39</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id13_seed39.jpg" alt="our - Nemo_id13_seed39.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id13_seed39.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 39</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id14_seed942.jpg" alt="SD - Nemo_id14_seed942.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id14_seed942.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 942</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id14_seed942.jpg" alt="UCE - Nemo_id14_seed942.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id14_seed942.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 942</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id14_seed942.jpg" alt="our - Nemo_id14_seed942.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id14_seed942.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 942</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id15_seed140.jpg" alt="SD - Nemo_id15_seed140.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id15_seed140.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 140</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id15_seed140.jpg" alt="UCE - Nemo_id15_seed140.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id15_seed140.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 140</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id15_seed140.jpg" alt="our - Nemo_id15_seed140.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id15_seed140.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 140</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id16_seed318.jpg" alt="SD - Nemo_id16_seed318.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id16_seed318.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 318</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id16_seed318.jpg" alt="UCE - Nemo_id16_seed318.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id16_seed318.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 318</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id16_seed318.jpg" alt="our - Nemo_id16_seed318.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id16_seed318.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 318</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id17_seed494.jpg" alt="SD - Nemo_id17_seed494.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id17_seed494.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 494</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id17_seed494.jpg" alt="UCE - Nemo_id17_seed494.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id17_seed494.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 494</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id17_seed494.jpg" alt="our - Nemo_id17_seed494.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id17_seed494.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 494</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id18_seed951.jpg" alt="SD - Nemo_id18_seed951.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id18_seed951.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 951</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id18_seed951.jpg" alt="UCE - Nemo_id18_seed951.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id18_seed951.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 951</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id18_seed951.jpg" alt="our - Nemo_id18_seed951.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id18_seed951.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 951</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id19_seed920.jpg" alt="SD - Nemo_id19_seed920.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id19_seed920.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 920</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id19_seed920.jpg" alt="UCE - Nemo_id19_seed920.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id19_seed920.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 920</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id19_seed920.jpg" alt="our - Nemo_id19_seed920.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id19_seed920.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 920</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id20_seed321.jpg" alt="SD - Nemo_id20_seed321.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id20_seed321.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 321</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id20_seed321.jpg" alt="UCE - Nemo_id20_seed321.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id20_seed321.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 321</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id20_seed321.jpg" alt="our - Nemo_id20_seed321.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id20_seed321.jpg</div>
+                    <div class="prompt">"a dark photo of Nemo"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 321</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id21_seed571.jpg" alt="SD - Nemo_id21_seed571.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id21_seed571.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 571</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id21_seed571.jpg" alt="UCE - Nemo_id21_seed571.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id21_seed571.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 571</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id21_seed571.jpg" alt="our - Nemo_id21_seed571.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id21_seed571.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 571</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id22_seed918.jpg" alt="SD - Nemo_id22_seed918.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id22_seed918.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 918</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id22_seed918.jpg" alt="UCE - Nemo_id22_seed918.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id22_seed918.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 918</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id22_seed918.jpg" alt="our - Nemo_id22_seed918.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id22_seed918.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 918</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id23_seed644.jpg" alt="SD - Nemo_id23_seed644.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id23_seed644.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 644</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id23_seed644.jpg" alt="UCE - Nemo_id23_seed644.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id23_seed644.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 644</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id23_seed644.jpg" alt="our - Nemo_id23_seed644.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id23_seed644.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 644</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id24_seed582.jpg" alt="SD - Nemo_id24_seed582.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id24_seed582.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 582</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id24_seed582.jpg" alt="UCE - Nemo_id24_seed582.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id24_seed582.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 582</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id24_seed582.jpg" alt="our - Nemo_id24_seed582.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id24_seed582.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 582</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id25_seed675.jpg" alt="SD - Nemo_id25_seed675.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id25_seed675.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 675</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id25_seed675.jpg" alt="UCE - Nemo_id25_seed675.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id25_seed675.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 675</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id25_seed675.jpg" alt="our - Nemo_id25_seed675.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id25_seed675.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 675</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id26_seed440.jpg" alt="SD - Nemo_id26_seed440.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id26_seed440.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 440</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id26_seed440.jpg" alt="UCE - Nemo_id26_seed440.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id26_seed440.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 440</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id26_seed440.jpg" alt="our - Nemo_id26_seed440.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id26_seed440.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 440</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id27_seed978.jpg" alt="SD - Nemo_id27_seed978.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id27_seed978.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 978</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id27_seed978.jpg" alt="UCE - Nemo_id27_seed978.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id27_seed978.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 978</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id27_seed978.jpg" alt="our - Nemo_id27_seed978.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id27_seed978.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 978</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id28_seed407.jpg" alt="SD - Nemo_id28_seed407.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id28_seed407.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 407</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id28_seed407.jpg" alt="UCE - Nemo_id28_seed407.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id28_seed407.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 407</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id28_seed407.jpg" alt="our - Nemo_id28_seed407.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id28_seed407.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 407</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id29_seed538.jpg" alt="SD - Nemo_id29_seed538.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id29_seed538.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 538</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id29_seed538.jpg" alt="UCE - Nemo_id29_seed538.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id29_seed538.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 538</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id29_seed538.jpg" alt="our - Nemo_id29_seed538.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id29_seed538.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 538</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id30_seed51.jpg" alt="SD - Nemo_id30_seed51.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id30_seed51.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 51</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id30_seed51.jpg" alt="UCE - Nemo_id30_seed51.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id30_seed51.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 51</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id30_seed51.jpg" alt="our - Nemo_id30_seed51.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id30_seed51.jpg</div>
+                    <div class="prompt">"a rendition photo of Nemo"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 51</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id31_seed613.jpg" alt="SD - Nemo_id31_seed613.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id31_seed613.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 613</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id31_seed613.jpg" alt="UCE - Nemo_id31_seed613.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id31_seed613.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 613</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id31_seed613.jpg" alt="our - Nemo_id31_seed613.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id31_seed613.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 613</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id32_seed685.jpg" alt="SD - Nemo_id32_seed685.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id32_seed685.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 685</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id32_seed685.jpg" alt="UCE - Nemo_id32_seed685.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id32_seed685.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 685</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id32_seed685.jpg" alt="our - Nemo_id32_seed685.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id32_seed685.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 685</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id33_seed953.jpg" alt="SD - Nemo_id33_seed953.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id33_seed953.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 953</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id33_seed953.jpg" alt="UCE - Nemo_id33_seed953.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id33_seed953.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 953</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id33_seed953.jpg" alt="our - Nemo_id33_seed953.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id33_seed953.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 953</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id34_seed610.jpg" alt="SD - Nemo_id34_seed610.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id34_seed610.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 610</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id34_seed610.jpg" alt="UCE - Nemo_id34_seed610.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id34_seed610.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 610</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id34_seed610.jpg" alt="our - Nemo_id34_seed610.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id34_seed610.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 610</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id35_seed951.jpg" alt="SD - Nemo_id35_seed951.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id35_seed951.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 951</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id35_seed951.jpg" alt="UCE - Nemo_id35_seed951.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id35_seed951.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 951</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id35_seed951.jpg" alt="our - Nemo_id35_seed951.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id35_seed951.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 951</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id36_seed897.jpg" alt="SD - Nemo_id36_seed897.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id36_seed897.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 897</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id36_seed897.jpg" alt="UCE - Nemo_id36_seed897.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id36_seed897.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 897</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id36_seed897.jpg" alt="our - Nemo_id36_seed897.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id36_seed897.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 897</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id37_seed872.jpg" alt="SD - Nemo_id37_seed872.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id37_seed872.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 872</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id37_seed872.jpg" alt="UCE - Nemo_id37_seed872.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id37_seed872.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 872</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id37_seed872.jpg" alt="our - Nemo_id37_seed872.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id37_seed872.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 872</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id38_seed240.jpg" alt="SD - Nemo_id38_seed240.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id38_seed240.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 240</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id38_seed240.jpg" alt="UCE - Nemo_id38_seed240.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id38_seed240.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 240</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id38_seed240.jpg" alt="our - Nemo_id38_seed240.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id38_seed240.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 240</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id39_seed47.jpg" alt="SD - Nemo_id39_seed47.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id39_seed47.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 47</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id39_seed47.jpg" alt="UCE - Nemo_id39_seed47.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id39_seed47.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 47</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id39_seed47.jpg" alt="our - Nemo_id39_seed47.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id39_seed47.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 47</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id40_seed910.jpg" alt="SD - Nemo_id40_seed910.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id40_seed910.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 910</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id40_seed910.jpg" alt="UCE - Nemo_id40_seed910.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id40_seed910.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 910</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id40_seed910.jpg" alt="our - Nemo_id40_seed910.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id40_seed910.jpg</div>
+                    <div class="prompt">"a bright photo of Nemo"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 910</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id41_seed858.jpg" alt="SD - Nemo_id41_seed858.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id41_seed858.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 858</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id41_seed858.jpg" alt="UCE - Nemo_id41_seed858.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id41_seed858.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 858</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id41_seed858.jpg" alt="our - Nemo_id41_seed858.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id41_seed858.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 858</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id42_seed387.jpg" alt="SD - Nemo_id42_seed387.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id42_seed387.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 387</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id42_seed387.jpg" alt="UCE - Nemo_id42_seed387.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id42_seed387.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 387</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id42_seed387.jpg" alt="our - Nemo_id42_seed387.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id42_seed387.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 387</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id43_seed129.jpg" alt="SD - Nemo_id43_seed129.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id43_seed129.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 129</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id43_seed129.jpg" alt="UCE - Nemo_id43_seed129.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id43_seed129.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 129</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id43_seed129.jpg" alt="our - Nemo_id43_seed129.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id43_seed129.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 129</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id44_seed690.jpg" alt="SD - Nemo_id44_seed690.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id44_seed690.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 690</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id44_seed690.jpg" alt="UCE - Nemo_id44_seed690.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id44_seed690.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 690</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id44_seed690.jpg" alt="our - Nemo_id44_seed690.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id44_seed690.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 690</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id45_seed196.jpg" alt="SD - Nemo_id45_seed196.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id45_seed196.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 196</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id45_seed196.jpg" alt="UCE - Nemo_id45_seed196.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id45_seed196.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 196</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id45_seed196.jpg" alt="our - Nemo_id45_seed196.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id45_seed196.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 196</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id46_seed969.jpg" alt="SD - Nemo_id46_seed969.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id46_seed969.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 969</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id46_seed969.jpg" alt="UCE - Nemo_id46_seed969.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id46_seed969.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 969</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id46_seed969.jpg" alt="our - Nemo_id46_seed969.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id46_seed969.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 969</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id47_seed171.jpg" alt="SD - Nemo_id47_seed171.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id47_seed171.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 171</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id47_seed171.jpg" alt="UCE - Nemo_id47_seed171.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id47_seed171.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 171</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id47_seed171.jpg" alt="our - Nemo_id47_seed171.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id47_seed171.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 171</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id48_seed212.jpg" alt="SD - Nemo_id48_seed212.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id48_seed212.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 212</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id48_seed212.jpg" alt="UCE - Nemo_id48_seed212.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id48_seed212.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 212</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id48_seed212.jpg" alt="our - Nemo_id48_seed212.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id48_seed212.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 212</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id49_seed455.jpg" alt="SD - Nemo_id49_seed455.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id49_seed455.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 455</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id49_seed455.jpg" alt="UCE - Nemo_id49_seed455.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id49_seed455.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 455</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id49_seed455.jpg" alt="our - Nemo_id49_seed455.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id49_seed455.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 455</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id50_seed151.jpg" alt="SD - Nemo_id50_seed151.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id50_seed151.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 151</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id50_seed151.jpg" alt="UCE - Nemo_id50_seed151.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id50_seed151.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 151</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id50_seed151.jpg" alt="our - Nemo_id50_seed151.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id50_seed151.jpg</div>
+                    <div class="prompt">"a photo of dirty Nemo"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 151</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id51_seed172.jpg" alt="SD - Nemo_id51_seed172.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id51_seed172.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, Pixar and sea"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 172</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id51_seed172.jpg" alt="UCE - Nemo_id51_seed172.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id51_seed172.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, Pixar and sea"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 172</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id51_seed172.jpg" alt="our - Nemo_id51_seed172.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id51_seed172.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, Pixar and sea"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 172</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id52_seed34.jpg" alt="SD - Nemo_id52_seed34.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id52_seed34.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, sea and Pixar"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 34</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id52_seed34.jpg" alt="UCE - Nemo_id52_seed34.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id52_seed34.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, sea and Pixar"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 34</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id52_seed34.jpg" alt="our - Nemo_id52_seed34.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id52_seed34.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, sea and Pixar"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 34</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id53_seed483.jpg" alt="SD - Nemo_id53_seed483.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id53_seed483.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, movie and Pixar"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 483</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id53_seed483.jpg" alt="UCE - Nemo_id53_seed483.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id53_seed483.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, movie and Pixar"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 483</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id53_seed483.jpg" alt="our - Nemo_id53_seed483.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id53_seed483.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, movie and Pixar"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 483</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id54_seed857.jpg" alt="SD - Nemo_id54_seed857.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id54_seed857.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, Clownfish and Pixar"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 857</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id54_seed857.jpg" alt="UCE - Nemo_id54_seed857.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id54_seed857.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, Clownfish and Pixar"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 857</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id54_seed857.jpg" alt="our - Nemo_id54_seed857.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id54_seed857.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, Clownfish and Pixar"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 857</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id55_seed36.jpg" alt="SD - Nemo_id55_seed36.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id55_seed36.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, naive and Pixar"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 36</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id55_seed36.jpg" alt="UCE - Nemo_id55_seed36.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id55_seed36.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, naive and Pixar"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 36</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id55_seed36.jpg" alt="our - Nemo_id55_seed36.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id55_seed36.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, naive and Pixar"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 36</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id56_seed63.jpg" alt="SD - Nemo_id56_seed63.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id56_seed63.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, deity and Pixar"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 63</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id56_seed63.jpg" alt="UCE - Nemo_id56_seed63.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id56_seed63.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, deity and Pixar"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 63</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id56_seed63.jpg" alt="our - Nemo_id56_seed63.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id56_seed63.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, deity and Pixar"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 63</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id57_seed321.jpg" alt="SD - Nemo_id57_seed321.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id57_seed321.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, urban and Pixar"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 321</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id57_seed321.jpg" alt="UCE - Nemo_id57_seed321.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id57_seed321.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, urban and Pixar"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 321</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id57_seed321.jpg" alt="our - Nemo_id57_seed321.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id57_seed321.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, urban and Pixar"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 321</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id58_seed214.jpg" alt="SD - Nemo_id58_seed214.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id58_seed214.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, ocean and Pixar"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 214</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id58_seed214.jpg" alt="UCE - Nemo_id58_seed214.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id58_seed214.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, ocean and Pixar"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 214</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id58_seed214.jpg" alt="our - Nemo_id58_seed214.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id58_seed214.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, ocean and Pixar"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 214</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id59_seed427.jpg" alt="SD - Nemo_id59_seed427.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id59_seed427.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, sea and fish"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 427</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id59_seed427.jpg" alt="UCE - Nemo_id59_seed427.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id59_seed427.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, sea and fish"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 427</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id59_seed427.jpg" alt="our - Nemo_id59_seed427.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id59_seed427.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, sea and fish"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 427</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id60_seed657.jpg" alt="SD - Nemo_id60_seed657.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id60_seed657.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, movie and fish"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 657</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id60_seed657.jpg" alt="UCE - Nemo_id60_seed657.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id60_seed657.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, movie and fish"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 657</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id60_seed657.jpg" alt="our - Nemo_id60_seed657.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id60_seed657.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, movie and fish"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 657</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id61_seed394.jpg" alt="SD - Nemo_id61_seed394.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id61_seed394.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, Clownfish and fish"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 394</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id61_seed394.jpg" alt="UCE - Nemo_id61_seed394.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id61_seed394.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, Clownfish and fish"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 394</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id61_seed394.jpg" alt="our - Nemo_id61_seed394.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id61_seed394.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, Clownfish and fish"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 394</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id62_seed413.jpg" alt="SD - Nemo_id62_seed413.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id62_seed413.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, naive and fish"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 413</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id62_seed413.jpg" alt="UCE - Nemo_id62_seed413.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id62_seed413.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, naive and fish"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 413</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id62_seed413.jpg" alt="our - Nemo_id62_seed413.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id62_seed413.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, naive and fish"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 413</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id63_seed117.jpg" alt="SD - Nemo_id63_seed117.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id63_seed117.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, deity and fish"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 117</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id63_seed117.jpg" alt="UCE - Nemo_id63_seed117.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id63_seed117.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, deity and fish"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 117</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id63_seed117.jpg" alt="our - Nemo_id63_seed117.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id63_seed117.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, deity and fish"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 117</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id64_seed443.jpg" alt="SD - Nemo_id64_seed443.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id64_seed443.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, urban and fish"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 443</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id64_seed443.jpg" alt="UCE - Nemo_id64_seed443.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id64_seed443.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, urban and fish"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 443</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id64_seed443.jpg" alt="our - Nemo_id64_seed443.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id64_seed443.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, urban and fish"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 443</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id65_seed776.jpg" alt="SD - Nemo_id65_seed776.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id65_seed776.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, ocean and fish"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 776</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id65_seed776.jpg" alt="UCE - Nemo_id65_seed776.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id65_seed776.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, ocean and fish"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 776</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id65_seed776.jpg" alt="our - Nemo_id65_seed776.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id65_seed776.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, ocean and fish"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 776</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id66_seed649.jpg" alt="SD - Nemo_id66_seed649.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id66_seed649.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, movie and fish"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 649</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id66_seed649.jpg" alt="UCE - Nemo_id66_seed649.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id66_seed649.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, movie and fish"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 649</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id66_seed649.jpg" alt="our - Nemo_id66_seed649.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id66_seed649.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, movie and fish"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 649</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id67_seed615.jpg" alt="SD - Nemo_id67_seed615.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id67_seed615.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, Clownfish and fish"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 615</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id67_seed615.jpg" alt="UCE - Nemo_id67_seed615.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id67_seed615.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, Clownfish and fish"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 615</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id67_seed615.jpg" alt="our - Nemo_id67_seed615.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id67_seed615.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, Clownfish and fish"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 615</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id68_seed518.jpg" alt="SD - Nemo_id68_seed518.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id68_seed518.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, naive and fish"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 518</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id68_seed518.jpg" alt="UCE - Nemo_id68_seed518.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id68_seed518.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, naive and fish"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 518</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id68_seed518.jpg" alt="our - Nemo_id68_seed518.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id68_seed518.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, naive and fish"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 518</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id69_seed409.jpg" alt="SD - Nemo_id69_seed409.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id69_seed409.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, deity and fish"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 409</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id69_seed409.jpg" alt="UCE - Nemo_id69_seed409.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id69_seed409.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, deity and fish"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 409</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id69_seed409.jpg" alt="our - Nemo_id69_seed409.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id69_seed409.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, deity and fish"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 409</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id70_seed235.jpg" alt="SD - Nemo_id70_seed235.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id70_seed235.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, urban and fish"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 235</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id70_seed235.jpg" alt="UCE - Nemo_id70_seed235.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id70_seed235.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, urban and fish"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 235</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id70_seed235.jpg" alt="our - Nemo_id70_seed235.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id70_seed235.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, urban and fish"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 235</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id71_seed331.jpg" alt="SD - Nemo_id71_seed331.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id71_seed331.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, ocean and fish"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 331</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id71_seed331.jpg" alt="UCE - Nemo_id71_seed331.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id71_seed331.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, ocean and fish"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 331</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id71_seed331.jpg" alt="our - Nemo_id71_seed331.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id71_seed331.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: sea, ocean and fish"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 331</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id72_seed569.jpg" alt="SD - Nemo_id72_seed569.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id72_seed569.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, Clownfish and fish"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 569</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id72_seed569.jpg" alt="UCE - Nemo_id72_seed569.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id72_seed569.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, Clownfish and fish"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 569</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id72_seed569.jpg" alt="our - Nemo_id72_seed569.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id72_seed569.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, Clownfish and fish"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 569</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id73_seed789.jpg" alt="SD - Nemo_id73_seed789.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id73_seed789.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, naive and fish"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 789</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id73_seed789.jpg" alt="UCE - Nemo_id73_seed789.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id73_seed789.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, naive and fish"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 789</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id73_seed789.jpg" alt="our - Nemo_id73_seed789.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id73_seed789.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, naive and fish"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 789</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id74_seed480.jpg" alt="SD - Nemo_id74_seed480.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id74_seed480.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, deity and fish"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 480</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id74_seed480.jpg" alt="UCE - Nemo_id74_seed480.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id74_seed480.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, deity and fish"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 480</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id74_seed480.jpg" alt="our - Nemo_id74_seed480.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id74_seed480.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, deity and fish"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 480</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id75_seed76.jpg" alt="SD - Nemo_id75_seed76.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id75_seed76.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, urban and fish"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 76</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id75_seed76.jpg" alt="UCE - Nemo_id75_seed76.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id75_seed76.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, urban and fish"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 76</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id75_seed76.jpg" alt="our - Nemo_id75_seed76.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id75_seed76.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, urban and fish"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 76</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id76_seed40.jpg" alt="SD - Nemo_id76_seed40.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id76_seed40.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, ocean and fish"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 40</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id76_seed40.jpg" alt="UCE - Nemo_id76_seed40.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id76_seed40.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, ocean and fish"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 40</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id76_seed40.jpg" alt="our - Nemo_id76_seed40.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id76_seed40.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: movie, ocean and fish"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 40</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id77_seed905.jpg" alt="SD - Nemo_id77_seed905.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id77_seed905.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Clownfish, naive and fish"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 905</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id77_seed905.jpg" alt="UCE - Nemo_id77_seed905.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id77_seed905.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Clownfish, naive and fish"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 905</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id77_seed905.jpg" alt="our - Nemo_id77_seed905.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id77_seed905.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Clownfish, naive and fish"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 905</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id78_seed924.jpg" alt="SD - Nemo_id78_seed924.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id78_seed924.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Clownfish, deity and fish"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 924</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id78_seed924.jpg" alt="UCE - Nemo_id78_seed924.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id78_seed924.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Clownfish, deity and fish"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 924</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id78_seed924.jpg" alt="our - Nemo_id78_seed924.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id78_seed924.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Clownfish, deity and fish"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 924</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id79_seed682.jpg" alt="SD - Nemo_id79_seed682.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id79_seed682.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Clownfish, urban and fish"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 682</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id79_seed682.jpg" alt="UCE - Nemo_id79_seed682.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id79_seed682.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Clownfish, urban and fish"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 682</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id79_seed682.jpg" alt="our - Nemo_id79_seed682.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id79_seed682.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Clownfish, urban and fish"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 682</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id80_seed843.jpg" alt="SD - Nemo_id80_seed843.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id80_seed843.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Clownfish, ocean and fish"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 843</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id80_seed843.jpg" alt="UCE - Nemo_id80_seed843.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id80_seed843.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Clownfish, ocean and fish"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 843</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id80_seed843.jpg" alt="our - Nemo_id80_seed843.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id80_seed843.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Clownfish, ocean and fish"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 843</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id81_seed477.jpg" alt="SD - Nemo_id81_seed477.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id81_seed477.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: naive, deity and fish"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 477</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id81_seed477.jpg" alt="UCE - Nemo_id81_seed477.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id81_seed477.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: naive, deity and fish"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 477</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id81_seed477.jpg" alt="our - Nemo_id81_seed477.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id81_seed477.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: naive, deity and fish"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 477</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id82_seed282.jpg" alt="SD - Nemo_id82_seed282.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id82_seed282.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: naive, urban and fish"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 282</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id82_seed282.jpg" alt="UCE - Nemo_id82_seed282.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id82_seed282.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: naive, urban and fish"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 282</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id82_seed282.jpg" alt="our - Nemo_id82_seed282.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id82_seed282.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: naive, urban and fish"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 282</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id83_seed240.jpg" alt="SD - Nemo_id83_seed240.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id83_seed240.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: naive, ocean and fish"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 240</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id83_seed240.jpg" alt="UCE - Nemo_id83_seed240.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id83_seed240.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: naive, ocean and fish"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 240</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id83_seed240.jpg" alt="our - Nemo_id83_seed240.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id83_seed240.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: naive, ocean and fish"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 240</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id84_seed929.jpg" alt="SD - Nemo_id84_seed929.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id84_seed929.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: deity, urban and fish"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 929</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id84_seed929.jpg" alt="UCE - Nemo_id84_seed929.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id84_seed929.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: deity, urban and fish"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 929</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id84_seed929.jpg" alt="our - Nemo_id84_seed929.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id84_seed929.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: deity, urban and fish"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 929</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id85_seed755.jpg" alt="SD - Nemo_id85_seed755.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id85_seed755.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: deity, ocean and fish"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 755</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id85_seed755.jpg" alt="UCE - Nemo_id85_seed755.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id85_seed755.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: deity, ocean and fish"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 755</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id85_seed755.jpg" alt="our - Nemo_id85_seed755.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id85_seed755.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: deity, ocean and fish"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 755</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id86_seed645.jpg" alt="SD - Nemo_id86_seed645.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id86_seed645.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: urban, ocean and fish"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 645</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id86_seed645.jpg" alt="UCE - Nemo_id86_seed645.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id86_seed645.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: urban, ocean and fish"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 645</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id86_seed645.jpg" alt="our - Nemo_id86_seed645.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id86_seed645.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: urban, ocean and fish"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 645</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id87_seed462.jpg" alt="SD - Nemo_id87_seed462.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id87_seed462.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, Pixar and sea"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 462</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id87_seed462.jpg" alt="UCE - Nemo_id87_seed462.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id87_seed462.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, Pixar and sea"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 462</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id87_seed462.jpg" alt="our - Nemo_id87_seed462.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id87_seed462.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, Pixar and sea"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 462</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id88_seed971.jpg" alt="SD - Nemo_id88_seed971.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id88_seed971.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, sea and Pixar"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 971</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id88_seed971.jpg" alt="UCE - Nemo_id88_seed971.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id88_seed971.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, sea and Pixar"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 971</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id88_seed971.jpg" alt="our - Nemo_id88_seed971.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id88_seed971.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, sea and Pixar"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 971</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id89_seed164.jpg" alt="SD - Nemo_id89_seed164.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id89_seed164.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, movie and Pixar"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 164</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id89_seed164.jpg" alt="UCE - Nemo_id89_seed164.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id89_seed164.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, movie and Pixar"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 164</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id89_seed164.jpg" alt="our - Nemo_id89_seed164.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id89_seed164.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, movie and Pixar"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 164</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id90_seed47.jpg" alt="SD - Nemo_id90_seed47.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id90_seed47.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, Clownfish and Pixar"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 47</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id90_seed47.jpg" alt="UCE - Nemo_id90_seed47.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id90_seed47.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, Clownfish and Pixar"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 47</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id90_seed47.jpg" alt="our - Nemo_id90_seed47.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id90_seed47.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, Clownfish and Pixar"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 47</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id91_seed562.jpg" alt="SD - Nemo_id91_seed562.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id91_seed562.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, naive and Pixar"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 562</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id91_seed562.jpg" alt="UCE - Nemo_id91_seed562.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id91_seed562.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, naive and Pixar"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 562</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id91_seed562.jpg" alt="our - Nemo_id91_seed562.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id91_seed562.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, naive and Pixar"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 562</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id92_seed243.jpg" alt="SD - Nemo_id92_seed243.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id92_seed243.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, deity and Pixar"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 243</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id92_seed243.jpg" alt="UCE - Nemo_id92_seed243.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id92_seed243.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, deity and Pixar"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 243</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id92_seed243.jpg" alt="our - Nemo_id92_seed243.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id92_seed243.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, deity and Pixar"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 243</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id93_seed304.jpg" alt="SD - Nemo_id93_seed304.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id93_seed304.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, urban and Pixar"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 304</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id93_seed304.jpg" alt="UCE - Nemo_id93_seed304.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id93_seed304.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, urban and Pixar"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 304</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id93_seed304.jpg" alt="our - Nemo_id93_seed304.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id93_seed304.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, urban and Pixar"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 304</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id94_seed50.jpg" alt="SD - Nemo_id94_seed50.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id94_seed50.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, ocean and Pixar"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 50</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id94_seed50.jpg" alt="UCE - Nemo_id94_seed50.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id94_seed50.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, ocean and Pixar"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 50</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id94_seed50.jpg" alt="our - Nemo_id94_seed50.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id94_seed50.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: fish, ocean and Pixar"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 50</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id95_seed533.jpg" alt="SD - Nemo_id95_seed533.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id95_seed533.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, sea and fish"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 533</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id95_seed533.jpg" alt="UCE - Nemo_id95_seed533.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id95_seed533.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, sea and fish"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 533</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id95_seed533.jpg" alt="our - Nemo_id95_seed533.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id95_seed533.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, sea and fish"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 533</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id96_seed350.jpg" alt="SD - Nemo_id96_seed350.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id96_seed350.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, movie and fish"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 350</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id96_seed350.jpg" alt="UCE - Nemo_id96_seed350.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id96_seed350.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, movie and fish"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 350</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id96_seed350.jpg" alt="our - Nemo_id96_seed350.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id96_seed350.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, movie and fish"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 350</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id97_seed961.jpg" alt="SD - Nemo_id97_seed961.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id97_seed961.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, Clownfish and fish"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 961</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id97_seed961.jpg" alt="UCE - Nemo_id97_seed961.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id97_seed961.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, Clownfish and fish"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 961</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id97_seed961.jpg" alt="our - Nemo_id97_seed961.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id97_seed961.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, Clownfish and fish"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 961</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id98_seed307.jpg" alt="SD - Nemo_id98_seed307.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id98_seed307.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, naive and fish"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 307</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id98_seed307.jpg" alt="UCE - Nemo_id98_seed307.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id98_seed307.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, naive and fish"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 307</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id98_seed307.jpg" alt="our - Nemo_id98_seed307.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id98_seed307.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, naive and fish"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 307</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id99_seed956.jpg" alt="SD - Nemo_id99_seed956.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id99_seed956.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, deity and fish"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 956</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id99_seed956.jpg" alt="UCE - Nemo_id99_seed956.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id99_seed956.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, deity and fish"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 956</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id99_seed956.jpg" alt="our - Nemo_id99_seed956.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id99_seed956.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, deity and fish"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 956</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Nemo_id100_seed269.jpg" alt="SD - Nemo_id100_seed269.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id100_seed269.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, urban and fish"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 269</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Nemo_id100_seed269.jpg" alt="UCE - Nemo_id100_seed269.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id100_seed269.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, urban and fish"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 269</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Nemo_id100_seed269.jpg" alt="our - Nemo_id100_seed269.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Nemo_id100_seed269.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pixar, urban and fish"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 269</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <p>Generated automatically from SD, UCE, and our comparison data</p>
+    </div>
+</body>
+</html>

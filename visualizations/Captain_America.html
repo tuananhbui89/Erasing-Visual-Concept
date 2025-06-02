@@ -1,0 +1,3207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captain America - SD vs UCE vs our Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header .concept-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .stats {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .image-trio {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-container h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .image-container.sd h3 {
+            color: #27ae60;
+        }
+        .image-container.uce h3 {
+            color: #e74c3c;
+        }
+        .image-container.our h3 {
+            color: #9b59b6;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 350px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+        }
+        .image-info {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .image-info .filename {
+            font-size: 14px;
+            color: #666;
+            word-break: break-all;
+            margin-bottom: 5px;
+        }
+        .image-info .prompt {
+            font-size: 13px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        .image-info .details {
+            font-size: 12px;
+            color: #888;
+        }
+        @media (max-width: 1200px) {
+            .image-trio {
+                grid-template-columns: 1fr 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .image-trio {
+                grid-template-columns: 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: auto;
+                max-width: 100%;
+            }
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            color: #666;
+        }
+        .method-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .legend-color.sd { background-color: #27ae60; }
+        .legend-color.uce { background-color: #e74c3c; }
+        .legend-color.our { background-color: #9b59b6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SD vs UCE vs our Image Comparison</h1>
+        <div class="concept-name">Captain America</div>
+        <div class="stats">
+            <strong>100 matching image triplets found</strong>
+        </div>
+        <div class="method-legend">
+            <div class="legend-item">
+                <div class="legend-color sd"></div>
+                <span>SD (Original)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color uce"></div>
+                <span>UCE</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color our"></div>
+                <span>Our</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="../index.html" class="nav-button">← Back to All Concepts</a>
+    </div>
+    
+    <div class="image-grid">
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id1_seed971.jpg" alt="SD - Captain America_id1_seed971.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id1_seed971.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 971</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id1_seed971.jpg" alt="UCE - Captain America_id1_seed971.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id1_seed971.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 971</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id1_seed971.jpg" alt="our - Captain America_id1_seed971.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id1_seed971.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 971</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id2_seed693.jpg" alt="SD - Captain America_id2_seed693.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id2_seed693.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 693</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id2_seed693.jpg" alt="UCE - Captain America_id2_seed693.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id2_seed693.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 693</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id2_seed693.jpg" alt="our - Captain America_id2_seed693.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id2_seed693.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 693</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id3_seed342.jpg" alt="SD - Captain America_id3_seed342.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id3_seed342.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 342</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id3_seed342.jpg" alt="UCE - Captain America_id3_seed342.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id3_seed342.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 342</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id3_seed342.jpg" alt="our - Captain America_id3_seed342.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id3_seed342.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 342</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id4_seed471.jpg" alt="SD - Captain America_id4_seed471.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id4_seed471.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 471</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id4_seed471.jpg" alt="UCE - Captain America_id4_seed471.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id4_seed471.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 471</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id4_seed471.jpg" alt="our - Captain America_id4_seed471.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id4_seed471.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 471</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id5_seed774.jpg" alt="SD - Captain America_id5_seed774.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id5_seed774.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 774</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id5_seed774.jpg" alt="UCE - Captain America_id5_seed774.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id5_seed774.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 774</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id5_seed774.jpg" alt="our - Captain America_id5_seed774.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id5_seed774.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 774</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id6_seed479.jpg" alt="SD - Captain America_id6_seed479.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id6_seed479.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 479</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id6_seed479.jpg" alt="UCE - Captain America_id6_seed479.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id6_seed479.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 479</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id6_seed479.jpg" alt="our - Captain America_id6_seed479.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id6_seed479.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 479</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id7_seed559.jpg" alt="SD - Captain America_id7_seed559.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id7_seed559.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 559</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id7_seed559.jpg" alt="UCE - Captain America_id7_seed559.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id7_seed559.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 559</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id7_seed559.jpg" alt="our - Captain America_id7_seed559.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id7_seed559.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 559</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id8_seed222.jpg" alt="SD - Captain America_id8_seed222.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id8_seed222.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 222</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id8_seed222.jpg" alt="UCE - Captain America_id8_seed222.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id8_seed222.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 222</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id8_seed222.jpg" alt="our - Captain America_id8_seed222.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id8_seed222.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 222</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id9_seed528.jpg" alt="SD - Captain America_id9_seed528.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id9_seed528.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 528</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id9_seed528.jpg" alt="UCE - Captain America_id9_seed528.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id9_seed528.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 528</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id9_seed528.jpg" alt="our - Captain America_id9_seed528.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id9_seed528.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 528</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id10_seed22.jpg" alt="SD - Captain America_id10_seed22.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id10_seed22.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 22</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id10_seed22.jpg" alt="UCE - Captain America_id10_seed22.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id10_seed22.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 22</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id10_seed22.jpg" alt="our - Captain America_id10_seed22.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id10_seed22.jpg</div>
+                    <div class="prompt">"a photo of Captain America"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 22</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id11_seed731.jpg" alt="SD - Captain America_id11_seed731.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id11_seed731.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 731</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id11_seed731.jpg" alt="UCE - Captain America_id11_seed731.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id11_seed731.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 731</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id11_seed731.jpg" alt="our - Captain America_id11_seed731.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id11_seed731.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 731</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id12_seed240.jpg" alt="SD - Captain America_id12_seed240.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id12_seed240.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 240</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id12_seed240.jpg" alt="UCE - Captain America_id12_seed240.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id12_seed240.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 240</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id12_seed240.jpg" alt="our - Captain America_id12_seed240.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id12_seed240.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 240</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id13_seed942.jpg" alt="SD - Captain America_id13_seed942.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id13_seed942.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 942</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id13_seed942.jpg" alt="UCE - Captain America_id13_seed942.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id13_seed942.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 942</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id13_seed942.jpg" alt="our - Captain America_id13_seed942.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id13_seed942.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 942</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id14_seed969.jpg" alt="SD - Captain America_id14_seed969.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id14_seed969.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 969</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id14_seed969.jpg" alt="UCE - Captain America_id14_seed969.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id14_seed969.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 969</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id14_seed969.jpg" alt="our - Captain America_id14_seed969.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id14_seed969.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 969</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id15_seed716.jpg" alt="SD - Captain America_id15_seed716.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id15_seed716.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 716</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id15_seed716.jpg" alt="UCE - Captain America_id15_seed716.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id15_seed716.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 716</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id15_seed716.jpg" alt="our - Captain America_id15_seed716.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id15_seed716.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 716</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id16_seed372.jpg" alt="SD - Captain America_id16_seed372.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id16_seed372.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 372</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id16_seed372.jpg" alt="UCE - Captain America_id16_seed372.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id16_seed372.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 372</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id16_seed372.jpg" alt="our - Captain America_id16_seed372.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id16_seed372.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 372</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id17_seed704.jpg" alt="SD - Captain America_id17_seed704.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id17_seed704.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 704</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id17_seed704.jpg" alt="UCE - Captain America_id17_seed704.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id17_seed704.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 704</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id17_seed704.jpg" alt="our - Captain America_id17_seed704.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id17_seed704.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 704</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id18_seed64.jpg" alt="SD - Captain America_id18_seed64.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id18_seed64.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 64</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id18_seed64.jpg" alt="UCE - Captain America_id18_seed64.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id18_seed64.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 64</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id18_seed64.jpg" alt="our - Captain America_id18_seed64.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id18_seed64.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 64</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id19_seed609.jpg" alt="SD - Captain America_id19_seed609.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id19_seed609.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 609</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id19_seed609.jpg" alt="UCE - Captain America_id19_seed609.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id19_seed609.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 609</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id19_seed609.jpg" alt="our - Captain America_id19_seed609.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id19_seed609.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 609</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id20_seed819.jpg" alt="SD - Captain America_id20_seed819.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id20_seed819.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 819</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id20_seed819.jpg" alt="UCE - Captain America_id20_seed819.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id20_seed819.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 819</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id20_seed819.jpg" alt="our - Captain America_id20_seed819.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id20_seed819.jpg</div>
+                    <div class="prompt">"a dark photo of Captain America"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 819</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id21_seed830.jpg" alt="SD - Captain America_id21_seed830.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id21_seed830.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 830</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id21_seed830.jpg" alt="UCE - Captain America_id21_seed830.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id21_seed830.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 830</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id21_seed830.jpg" alt="our - Captain America_id21_seed830.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id21_seed830.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 830</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id22_seed969.jpg" alt="SD - Captain America_id22_seed969.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id22_seed969.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 969</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id22_seed969.jpg" alt="UCE - Captain America_id22_seed969.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id22_seed969.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 969</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id22_seed969.jpg" alt="our - Captain America_id22_seed969.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id22_seed969.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 969</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id23_seed581.jpg" alt="SD - Captain America_id23_seed581.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id23_seed581.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 581</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id23_seed581.jpg" alt="UCE - Captain America_id23_seed581.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id23_seed581.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 581</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id23_seed581.jpg" alt="our - Captain America_id23_seed581.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id23_seed581.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 581</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id24_seed476.jpg" alt="SD - Captain America_id24_seed476.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id24_seed476.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 476</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id24_seed476.jpg" alt="UCE - Captain America_id24_seed476.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id24_seed476.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 476</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id24_seed476.jpg" alt="our - Captain America_id24_seed476.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id24_seed476.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 476</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id25_seed351.jpg" alt="SD - Captain America_id25_seed351.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id25_seed351.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 351</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id25_seed351.jpg" alt="UCE - Captain America_id25_seed351.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id25_seed351.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 351</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id25_seed351.jpg" alt="our - Captain America_id25_seed351.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id25_seed351.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 351</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id26_seed126.jpg" alt="SD - Captain America_id26_seed126.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id26_seed126.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 126</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id26_seed126.jpg" alt="UCE - Captain America_id26_seed126.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id26_seed126.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 126</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id26_seed126.jpg" alt="our - Captain America_id26_seed126.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id26_seed126.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 126</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id27_seed415.jpg" alt="SD - Captain America_id27_seed415.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id27_seed415.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 415</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id27_seed415.jpg" alt="UCE - Captain America_id27_seed415.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id27_seed415.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 415</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id27_seed415.jpg" alt="our - Captain America_id27_seed415.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id27_seed415.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 415</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id28_seed955.jpg" alt="SD - Captain America_id28_seed955.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id28_seed955.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 955</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id28_seed955.jpg" alt="UCE - Captain America_id28_seed955.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id28_seed955.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 955</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id28_seed955.jpg" alt="our - Captain America_id28_seed955.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id28_seed955.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 955</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id29_seed291.jpg" alt="SD - Captain America_id29_seed291.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id29_seed291.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 291</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id29_seed291.jpg" alt="UCE - Captain America_id29_seed291.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id29_seed291.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 291</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id29_seed291.jpg" alt="our - Captain America_id29_seed291.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id29_seed291.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 291</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id30_seed106.jpg" alt="SD - Captain America_id30_seed106.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id30_seed106.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 106</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id30_seed106.jpg" alt="UCE - Captain America_id30_seed106.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id30_seed106.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 106</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id30_seed106.jpg" alt="our - Captain America_id30_seed106.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id30_seed106.jpg</div>
+                    <div class="prompt">"a rendition photo of Captain America"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 106</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id31_seed482.jpg" alt="SD - Captain America_id31_seed482.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id31_seed482.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 482</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id31_seed482.jpg" alt="UCE - Captain America_id31_seed482.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id31_seed482.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 482</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id31_seed482.jpg" alt="our - Captain America_id31_seed482.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id31_seed482.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 482</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id32_seed763.jpg" alt="SD - Captain America_id32_seed763.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id32_seed763.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 763</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id32_seed763.jpg" alt="UCE - Captain America_id32_seed763.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id32_seed763.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 763</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id32_seed763.jpg" alt="our - Captain America_id32_seed763.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id32_seed763.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 763</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id33_seed874.jpg" alt="SD - Captain America_id33_seed874.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id33_seed874.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 874</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id33_seed874.jpg" alt="UCE - Captain America_id33_seed874.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id33_seed874.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 874</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id33_seed874.jpg" alt="our - Captain America_id33_seed874.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id33_seed874.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 874</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id34_seed812.jpg" alt="SD - Captain America_id34_seed812.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id34_seed812.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 812</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id34_seed812.jpg" alt="UCE - Captain America_id34_seed812.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id34_seed812.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 812</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id34_seed812.jpg" alt="our - Captain America_id34_seed812.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id34_seed812.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 812</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id35_seed320.jpg" alt="SD - Captain America_id35_seed320.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id35_seed320.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 320</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id35_seed320.jpg" alt="UCE - Captain America_id35_seed320.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id35_seed320.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 320</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id35_seed320.jpg" alt="our - Captain America_id35_seed320.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id35_seed320.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 320</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id36_seed667.jpg" alt="SD - Captain America_id36_seed667.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id36_seed667.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 667</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id36_seed667.jpg" alt="UCE - Captain America_id36_seed667.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id36_seed667.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 667</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id36_seed667.jpg" alt="our - Captain America_id36_seed667.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id36_seed667.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 667</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id37_seed556.jpg" alt="SD - Captain America_id37_seed556.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id37_seed556.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 556</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id37_seed556.jpg" alt="UCE - Captain America_id37_seed556.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id37_seed556.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 556</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id37_seed556.jpg" alt="our - Captain America_id37_seed556.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id37_seed556.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 556</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id38_seed60.jpg" alt="SD - Captain America_id38_seed60.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id38_seed60.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 60</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id38_seed60.jpg" alt="UCE - Captain America_id38_seed60.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id38_seed60.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 60</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id38_seed60.jpg" alt="our - Captain America_id38_seed60.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id38_seed60.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 60</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id39_seed496.jpg" alt="SD - Captain America_id39_seed496.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id39_seed496.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 496</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id39_seed496.jpg" alt="UCE - Captain America_id39_seed496.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id39_seed496.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 496</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id39_seed496.jpg" alt="our - Captain America_id39_seed496.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id39_seed496.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 496</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id40_seed954.jpg" alt="SD - Captain America_id40_seed954.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id40_seed954.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 954</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id40_seed954.jpg" alt="UCE - Captain America_id40_seed954.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id40_seed954.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 954</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id40_seed954.jpg" alt="our - Captain America_id40_seed954.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id40_seed954.jpg</div>
+                    <div class="prompt">"a bright photo of Captain America"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 954</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id41_seed543.jpg" alt="SD - Captain America_id41_seed543.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id41_seed543.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 543</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id41_seed543.jpg" alt="UCE - Captain America_id41_seed543.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id41_seed543.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 543</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id41_seed543.jpg" alt="our - Captain America_id41_seed543.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id41_seed543.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 543</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id42_seed820.jpg" alt="SD - Captain America_id42_seed820.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id42_seed820.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 820</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id42_seed820.jpg" alt="UCE - Captain America_id42_seed820.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id42_seed820.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 820</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id42_seed820.jpg" alt="our - Captain America_id42_seed820.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id42_seed820.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 820</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id43_seed774.jpg" alt="SD - Captain America_id43_seed774.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id43_seed774.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 774</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id43_seed774.jpg" alt="UCE - Captain America_id43_seed774.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id43_seed774.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 774</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id43_seed774.jpg" alt="our - Captain America_id43_seed774.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id43_seed774.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 774</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id44_seed406.jpg" alt="SD - Captain America_id44_seed406.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id44_seed406.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 406</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id44_seed406.jpg" alt="UCE - Captain America_id44_seed406.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id44_seed406.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 406</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id44_seed406.jpg" alt="our - Captain America_id44_seed406.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id44_seed406.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 406</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id45_seed526.jpg" alt="SD - Captain America_id45_seed526.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id45_seed526.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 526</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id45_seed526.jpg" alt="UCE - Captain America_id45_seed526.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id45_seed526.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 526</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id45_seed526.jpg" alt="our - Captain America_id45_seed526.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id45_seed526.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 526</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id46_seed618.jpg" alt="SD - Captain America_id46_seed618.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id46_seed618.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 618</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id46_seed618.jpg" alt="UCE - Captain America_id46_seed618.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id46_seed618.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 618</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id46_seed618.jpg" alt="our - Captain America_id46_seed618.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id46_seed618.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 618</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id47_seed56.jpg" alt="SD - Captain America_id47_seed56.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id47_seed56.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 56</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id47_seed56.jpg" alt="UCE - Captain America_id47_seed56.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id47_seed56.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 56</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id47_seed56.jpg" alt="our - Captain America_id47_seed56.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id47_seed56.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 56</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id48_seed832.jpg" alt="SD - Captain America_id48_seed832.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id48_seed832.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 832</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id48_seed832.jpg" alt="UCE - Captain America_id48_seed832.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id48_seed832.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 832</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id48_seed832.jpg" alt="our - Captain America_id48_seed832.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id48_seed832.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 832</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id49_seed541.jpg" alt="SD - Captain America_id49_seed541.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id49_seed541.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 541</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id49_seed541.jpg" alt="UCE - Captain America_id49_seed541.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id49_seed541.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 541</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id49_seed541.jpg" alt="our - Captain America_id49_seed541.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id49_seed541.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 541</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id50_seed721.jpg" alt="SD - Captain America_id50_seed721.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id50_seed721.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 721</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id50_seed721.jpg" alt="UCE - Captain America_id50_seed721.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id50_seed721.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 721</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id50_seed721.jpg" alt="our - Captain America_id50_seed721.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id50_seed721.jpg</div>
+                    <div class="prompt">"a photo of dirty Captain America"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 721</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id51_seed87.jpg" alt="SD - Captain America_id51_seed87.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id51_seed87.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Shield and red"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 87</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id51_seed87.jpg" alt="UCE - Captain America_id51_seed87.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id51_seed87.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Shield and red"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 87</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id51_seed87.jpg" alt="our - Captain America_id51_seed87.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id51_seed87.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Shield and red"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 87</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id52_seed486.jpg" alt="SD - Captain America_id52_seed486.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id52_seed486.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, red and Shield"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 486</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id52_seed486.jpg" alt="UCE - Captain America_id52_seed486.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id52_seed486.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, red and Shield"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 486</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id52_seed486.jpg" alt="our - Captain America_id52_seed486.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id52_seed486.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, red and Shield"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 486</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id53_seed363.jpg" alt="SD - Captain America_id53_seed363.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id53_seed363.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, blue and Shield"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 363</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id53_seed363.jpg" alt="UCE - Captain America_id53_seed363.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id53_seed363.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, blue and Shield"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 363</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id53_seed363.jpg" alt="our - Captain America_id53_seed363.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id53_seed363.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, blue and Shield"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 363</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id54_seed815.jpg" alt="SD - Captain America_id54_seed815.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id54_seed815.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, white and Shield"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 815</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id54_seed815.jpg" alt="UCE - Captain America_id54_seed815.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id54_seed815.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, white and Shield"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 815</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id54_seed815.jpg" alt="our - Captain America_id54_seed815.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id54_seed815.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, white and Shield"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 815</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id55_seed200.jpg" alt="SD - Captain America_id55_seed200.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id55_seed200.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, captain and Shield"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 200</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id55_seed200.jpg" alt="UCE - Captain America_id55_seed200.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id55_seed200.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, captain and Shield"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 200</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id55_seed200.jpg" alt="our - Captain America_id55_seed200.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id55_seed200.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, captain and Shield"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 200</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id56_seed783.jpg" alt="SD - Captain America_id56_seed783.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id56_seed783.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Captain Hook and Shield"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 783</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id56_seed783.jpg" alt="UCE - Captain America_id56_seed783.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id56_seed783.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Captain Hook and Shield"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 783</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id56_seed783.jpg" alt="our - Captain America_id56_seed783.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id56_seed783.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Captain Hook and Shield"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 783</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id57_seed537.jpg" alt="SD - Captain America_id57_seed537.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id57_seed537.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, cap and Shield"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 537</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id57_seed537.jpg" alt="UCE - Captain America_id57_seed537.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id57_seed537.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, cap and Shield"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 537</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id57_seed537.jpg" alt="our - Captain America_id57_seed537.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id57_seed537.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, cap and Shield"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 537</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id58_seed993.jpg" alt="SD - Captain America_id58_seed993.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id58_seed993.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Marvel and Shield"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 993</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id58_seed993.jpg" alt="UCE - Captain America_id58_seed993.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id58_seed993.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Marvel and Shield"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 993</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id58_seed993.jpg" alt="our - Captain America_id58_seed993.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id58_seed993.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Marvel and Shield"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 993</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id59_seed420.jpg" alt="SD - Captain America_id59_seed420.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id59_seed420.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, red and soldier"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 420</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id59_seed420.jpg" alt="UCE - Captain America_id59_seed420.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id59_seed420.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, red and soldier"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 420</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id59_seed420.jpg" alt="our - Captain America_id59_seed420.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id59_seed420.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, red and soldier"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 420</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id60_seed656.jpg" alt="SD - Captain America_id60_seed656.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id60_seed656.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, blue and soldier"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 656</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id60_seed656.jpg" alt="UCE - Captain America_id60_seed656.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id60_seed656.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, blue and soldier"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 656</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id60_seed656.jpg" alt="our - Captain America_id60_seed656.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id60_seed656.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, blue and soldier"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 656</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id61_seed496.jpg" alt="SD - Captain America_id61_seed496.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id61_seed496.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, white and soldier"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 496</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id61_seed496.jpg" alt="UCE - Captain America_id61_seed496.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id61_seed496.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, white and soldier"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 496</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id61_seed496.jpg" alt="our - Captain America_id61_seed496.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id61_seed496.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, white and soldier"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 496</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id62_seed357.jpg" alt="SD - Captain America_id62_seed357.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id62_seed357.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, captain and soldier"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 357</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id62_seed357.jpg" alt="UCE - Captain America_id62_seed357.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id62_seed357.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, captain and soldier"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 357</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id62_seed357.jpg" alt="our - Captain America_id62_seed357.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id62_seed357.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, captain and soldier"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 357</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id63_seed54.jpg" alt="SD - Captain America_id63_seed54.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id63_seed54.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 54</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id63_seed54.jpg" alt="UCE - Captain America_id63_seed54.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id63_seed54.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 54</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id63_seed54.jpg" alt="our - Captain America_id63_seed54.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id63_seed54.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 54</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id64_seed635.jpg" alt="SD - Captain America_id64_seed635.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id64_seed635.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, cap and soldier"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 635</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id64_seed635.jpg" alt="UCE - Captain America_id64_seed635.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id64_seed635.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, cap and soldier"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 635</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id64_seed635.jpg" alt="our - Captain America_id64_seed635.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id64_seed635.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, cap and soldier"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 635</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id65_seed457.jpg" alt="SD - Captain America_id65_seed457.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id65_seed457.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 457</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id65_seed457.jpg" alt="UCE - Captain America_id65_seed457.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id65_seed457.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 457</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id65_seed457.jpg" alt="our - Captain America_id65_seed457.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id65_seed457.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 457</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id66_seed132.jpg" alt="SD - Captain America_id66_seed132.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id66_seed132.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, blue and soldier"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 132</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id66_seed132.jpg" alt="UCE - Captain America_id66_seed132.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id66_seed132.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, blue and soldier"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 132</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id66_seed132.jpg" alt="our - Captain America_id66_seed132.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id66_seed132.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, blue and soldier"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 132</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id67_seed973.jpg" alt="SD - Captain America_id67_seed973.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id67_seed973.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, white and soldier"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 973</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id67_seed973.jpg" alt="UCE - Captain America_id67_seed973.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id67_seed973.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, white and soldier"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 973</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id67_seed973.jpg" alt="our - Captain America_id67_seed973.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id67_seed973.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, white and soldier"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 973</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id68_seed472.jpg" alt="SD - Captain America_id68_seed472.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id68_seed472.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, captain and soldier"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 472</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id68_seed472.jpg" alt="UCE - Captain America_id68_seed472.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id68_seed472.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, captain and soldier"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 472</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id68_seed472.jpg" alt="our - Captain America_id68_seed472.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id68_seed472.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, captain and soldier"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 472</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id69_seed546.jpg" alt="SD - Captain America_id69_seed546.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id69_seed546.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 546</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id69_seed546.jpg" alt="UCE - Captain America_id69_seed546.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id69_seed546.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 546</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id69_seed546.jpg" alt="our - Captain America_id69_seed546.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id69_seed546.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 546</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id70_seed511.jpg" alt="SD - Captain America_id70_seed511.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id70_seed511.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, cap and soldier"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 511</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id70_seed511.jpg" alt="UCE - Captain America_id70_seed511.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id70_seed511.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, cap and soldier"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 511</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id70_seed511.jpg" alt="our - Captain America_id70_seed511.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id70_seed511.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, cap and soldier"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 511</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id71_seed656.jpg" alt="SD - Captain America_id71_seed656.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id71_seed656.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 656</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id71_seed656.jpg" alt="UCE - Captain America_id71_seed656.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id71_seed656.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 656</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id71_seed656.jpg" alt="our - Captain America_id71_seed656.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id71_seed656.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: red, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 656</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id72_seed640.jpg" alt="SD - Captain America_id72_seed640.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id72_seed640.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, white and soldier"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 640</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id72_seed640.jpg" alt="UCE - Captain America_id72_seed640.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id72_seed640.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, white and soldier"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 640</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id72_seed640.jpg" alt="our - Captain America_id72_seed640.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id72_seed640.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, white and soldier"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 640</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id73_seed450.jpg" alt="SD - Captain America_id73_seed450.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id73_seed450.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, captain and soldier"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 450</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id73_seed450.jpg" alt="UCE - Captain America_id73_seed450.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id73_seed450.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, captain and soldier"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 450</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id73_seed450.jpg" alt="our - Captain America_id73_seed450.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id73_seed450.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, captain and soldier"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 450</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id74_seed526.jpg" alt="SD - Captain America_id74_seed526.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id74_seed526.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 526</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id74_seed526.jpg" alt="UCE - Captain America_id74_seed526.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id74_seed526.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 526</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id74_seed526.jpg" alt="our - Captain America_id74_seed526.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id74_seed526.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 526</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id75_seed151.jpg" alt="SD - Captain America_id75_seed151.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id75_seed151.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, cap and soldier"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 151</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id75_seed151.jpg" alt="UCE - Captain America_id75_seed151.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id75_seed151.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, cap and soldier"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 151</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id75_seed151.jpg" alt="our - Captain America_id75_seed151.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id75_seed151.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, cap and soldier"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 151</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id76_seed866.jpg" alt="SD - Captain America_id76_seed866.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id76_seed866.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 866</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id76_seed866.jpg" alt="UCE - Captain America_id76_seed866.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id76_seed866.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 866</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id76_seed866.jpg" alt="our - Captain America_id76_seed866.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id76_seed866.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: blue, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 866</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id77_seed65.jpg" alt="SD - Captain America_id77_seed65.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id77_seed65.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: white, captain and soldier"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 65</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id77_seed65.jpg" alt="UCE - Captain America_id77_seed65.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id77_seed65.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: white, captain and soldier"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 65</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id77_seed65.jpg" alt="our - Captain America_id77_seed65.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id77_seed65.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: white, captain and soldier"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 65</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id78_seed106.jpg" alt="SD - Captain America_id78_seed106.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id78_seed106.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: white, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 106</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id78_seed106.jpg" alt="UCE - Captain America_id78_seed106.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id78_seed106.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: white, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 106</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id78_seed106.jpg" alt="our - Captain America_id78_seed106.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id78_seed106.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: white, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 106</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id79_seed509.jpg" alt="SD - Captain America_id79_seed509.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id79_seed509.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: white, cap and soldier"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 509</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id79_seed509.jpg" alt="UCE - Captain America_id79_seed509.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id79_seed509.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: white, cap and soldier"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 509</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id79_seed509.jpg" alt="our - Captain America_id79_seed509.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id79_seed509.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: white, cap and soldier"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 509</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id80_seed683.jpg" alt="SD - Captain America_id80_seed683.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id80_seed683.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: white, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 683</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id80_seed683.jpg" alt="UCE - Captain America_id80_seed683.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id80_seed683.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: white, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 683</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id80_seed683.jpg" alt="our - Captain America_id80_seed683.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id80_seed683.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: white, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 683</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id81_seed596.jpg" alt="SD - Captain America_id81_seed596.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id81_seed596.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: captain, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 596</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id81_seed596.jpg" alt="UCE - Captain America_id81_seed596.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id81_seed596.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: captain, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 596</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id81_seed596.jpg" alt="our - Captain America_id81_seed596.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id81_seed596.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: captain, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 596</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id82_seed923.jpg" alt="SD - Captain America_id82_seed923.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id82_seed923.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: captain, cap and soldier"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 923</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id82_seed923.jpg" alt="UCE - Captain America_id82_seed923.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id82_seed923.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: captain, cap and soldier"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 923</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id82_seed923.jpg" alt="our - Captain America_id82_seed923.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id82_seed923.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: captain, cap and soldier"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 923</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id83_seed225.jpg" alt="SD - Captain America_id83_seed225.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id83_seed225.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: captain, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 225</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id83_seed225.jpg" alt="UCE - Captain America_id83_seed225.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id83_seed225.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: captain, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 225</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id83_seed225.jpg" alt="our - Captain America_id83_seed225.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id83_seed225.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: captain, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 225</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id84_seed378.jpg" alt="SD - Captain America_id84_seed378.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id84_seed378.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Captain Hook, cap and soldier"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 378</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id84_seed378.jpg" alt="UCE - Captain America_id84_seed378.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id84_seed378.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Captain Hook, cap and soldier"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 378</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id84_seed378.jpg" alt="our - Captain America_id84_seed378.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id84_seed378.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Captain Hook, cap and soldier"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 378</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id85_seed801.jpg" alt="SD - Captain America_id85_seed801.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id85_seed801.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Captain Hook, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 801</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id85_seed801.jpg" alt="UCE - Captain America_id85_seed801.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id85_seed801.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Captain Hook, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 801</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id85_seed801.jpg" alt="our - Captain America_id85_seed801.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id85_seed801.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Captain Hook, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 801</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id86_seed477.jpg" alt="SD - Captain America_id86_seed477.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id86_seed477.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cap, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 477</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id86_seed477.jpg" alt="UCE - Captain America_id86_seed477.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id86_seed477.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cap, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 477</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id86_seed477.jpg" alt="our - Captain America_id86_seed477.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id86_seed477.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cap, Marvel and soldier"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 477</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id87_seed181.jpg" alt="SD - Captain America_id87_seed181.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id87_seed181.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Shield and red"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 181</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id87_seed181.jpg" alt="UCE - Captain America_id87_seed181.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id87_seed181.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Shield and red"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 181</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id87_seed181.jpg" alt="our - Captain America_id87_seed181.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id87_seed181.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Shield and red"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 181</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id88_seed991.jpg" alt="SD - Captain America_id88_seed991.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id88_seed991.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, red and Shield"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 991</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id88_seed991.jpg" alt="UCE - Captain America_id88_seed991.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id88_seed991.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, red and Shield"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 991</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id88_seed991.jpg" alt="our - Captain America_id88_seed991.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id88_seed991.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, red and Shield"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 991</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id89_seed598.jpg" alt="SD - Captain America_id89_seed598.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id89_seed598.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, blue and Shield"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 598</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id89_seed598.jpg" alt="UCE - Captain America_id89_seed598.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id89_seed598.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, blue and Shield"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 598</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id89_seed598.jpg" alt="our - Captain America_id89_seed598.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id89_seed598.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, blue and Shield"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 598</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id90_seed977.jpg" alt="SD - Captain America_id90_seed977.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id90_seed977.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, white and Shield"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 977</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id90_seed977.jpg" alt="UCE - Captain America_id90_seed977.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id90_seed977.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, white and Shield"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 977</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id90_seed977.jpg" alt="our - Captain America_id90_seed977.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id90_seed977.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, white and Shield"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 977</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id91_seed337.jpg" alt="SD - Captain America_id91_seed337.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id91_seed337.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, captain and Shield"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 337</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id91_seed337.jpg" alt="UCE - Captain America_id91_seed337.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id91_seed337.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, captain and Shield"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 337</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id91_seed337.jpg" alt="our - Captain America_id91_seed337.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id91_seed337.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, captain and Shield"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 337</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id92_seed316.jpg" alt="SD - Captain America_id92_seed316.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id92_seed316.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Captain Hook and Shield"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 316</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id92_seed316.jpg" alt="UCE - Captain America_id92_seed316.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id92_seed316.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Captain Hook and Shield"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 316</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id92_seed316.jpg" alt="our - Captain America_id92_seed316.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id92_seed316.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Captain Hook and Shield"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 316</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id93_seed683.jpg" alt="SD - Captain America_id93_seed683.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id93_seed683.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, cap and Shield"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 683</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id93_seed683.jpg" alt="UCE - Captain America_id93_seed683.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id93_seed683.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, cap and Shield"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 683</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id93_seed683.jpg" alt="our - Captain America_id93_seed683.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id93_seed683.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, cap and Shield"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 683</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id94_seed42.jpg" alt="SD - Captain America_id94_seed42.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id94_seed42.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Marvel and Shield"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 42</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id94_seed42.jpg" alt="UCE - Captain America_id94_seed42.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id94_seed42.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Marvel and Shield"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 42</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id94_seed42.jpg" alt="our - Captain America_id94_seed42.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id94_seed42.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: soldier, Marvel and Shield"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 42</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id95_seed404.jpg" alt="SD - Captain America_id95_seed404.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id95_seed404.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, red and soldier"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 404</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id95_seed404.jpg" alt="UCE - Captain America_id95_seed404.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id95_seed404.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, red and soldier"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 404</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id95_seed404.jpg" alt="our - Captain America_id95_seed404.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id95_seed404.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, red and soldier"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 404</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id96_seed559.jpg" alt="SD - Captain America_id96_seed559.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id96_seed559.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, blue and soldier"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 559</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id96_seed559.jpg" alt="UCE - Captain America_id96_seed559.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id96_seed559.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, blue and soldier"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 559</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id96_seed559.jpg" alt="our - Captain America_id96_seed559.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id96_seed559.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, blue and soldier"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 559</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id97_seed29.jpg" alt="SD - Captain America_id97_seed29.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id97_seed29.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, white and soldier"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 29</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id97_seed29.jpg" alt="UCE - Captain America_id97_seed29.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id97_seed29.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, white and soldier"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 29</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id97_seed29.jpg" alt="our - Captain America_id97_seed29.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id97_seed29.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, white and soldier"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 29</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id98_seed778.jpg" alt="SD - Captain America_id98_seed778.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id98_seed778.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, captain and soldier"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 778</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id98_seed778.jpg" alt="UCE - Captain America_id98_seed778.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id98_seed778.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, captain and soldier"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 778</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id98_seed778.jpg" alt="our - Captain America_id98_seed778.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id98_seed778.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, captain and soldier"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 778</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id99_seed915.jpg" alt="SD - Captain America_id99_seed915.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id99_seed915.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 915</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id99_seed915.jpg" alt="UCE - Captain America_id99_seed915.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id99_seed915.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 915</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id99_seed915.jpg" alt="our - Captain America_id99_seed915.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id99_seed915.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, Captain Hook and soldier"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 915</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Captain America_id100_seed684.jpg" alt="SD - Captain America_id100_seed684.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id100_seed684.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, cap and soldier"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 684</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Captain America_id100_seed684.jpg" alt="UCE - Captain America_id100_seed684.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id100_seed684.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, cap and soldier"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 684</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Captain America_id100_seed684.jpg" alt="our - Captain America_id100_seed684.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Captain America_id100_seed684.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Shield, cap and soldier"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 684</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <p>Generated automatically from SD, UCE, and our comparison data</p>
+    </div>
+</body>
+</html>

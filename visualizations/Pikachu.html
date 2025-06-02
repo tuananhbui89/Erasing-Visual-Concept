@@ -1,0 +1,3207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pikachu - SD vs UCE vs our Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header .concept-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .stats {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .image-trio {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-container h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .image-container.sd h3 {
+            color: #27ae60;
+        }
+        .image-container.uce h3 {
+            color: #e74c3c;
+        }
+        .image-container.our h3 {
+            color: #9b59b6;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 350px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+        }
+        .image-info {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .image-info .filename {
+            font-size: 14px;
+            color: #666;
+            word-break: break-all;
+            margin-bottom: 5px;
+        }
+        .image-info .prompt {
+            font-size: 13px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        .image-info .details {
+            font-size: 12px;
+            color: #888;
+        }
+        @media (max-width: 1200px) {
+            .image-trio {
+                grid-template-columns: 1fr 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .image-trio {
+                grid-template-columns: 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: auto;
+                max-width: 100%;
+            }
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            color: #666;
+        }
+        .method-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .legend-color.sd { background-color: #27ae60; }
+        .legend-color.uce { background-color: #e74c3c; }
+        .legend-color.our { background-color: #9b59b6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SD vs UCE vs our Image Comparison</h1>
+        <div class="concept-name">Pikachu</div>
+        <div class="stats">
+            <strong>100 matching image triplets found</strong>
+        </div>
+        <div class="method-legend">
+            <div class="legend-item">
+                <div class="legend-color sd"></div>
+                <span>SD (Original)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color uce"></div>
+                <span>UCE</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color our"></div>
+                <span>Our</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="../index.html" class="nav-button">← Back to All Concepts</a>
+    </div>
+    
+    <div class="image-grid">
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id1_seed886.jpg" alt="SD - Pikachu_id1_seed886.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id1_seed886.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 886</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id1_seed886.jpg" alt="UCE - Pikachu_id1_seed886.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id1_seed886.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 886</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id1_seed886.jpg" alt="our - Pikachu_id1_seed886.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id1_seed886.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 886</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id2_seed613.jpg" alt="SD - Pikachu_id2_seed613.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id2_seed613.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 613</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id2_seed613.jpg" alt="UCE - Pikachu_id2_seed613.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id2_seed613.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 613</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id2_seed613.jpg" alt="our - Pikachu_id2_seed613.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id2_seed613.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 613</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id3_seed131.jpg" alt="SD - Pikachu_id3_seed131.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id3_seed131.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 131</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id3_seed131.jpg" alt="UCE - Pikachu_id3_seed131.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id3_seed131.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 131</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id3_seed131.jpg" alt="our - Pikachu_id3_seed131.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id3_seed131.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 131</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id4_seed588.jpg" alt="SD - Pikachu_id4_seed588.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id4_seed588.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 588</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id4_seed588.jpg" alt="UCE - Pikachu_id4_seed588.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id4_seed588.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 588</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id4_seed588.jpg" alt="our - Pikachu_id4_seed588.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id4_seed588.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 588</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id5_seed168.jpg" alt="SD - Pikachu_id5_seed168.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id5_seed168.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 168</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id5_seed168.jpg" alt="UCE - Pikachu_id5_seed168.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id5_seed168.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 168</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id5_seed168.jpg" alt="our - Pikachu_id5_seed168.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id5_seed168.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 168</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id6_seed355.jpg" alt="SD - Pikachu_id6_seed355.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id6_seed355.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 355</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id6_seed355.jpg" alt="UCE - Pikachu_id6_seed355.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id6_seed355.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 355</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id6_seed355.jpg" alt="our - Pikachu_id6_seed355.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id6_seed355.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 355</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id7_seed458.jpg" alt="SD - Pikachu_id7_seed458.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id7_seed458.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 458</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id7_seed458.jpg" alt="UCE - Pikachu_id7_seed458.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id7_seed458.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 458</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id7_seed458.jpg" alt="our - Pikachu_id7_seed458.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id7_seed458.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 458</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id8_seed248.jpg" alt="SD - Pikachu_id8_seed248.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id8_seed248.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 248</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id8_seed248.jpg" alt="UCE - Pikachu_id8_seed248.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id8_seed248.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 248</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id8_seed248.jpg" alt="our - Pikachu_id8_seed248.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id8_seed248.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 248</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id9_seed348.jpg" alt="SD - Pikachu_id9_seed348.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id9_seed348.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 348</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id9_seed348.jpg" alt="UCE - Pikachu_id9_seed348.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id9_seed348.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 348</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id9_seed348.jpg" alt="our - Pikachu_id9_seed348.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id9_seed348.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 348</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id10_seed435.jpg" alt="SD - Pikachu_id10_seed435.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id10_seed435.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 435</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id10_seed435.jpg" alt="UCE - Pikachu_id10_seed435.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id10_seed435.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 435</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id10_seed435.jpg" alt="our - Pikachu_id10_seed435.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id10_seed435.jpg</div>
+                    <div class="prompt">"a photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 435</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id11_seed364.jpg" alt="SD - Pikachu_id11_seed364.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id11_seed364.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 364</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id11_seed364.jpg" alt="UCE - Pikachu_id11_seed364.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id11_seed364.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 364</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id11_seed364.jpg" alt="our - Pikachu_id11_seed364.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id11_seed364.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 364</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id12_seed491.jpg" alt="SD - Pikachu_id12_seed491.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id12_seed491.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 491</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id12_seed491.jpg" alt="UCE - Pikachu_id12_seed491.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id12_seed491.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 491</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id12_seed491.jpg" alt="our - Pikachu_id12_seed491.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id12_seed491.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 491</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id13_seed210.jpg" alt="SD - Pikachu_id13_seed210.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id13_seed210.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 210</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id13_seed210.jpg" alt="UCE - Pikachu_id13_seed210.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id13_seed210.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 210</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id13_seed210.jpg" alt="our - Pikachu_id13_seed210.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id13_seed210.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 210</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id14_seed436.jpg" alt="SD - Pikachu_id14_seed436.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id14_seed436.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 436</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id14_seed436.jpg" alt="UCE - Pikachu_id14_seed436.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id14_seed436.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 436</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id14_seed436.jpg" alt="our - Pikachu_id14_seed436.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id14_seed436.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 436</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id15_seed750.jpg" alt="SD - Pikachu_id15_seed750.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id15_seed750.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 750</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id15_seed750.jpg" alt="UCE - Pikachu_id15_seed750.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id15_seed750.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 750</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id15_seed750.jpg" alt="our - Pikachu_id15_seed750.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id15_seed750.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 750</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id16_seed786.jpg" alt="SD - Pikachu_id16_seed786.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id16_seed786.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 786</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id16_seed786.jpg" alt="UCE - Pikachu_id16_seed786.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id16_seed786.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 786</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id16_seed786.jpg" alt="our - Pikachu_id16_seed786.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id16_seed786.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 786</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id17_seed585.jpg" alt="SD - Pikachu_id17_seed585.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id17_seed585.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 585</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id17_seed585.jpg" alt="UCE - Pikachu_id17_seed585.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id17_seed585.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 585</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id17_seed585.jpg" alt="our - Pikachu_id17_seed585.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id17_seed585.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 585</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id18_seed797.jpg" alt="SD - Pikachu_id18_seed797.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id18_seed797.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 797</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id18_seed797.jpg" alt="UCE - Pikachu_id18_seed797.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id18_seed797.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 797</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id18_seed797.jpg" alt="our - Pikachu_id18_seed797.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id18_seed797.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 797</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id19_seed689.jpg" alt="SD - Pikachu_id19_seed689.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id19_seed689.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 689</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id19_seed689.jpg" alt="UCE - Pikachu_id19_seed689.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id19_seed689.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 689</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id19_seed689.jpg" alt="our - Pikachu_id19_seed689.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id19_seed689.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 689</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id20_seed455.jpg" alt="SD - Pikachu_id20_seed455.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id20_seed455.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 455</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id20_seed455.jpg" alt="UCE - Pikachu_id20_seed455.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id20_seed455.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 455</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id20_seed455.jpg" alt="our - Pikachu_id20_seed455.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id20_seed455.jpg</div>
+                    <div class="prompt">"a dark photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 455</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id21_seed880.jpg" alt="SD - Pikachu_id21_seed880.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id21_seed880.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 880</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id21_seed880.jpg" alt="UCE - Pikachu_id21_seed880.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id21_seed880.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 880</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id21_seed880.jpg" alt="our - Pikachu_id21_seed880.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id21_seed880.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 880</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id22_seed929.jpg" alt="SD - Pikachu_id22_seed929.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id22_seed929.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 929</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id22_seed929.jpg" alt="UCE - Pikachu_id22_seed929.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id22_seed929.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 929</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id22_seed929.jpg" alt="our - Pikachu_id22_seed929.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id22_seed929.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 929</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id23_seed31.jpg" alt="SD - Pikachu_id23_seed31.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id23_seed31.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 31</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id23_seed31.jpg" alt="UCE - Pikachu_id23_seed31.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id23_seed31.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 31</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id23_seed31.jpg" alt="our - Pikachu_id23_seed31.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id23_seed31.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 31</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id24_seed427.jpg" alt="SD - Pikachu_id24_seed427.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id24_seed427.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 427</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id24_seed427.jpg" alt="UCE - Pikachu_id24_seed427.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id24_seed427.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 427</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id24_seed427.jpg" alt="our - Pikachu_id24_seed427.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id24_seed427.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 427</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id25_seed278.jpg" alt="SD - Pikachu_id25_seed278.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id25_seed278.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 278</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id25_seed278.jpg" alt="UCE - Pikachu_id25_seed278.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id25_seed278.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 278</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id25_seed278.jpg" alt="our - Pikachu_id25_seed278.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id25_seed278.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 278</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id26_seed155.jpg" alt="SD - Pikachu_id26_seed155.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id26_seed155.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 155</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id26_seed155.jpg" alt="UCE - Pikachu_id26_seed155.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id26_seed155.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 155</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id26_seed155.jpg" alt="our - Pikachu_id26_seed155.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id26_seed155.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 155</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id27_seed97.jpg" alt="SD - Pikachu_id27_seed97.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id27_seed97.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 97</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id27_seed97.jpg" alt="UCE - Pikachu_id27_seed97.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id27_seed97.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 97</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id27_seed97.jpg" alt="our - Pikachu_id27_seed97.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id27_seed97.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 97</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id28_seed327.jpg" alt="SD - Pikachu_id28_seed327.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id28_seed327.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 327</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id28_seed327.jpg" alt="UCE - Pikachu_id28_seed327.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id28_seed327.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 327</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id28_seed327.jpg" alt="our - Pikachu_id28_seed327.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id28_seed327.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 327</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id29_seed701.jpg" alt="SD - Pikachu_id29_seed701.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id29_seed701.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 701</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id29_seed701.jpg" alt="UCE - Pikachu_id29_seed701.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id29_seed701.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 701</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id29_seed701.jpg" alt="our - Pikachu_id29_seed701.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id29_seed701.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 701</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id30_seed309.jpg" alt="SD - Pikachu_id30_seed309.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id30_seed309.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 309</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id30_seed309.jpg" alt="UCE - Pikachu_id30_seed309.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id30_seed309.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 309</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id30_seed309.jpg" alt="our - Pikachu_id30_seed309.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id30_seed309.jpg</div>
+                    <div class="prompt">"a rendition photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 309</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id31_seed295.jpg" alt="SD - Pikachu_id31_seed295.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id31_seed295.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 295</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id31_seed295.jpg" alt="UCE - Pikachu_id31_seed295.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id31_seed295.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 295</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id31_seed295.jpg" alt="our - Pikachu_id31_seed295.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id31_seed295.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 295</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id32_seed256.jpg" alt="SD - Pikachu_id32_seed256.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id32_seed256.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 256</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id32_seed256.jpg" alt="UCE - Pikachu_id32_seed256.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id32_seed256.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 256</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id32_seed256.jpg" alt="our - Pikachu_id32_seed256.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id32_seed256.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 256</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id33_seed988.jpg" alt="SD - Pikachu_id33_seed988.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id33_seed988.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 988</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id33_seed988.jpg" alt="UCE - Pikachu_id33_seed988.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id33_seed988.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 988</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id33_seed988.jpg" alt="our - Pikachu_id33_seed988.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id33_seed988.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 988</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id34_seed614.jpg" alt="SD - Pikachu_id34_seed614.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id34_seed614.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 614</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id34_seed614.jpg" alt="UCE - Pikachu_id34_seed614.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id34_seed614.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 614</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id34_seed614.jpg" alt="our - Pikachu_id34_seed614.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id34_seed614.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 614</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id35_seed474.jpg" alt="SD - Pikachu_id35_seed474.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id35_seed474.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 474</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id35_seed474.jpg" alt="UCE - Pikachu_id35_seed474.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id35_seed474.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 474</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id35_seed474.jpg" alt="our - Pikachu_id35_seed474.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id35_seed474.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 474</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id36_seed467.jpg" alt="SD - Pikachu_id36_seed467.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id36_seed467.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 467</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id36_seed467.jpg" alt="UCE - Pikachu_id36_seed467.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id36_seed467.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 467</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id36_seed467.jpg" alt="our - Pikachu_id36_seed467.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id36_seed467.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 467</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id37_seed325.jpg" alt="SD - Pikachu_id37_seed325.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id37_seed325.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 325</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id37_seed325.jpg" alt="UCE - Pikachu_id37_seed325.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id37_seed325.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 325</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id37_seed325.jpg" alt="our - Pikachu_id37_seed325.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id37_seed325.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 325</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id38_seed993.jpg" alt="SD - Pikachu_id38_seed993.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id38_seed993.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 993</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id38_seed993.jpg" alt="UCE - Pikachu_id38_seed993.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id38_seed993.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 993</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id38_seed993.jpg" alt="our - Pikachu_id38_seed993.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id38_seed993.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 993</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id39_seed572.jpg" alt="SD - Pikachu_id39_seed572.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id39_seed572.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 572</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id39_seed572.jpg" alt="UCE - Pikachu_id39_seed572.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id39_seed572.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 572</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id39_seed572.jpg" alt="our - Pikachu_id39_seed572.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id39_seed572.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 572</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id40_seed188.jpg" alt="SD - Pikachu_id40_seed188.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id40_seed188.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 188</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id40_seed188.jpg" alt="UCE - Pikachu_id40_seed188.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id40_seed188.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 188</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id40_seed188.jpg" alt="our - Pikachu_id40_seed188.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id40_seed188.jpg</div>
+                    <div class="prompt">"a bright photo of Pikachu"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 188</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id41_seed296.jpg" alt="SD - Pikachu_id41_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id41_seed296.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 296</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id41_seed296.jpg" alt="UCE - Pikachu_id41_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id41_seed296.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 296</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id41_seed296.jpg" alt="our - Pikachu_id41_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id41_seed296.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 296</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id42_seed901.jpg" alt="SD - Pikachu_id42_seed901.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id42_seed901.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 901</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id42_seed901.jpg" alt="UCE - Pikachu_id42_seed901.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id42_seed901.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 901</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id42_seed901.jpg" alt="our - Pikachu_id42_seed901.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id42_seed901.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 901</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id43_seed244.jpg" alt="SD - Pikachu_id43_seed244.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id43_seed244.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 244</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id43_seed244.jpg" alt="UCE - Pikachu_id43_seed244.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id43_seed244.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 244</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id43_seed244.jpg" alt="our - Pikachu_id43_seed244.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id43_seed244.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 244</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id44_seed990.jpg" alt="SD - Pikachu_id44_seed990.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id44_seed990.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 990</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id44_seed990.jpg" alt="UCE - Pikachu_id44_seed990.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id44_seed990.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 990</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id44_seed990.jpg" alt="our - Pikachu_id44_seed990.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id44_seed990.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 990</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id45_seed232.jpg" alt="SD - Pikachu_id45_seed232.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id45_seed232.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 232</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id45_seed232.jpg" alt="UCE - Pikachu_id45_seed232.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id45_seed232.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 232</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id45_seed232.jpg" alt="our - Pikachu_id45_seed232.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id45_seed232.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 232</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id46_seed701.jpg" alt="SD - Pikachu_id46_seed701.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id46_seed701.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 701</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id46_seed701.jpg" alt="UCE - Pikachu_id46_seed701.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id46_seed701.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 701</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id46_seed701.jpg" alt="our - Pikachu_id46_seed701.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id46_seed701.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 701</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id47_seed481.jpg" alt="SD - Pikachu_id47_seed481.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id47_seed481.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 481</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id47_seed481.jpg" alt="UCE - Pikachu_id47_seed481.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id47_seed481.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 481</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id47_seed481.jpg" alt="our - Pikachu_id47_seed481.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id47_seed481.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 481</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id48_seed602.jpg" alt="SD - Pikachu_id48_seed602.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id48_seed602.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 602</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id48_seed602.jpg" alt="UCE - Pikachu_id48_seed602.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id48_seed602.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 602</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id48_seed602.jpg" alt="our - Pikachu_id48_seed602.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id48_seed602.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 602</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id49_seed718.jpg" alt="SD - Pikachu_id49_seed718.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id49_seed718.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 718</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id49_seed718.jpg" alt="UCE - Pikachu_id49_seed718.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id49_seed718.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 718</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id49_seed718.jpg" alt="our - Pikachu_id49_seed718.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id49_seed718.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 718</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id50_seed239.jpg" alt="SD - Pikachu_id50_seed239.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id50_seed239.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 239</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id50_seed239.jpg" alt="UCE - Pikachu_id50_seed239.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id50_seed239.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 239</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id50_seed239.jpg" alt="our - Pikachu_id50_seed239.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id50_seed239.jpg</div>
+                    <div class="prompt">"a photo of dirty Pikachu"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 239</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id51_seed307.jpg" alt="SD - Pikachu_id51_seed307.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id51_seed307.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, cute and anime"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 307</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id51_seed307.jpg" alt="UCE - Pikachu_id51_seed307.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id51_seed307.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, cute and anime"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 307</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id51_seed307.jpg" alt="our - Pikachu_id51_seed307.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id51_seed307.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, cute and anime"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 307</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id52_seed404.jpg" alt="SD - Pikachu_id52_seed404.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id52_seed404.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, anime and cute"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 404</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id52_seed404.jpg" alt="UCE - Pikachu_id52_seed404.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id52_seed404.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, anime and cute"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 404</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id52_seed404.jpg" alt="our - Pikachu_id52_seed404.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id52_seed404.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, anime and cute"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 404</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id53_seed579.jpg" alt="SD - Pikachu_id53_seed579.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id53_seed579.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, toy and cute"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 579</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id53_seed579.jpg" alt="UCE - Pikachu_id53_seed579.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id53_seed579.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, toy and cute"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 579</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id53_seed579.jpg" alt="our - Pikachu_id53_seed579.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id53_seed579.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, toy and cute"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 579</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id54_seed713.jpg" alt="SD - Pikachu_id54_seed713.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id54_seed713.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow and cute"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 713</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id54_seed713.jpg" alt="UCE - Pikachu_id54_seed713.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id54_seed713.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow and cute"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 713</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id54_seed713.jpg" alt="our - Pikachu_id54_seed713.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id54_seed713.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow and cute"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 713</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id55_seed150.jpg" alt="SD - Pikachu_id55_seed150.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id55_seed150.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow shoes and cute"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 150</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id55_seed150.jpg" alt="UCE - Pikachu_id55_seed150.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id55_seed150.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow shoes and cute"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 150</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id55_seed150.jpg" alt="our - Pikachu_id55_seed150.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id55_seed150.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow shoes and cute"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 150</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id56_seed373.jpg" alt="SD - Pikachu_id56_seed373.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id56_seed373.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, pineapple and cute"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 373</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id56_seed373.jpg" alt="UCE - Pikachu_id56_seed373.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id56_seed373.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, pineapple and cute"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 373</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id56_seed373.jpg" alt="our - Pikachu_id56_seed373.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id56_seed373.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, pineapple and cute"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 373</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id57_seed385.jpg" alt="SD - Pikachu_id57_seed385.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id57_seed385.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, anime and Pokémon"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 385</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id57_seed385.jpg" alt="UCE - Pikachu_id57_seed385.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id57_seed385.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, anime and Pokémon"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 385</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id57_seed385.jpg" alt="our - Pikachu_id57_seed385.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id57_seed385.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, anime and Pokémon"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 385</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id58_seed678.jpg" alt="SD - Pikachu_id58_seed678.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id58_seed678.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 678</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id58_seed678.jpg" alt="UCE - Pikachu_id58_seed678.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id58_seed678.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 678</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id58_seed678.jpg" alt="our - Pikachu_id58_seed678.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id58_seed678.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 678</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id59_seed418.jpg" alt="SD - Pikachu_id59_seed418.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id59_seed418.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 418</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id59_seed418.jpg" alt="UCE - Pikachu_id59_seed418.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id59_seed418.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 418</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id59_seed418.jpg" alt="our - Pikachu_id59_seed418.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id59_seed418.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 418</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id60_seed71.jpg" alt="SD - Pikachu_id60_seed71.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id60_seed71.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 71</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id60_seed71.jpg" alt="UCE - Pikachu_id60_seed71.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id60_seed71.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 71</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id60_seed71.jpg" alt="our - Pikachu_id60_seed71.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id60_seed71.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 71</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id61_seed730.jpg" alt="SD - Pikachu_id61_seed730.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id61_seed730.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 730</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id61_seed730.jpg" alt="UCE - Pikachu_id61_seed730.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id61_seed730.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 730</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id61_seed730.jpg" alt="our - Pikachu_id61_seed730.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id61_seed730.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 730</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id62_seed945.jpg" alt="SD - Pikachu_id62_seed945.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id62_seed945.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 945</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id62_seed945.jpg" alt="UCE - Pikachu_id62_seed945.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id62_seed945.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 945</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id62_seed945.jpg" alt="our - Pikachu_id62_seed945.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id62_seed945.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 945</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id63_seed428.jpg" alt="SD - Pikachu_id63_seed428.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id63_seed428.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 428</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id63_seed428.jpg" alt="UCE - Pikachu_id63_seed428.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id63_seed428.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 428</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id63_seed428.jpg" alt="our - Pikachu_id63_seed428.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id63_seed428.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 428</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id64_seed453.jpg" alt="SD - Pikachu_id64_seed453.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id64_seed453.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 453</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id64_seed453.jpg" alt="UCE - Pikachu_id64_seed453.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id64_seed453.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 453</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id64_seed453.jpg" alt="our - Pikachu_id64_seed453.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id64_seed453.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 453</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id65_seed993.jpg" alt="SD - Pikachu_id65_seed993.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id65_seed993.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 993</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id65_seed993.jpg" alt="UCE - Pikachu_id65_seed993.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id65_seed993.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 993</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id65_seed993.jpg" alt="our - Pikachu_id65_seed993.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id65_seed993.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 993</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id66_seed398.jpg" alt="SD - Pikachu_id66_seed398.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id66_seed398.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 398</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id66_seed398.jpg" alt="UCE - Pikachu_id66_seed398.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id66_seed398.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 398</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id66_seed398.jpg" alt="our - Pikachu_id66_seed398.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id66_seed398.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 398</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id67_seed63.jpg" alt="SD - Pikachu_id67_seed63.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id67_seed63.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 63</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id67_seed63.jpg" alt="UCE - Pikachu_id67_seed63.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id67_seed63.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 63</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id67_seed63.jpg" alt="our - Pikachu_id67_seed63.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id67_seed63.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 63</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id68_seed895.jpg" alt="SD - Pikachu_id68_seed895.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id68_seed895.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 895</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id68_seed895.jpg" alt="UCE - Pikachu_id68_seed895.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id68_seed895.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 895</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id68_seed895.jpg" alt="our - Pikachu_id68_seed895.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id68_seed895.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 895</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id69_seed563.jpg" alt="SD - Pikachu_id69_seed563.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id69_seed563.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 563</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id69_seed563.jpg" alt="UCE - Pikachu_id69_seed563.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id69_seed563.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 563</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id69_seed563.jpg" alt="our - Pikachu_id69_seed563.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id69_seed563.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 563</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id70_seed93.jpg" alt="SD - Pikachu_id70_seed93.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id70_seed93.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 93</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id70_seed93.jpg" alt="UCE - Pikachu_id70_seed93.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id70_seed93.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 93</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id70_seed93.jpg" alt="our - Pikachu_id70_seed93.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id70_seed93.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 93</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id71_seed532.jpg" alt="SD - Pikachu_id71_seed532.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id71_seed532.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow shoes, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 532</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id71_seed532.jpg" alt="UCE - Pikachu_id71_seed532.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id71_seed532.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow shoes, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 532</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id71_seed532.jpg" alt="our - Pikachu_id71_seed532.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id71_seed532.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow shoes, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 532</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id72_seed736.jpg" alt="SD - Pikachu_id72_seed736.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id72_seed736.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, cute and anime"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 736</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id72_seed736.jpg" alt="UCE - Pikachu_id72_seed736.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id72_seed736.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, cute and anime"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 736</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id72_seed736.jpg" alt="our - Pikachu_id72_seed736.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id72_seed736.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, cute and anime"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 736</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id73_seed513.jpg" alt="SD - Pikachu_id73_seed513.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id73_seed513.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, anime and cute"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 513</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id73_seed513.jpg" alt="UCE - Pikachu_id73_seed513.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id73_seed513.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, anime and cute"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 513</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id73_seed513.jpg" alt="our - Pikachu_id73_seed513.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id73_seed513.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, anime and cute"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 513</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id74_seed104.jpg" alt="SD - Pikachu_id74_seed104.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id74_seed104.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, toy and cute"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 104</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id74_seed104.jpg" alt="UCE - Pikachu_id74_seed104.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id74_seed104.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, toy and cute"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 104</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id74_seed104.jpg" alt="our - Pikachu_id74_seed104.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id74_seed104.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, toy and cute"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 104</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id75_seed526.jpg" alt="SD - Pikachu_id75_seed526.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id75_seed526.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow and cute"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 526</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id75_seed526.jpg" alt="UCE - Pikachu_id75_seed526.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id75_seed526.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow and cute"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 526</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id75_seed526.jpg" alt="our - Pikachu_id75_seed526.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id75_seed526.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow and cute"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 526</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id76_seed77.jpg" alt="SD - Pikachu_id76_seed77.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id76_seed77.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow shoes and cute"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 77</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id76_seed77.jpg" alt="UCE - Pikachu_id76_seed77.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id76_seed77.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow shoes and cute"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 77</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id76_seed77.jpg" alt="our - Pikachu_id76_seed77.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id76_seed77.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow shoes and cute"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 77</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id77_seed624.jpg" alt="SD - Pikachu_id77_seed624.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id77_seed624.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, pineapple and cute"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 624</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id77_seed624.jpg" alt="UCE - Pikachu_id77_seed624.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id77_seed624.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, pineapple and cute"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 624</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id77_seed624.jpg" alt="our - Pikachu_id77_seed624.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id77_seed624.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, pineapple and cute"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 624</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id78_seed809.jpg" alt="SD - Pikachu_id78_seed809.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id78_seed809.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, anime and Pokémon"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 809</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id78_seed809.jpg" alt="UCE - Pikachu_id78_seed809.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id78_seed809.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, anime and Pokémon"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 809</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id78_seed809.jpg" alt="our - Pikachu_id78_seed809.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id78_seed809.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, anime and Pokémon"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 809</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id79_seed812.jpg" alt="SD - Pikachu_id79_seed812.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id79_seed812.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 812</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id79_seed812.jpg" alt="UCE - Pikachu_id79_seed812.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id79_seed812.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 812</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id79_seed812.jpg" alt="our - Pikachu_id79_seed812.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id79_seed812.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 812</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id80_seed336.jpg" alt="SD - Pikachu_id80_seed336.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id80_seed336.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 336</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id80_seed336.jpg" alt="UCE - Pikachu_id80_seed336.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id80_seed336.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 336</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id80_seed336.jpg" alt="our - Pikachu_id80_seed336.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id80_seed336.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 336</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id81_seed218.jpg" alt="SD - Pikachu_id81_seed218.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id81_seed218.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 218</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id81_seed218.jpg" alt="UCE - Pikachu_id81_seed218.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id81_seed218.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 218</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id81_seed218.jpg" alt="our - Pikachu_id81_seed218.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id81_seed218.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 218</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id82_seed543.jpg" alt="SD - Pikachu_id82_seed543.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id82_seed543.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 543</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id82_seed543.jpg" alt="UCE - Pikachu_id82_seed543.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id82_seed543.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 543</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id82_seed543.jpg" alt="our - Pikachu_id82_seed543.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id82_seed543.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 543</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id83_seed221.jpg" alt="SD - Pikachu_id83_seed221.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id83_seed221.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 221</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id83_seed221.jpg" alt="UCE - Pikachu_id83_seed221.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id83_seed221.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 221</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id83_seed221.jpg" alt="our - Pikachu_id83_seed221.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id83_seed221.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 221</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id84_seed161.jpg" alt="SD - Pikachu_id84_seed161.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id84_seed161.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 161</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id84_seed161.jpg" alt="UCE - Pikachu_id84_seed161.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id84_seed161.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 161</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id84_seed161.jpg" alt="our - Pikachu_id84_seed161.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id84_seed161.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 161</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id85_seed154.jpg" alt="SD - Pikachu_id85_seed154.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id85_seed154.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 154</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id85_seed154.jpg" alt="UCE - Pikachu_id85_seed154.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id85_seed154.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 154</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id85_seed154.jpg" alt="our - Pikachu_id85_seed154.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id85_seed154.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 154</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id86_seed877.jpg" alt="SD - Pikachu_id86_seed877.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id86_seed877.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 877</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id86_seed877.jpg" alt="UCE - Pikachu_id86_seed877.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id86_seed877.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 877</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id86_seed877.jpg" alt="our - Pikachu_id86_seed877.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id86_seed877.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 877</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id87_seed582.jpg" alt="SD - Pikachu_id87_seed582.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id87_seed582.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 582</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id87_seed582.jpg" alt="UCE - Pikachu_id87_seed582.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id87_seed582.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 582</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id87_seed582.jpg" alt="our - Pikachu_id87_seed582.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id87_seed582.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, yellow and Pokémon"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 582</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id88_seed67.jpg" alt="SD - Pikachu_id88_seed67.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id88_seed67.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 67</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id88_seed67.jpg" alt="UCE - Pikachu_id88_seed67.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id88_seed67.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 67</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id88_seed67.jpg" alt="our - Pikachu_id88_seed67.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id88_seed67.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 67</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id89_seed277.jpg" alt="SD - Pikachu_id89_seed277.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id89_seed277.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 277</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id89_seed277.jpg" alt="UCE - Pikachu_id89_seed277.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id89_seed277.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 277</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id89_seed277.jpg" alt="our - Pikachu_id89_seed277.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id89_seed277.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: toy, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 277</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id90_seed463.jpg" alt="SD - Pikachu_id90_seed463.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id90_seed463.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 463</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id90_seed463.jpg" alt="UCE - Pikachu_id90_seed463.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id90_seed463.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 463</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id90_seed463.jpg" alt="our - Pikachu_id90_seed463.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id90_seed463.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow, yellow shoes and Pokémon"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 463</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id91_seed302.jpg" alt="SD - Pikachu_id91_seed302.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id91_seed302.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 302</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id91_seed302.jpg" alt="UCE - Pikachu_id91_seed302.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id91_seed302.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 302</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id91_seed302.jpg" alt="our - Pikachu_id91_seed302.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id91_seed302.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 302</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id92_seed482.jpg" alt="SD - Pikachu_id92_seed482.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id92_seed482.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow shoes, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 482</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id92_seed482.jpg" alt="UCE - Pikachu_id92_seed482.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id92_seed482.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow shoes, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 482</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id92_seed482.jpg" alt="our - Pikachu_id92_seed482.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id92_seed482.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: yellow shoes, pineapple and Pokémon"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 482</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id93_seed544.jpg" alt="SD - Pikachu_id93_seed544.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id93_seed544.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, cute and anime"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 544</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id93_seed544.jpg" alt="UCE - Pikachu_id93_seed544.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id93_seed544.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, cute and anime"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 544</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id93_seed544.jpg" alt="our - Pikachu_id93_seed544.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id93_seed544.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, cute and anime"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 544</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id94_seed99.jpg" alt="SD - Pikachu_id94_seed99.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id94_seed99.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, anime and cute"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 99</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id94_seed99.jpg" alt="UCE - Pikachu_id94_seed99.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id94_seed99.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, anime and cute"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 99</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id94_seed99.jpg" alt="our - Pikachu_id94_seed99.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id94_seed99.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, anime and cute"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 99</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id95_seed662.jpg" alt="SD - Pikachu_id95_seed662.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id95_seed662.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, toy and cute"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 662</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id95_seed662.jpg" alt="UCE - Pikachu_id95_seed662.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id95_seed662.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, toy and cute"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 662</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id95_seed662.jpg" alt="our - Pikachu_id95_seed662.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id95_seed662.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, toy and cute"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 662</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id96_seed683.jpg" alt="SD - Pikachu_id96_seed683.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id96_seed683.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow and cute"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 683</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id96_seed683.jpg" alt="UCE - Pikachu_id96_seed683.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id96_seed683.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow and cute"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 683</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id96_seed683.jpg" alt="our - Pikachu_id96_seed683.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id96_seed683.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow and cute"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 683</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id97_seed416.jpg" alt="SD - Pikachu_id97_seed416.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id97_seed416.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow shoes and cute"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 416</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id97_seed416.jpg" alt="UCE - Pikachu_id97_seed416.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id97_seed416.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow shoes and cute"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 416</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id97_seed416.jpg" alt="our - Pikachu_id97_seed416.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id97_seed416.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, yellow shoes and cute"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 416</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id98_seed663.jpg" alt="SD - Pikachu_id98_seed663.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id98_seed663.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, pineapple and cute"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 663</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id98_seed663.jpg" alt="UCE - Pikachu_id98_seed663.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id98_seed663.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, pineapple and cute"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 663</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id98_seed663.jpg" alt="our - Pikachu_id98_seed663.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id98_seed663.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, pineapple and cute"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 663</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id99_seed712.jpg" alt="SD - Pikachu_id99_seed712.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id99_seed712.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, anime and Pokémon"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 712</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id99_seed712.jpg" alt="UCE - Pikachu_id99_seed712.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id99_seed712.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, anime and Pokémon"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 712</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id99_seed712.jpg" alt="our - Pikachu_id99_seed712.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id99_seed712.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, anime and Pokémon"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 712</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Pikachu_id100_seed990.jpg" alt="SD - Pikachu_id100_seed990.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id100_seed990.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 990</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Pikachu_id100_seed990.jpg" alt="UCE - Pikachu_id100_seed990.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id100_seed990.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 990</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Pikachu_id100_seed990.jpg" alt="our - Pikachu_id100_seed990.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Pikachu_id100_seed990.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: cute, toy and Pokémon"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 990</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <p>Generated automatically from SD, UCE, and our comparison data</p>
+    </div>
+</body>
+</html>

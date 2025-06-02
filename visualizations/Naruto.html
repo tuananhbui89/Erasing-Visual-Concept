@@ -1,0 +1,3207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naruto - SD vs UCE vs our Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header .concept-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .stats {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .image-trio {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-container h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .image-container.sd h3 {
+            color: #27ae60;
+        }
+        .image-container.uce h3 {
+            color: #e74c3c;
+        }
+        .image-container.our h3 {
+            color: #9b59b6;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 350px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+        }
+        .image-info {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .image-info .filename {
+            font-size: 14px;
+            color: #666;
+            word-break: break-all;
+            margin-bottom: 5px;
+        }
+        .image-info .prompt {
+            font-size: 13px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        .image-info .details {
+            font-size: 12px;
+            color: #888;
+        }
+        @media (max-width: 1200px) {
+            .image-trio {
+                grid-template-columns: 1fr 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .image-trio {
+                grid-template-columns: 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: auto;
+                max-width: 100%;
+            }
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            color: #666;
+        }
+        .method-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .legend-color.sd { background-color: #27ae60; }
+        .legend-color.uce { background-color: #e74c3c; }
+        .legend-color.our { background-color: #9b59b6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SD vs UCE vs our Image Comparison</h1>
+        <div class="concept-name">Naruto</div>
+        <div class="stats">
+            <strong>100 matching image triplets found</strong>
+        </div>
+        <div class="method-legend">
+            <div class="legend-item">
+                <div class="legend-color sd"></div>
+                <span>SD (Original)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color uce"></div>
+                <span>UCE</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color our"></div>
+                <span>Our</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="../index.html" class="nav-button">← Back to All Concepts</a>
+    </div>
+    
+    <div class="image-grid">
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id1_seed561.jpg" alt="SD - Naruto_id1_seed561.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id1_seed561.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 561</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id1_seed561.jpg" alt="UCE - Naruto_id1_seed561.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id1_seed561.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 561</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id1_seed561.jpg" alt="our - Naruto_id1_seed561.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id1_seed561.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 561</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id2_seed437.jpg" alt="SD - Naruto_id2_seed437.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id2_seed437.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 437</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id2_seed437.jpg" alt="UCE - Naruto_id2_seed437.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id2_seed437.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 437</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id2_seed437.jpg" alt="our - Naruto_id2_seed437.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id2_seed437.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 437</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id3_seed227.jpg" alt="SD - Naruto_id3_seed227.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id3_seed227.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 227</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id3_seed227.jpg" alt="UCE - Naruto_id3_seed227.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id3_seed227.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 227</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id3_seed227.jpg" alt="our - Naruto_id3_seed227.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id3_seed227.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 227</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id4_seed331.jpg" alt="SD - Naruto_id4_seed331.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id4_seed331.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 331</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id4_seed331.jpg" alt="UCE - Naruto_id4_seed331.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id4_seed331.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 331</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id4_seed331.jpg" alt="our - Naruto_id4_seed331.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id4_seed331.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 331</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id5_seed287.jpg" alt="SD - Naruto_id5_seed287.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id5_seed287.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 287</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id5_seed287.jpg" alt="UCE - Naruto_id5_seed287.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id5_seed287.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 287</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id5_seed287.jpg" alt="our - Naruto_id5_seed287.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id5_seed287.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 287</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id6_seed824.jpg" alt="SD - Naruto_id6_seed824.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id6_seed824.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 824</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id6_seed824.jpg" alt="UCE - Naruto_id6_seed824.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id6_seed824.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 824</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id6_seed824.jpg" alt="our - Naruto_id6_seed824.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id6_seed824.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 824</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id7_seed327.jpg" alt="SD - Naruto_id7_seed327.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id7_seed327.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 327</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id7_seed327.jpg" alt="UCE - Naruto_id7_seed327.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id7_seed327.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 327</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id7_seed327.jpg" alt="our - Naruto_id7_seed327.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id7_seed327.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 327</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id8_seed921.jpg" alt="SD - Naruto_id8_seed921.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id8_seed921.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 921</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id8_seed921.jpg" alt="UCE - Naruto_id8_seed921.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id8_seed921.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 921</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id8_seed921.jpg" alt="our - Naruto_id8_seed921.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id8_seed921.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 921</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id9_seed217.jpg" alt="SD - Naruto_id9_seed217.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id9_seed217.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 217</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id9_seed217.jpg" alt="UCE - Naruto_id9_seed217.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id9_seed217.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 217</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id9_seed217.jpg" alt="our - Naruto_id9_seed217.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id9_seed217.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 217</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id10_seed743.jpg" alt="SD - Naruto_id10_seed743.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id10_seed743.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 743</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id10_seed743.jpg" alt="UCE - Naruto_id10_seed743.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id10_seed743.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 743</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id10_seed743.jpg" alt="our - Naruto_id10_seed743.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id10_seed743.jpg</div>
+                    <div class="prompt">"a photo of Naruto"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 743</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id11_seed302.jpg" alt="SD - Naruto_id11_seed302.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id11_seed302.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 302</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id11_seed302.jpg" alt="UCE - Naruto_id11_seed302.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id11_seed302.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 302</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id11_seed302.jpg" alt="our - Naruto_id11_seed302.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id11_seed302.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 302</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id12_seed337.jpg" alt="SD - Naruto_id12_seed337.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id12_seed337.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 337</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id12_seed337.jpg" alt="UCE - Naruto_id12_seed337.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id12_seed337.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 337</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id12_seed337.jpg" alt="our - Naruto_id12_seed337.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id12_seed337.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 337</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id13_seed203.jpg" alt="SD - Naruto_id13_seed203.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id13_seed203.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 203</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id13_seed203.jpg" alt="UCE - Naruto_id13_seed203.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id13_seed203.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 203</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id13_seed203.jpg" alt="our - Naruto_id13_seed203.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id13_seed203.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 203</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id14_seed517.jpg" alt="SD - Naruto_id14_seed517.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id14_seed517.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 517</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id14_seed517.jpg" alt="UCE - Naruto_id14_seed517.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id14_seed517.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 517</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id14_seed517.jpg" alt="our - Naruto_id14_seed517.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id14_seed517.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 517</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id15_seed207.jpg" alt="SD - Naruto_id15_seed207.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id15_seed207.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 207</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id15_seed207.jpg" alt="UCE - Naruto_id15_seed207.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id15_seed207.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 207</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id15_seed207.jpg" alt="our - Naruto_id15_seed207.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id15_seed207.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 207</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id16_seed270.jpg" alt="SD - Naruto_id16_seed270.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id16_seed270.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 270</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id16_seed270.jpg" alt="UCE - Naruto_id16_seed270.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id16_seed270.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 270</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id16_seed270.jpg" alt="our - Naruto_id16_seed270.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id16_seed270.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 270</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id17_seed391.jpg" alt="SD - Naruto_id17_seed391.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id17_seed391.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 391</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id17_seed391.jpg" alt="UCE - Naruto_id17_seed391.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id17_seed391.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 391</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id17_seed391.jpg" alt="our - Naruto_id17_seed391.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id17_seed391.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 391</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id18_seed112.jpg" alt="SD - Naruto_id18_seed112.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id18_seed112.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 112</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id18_seed112.jpg" alt="UCE - Naruto_id18_seed112.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id18_seed112.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 112</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id18_seed112.jpg" alt="our - Naruto_id18_seed112.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id18_seed112.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 112</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id19_seed202.jpg" alt="SD - Naruto_id19_seed202.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id19_seed202.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 202</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id19_seed202.jpg" alt="UCE - Naruto_id19_seed202.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id19_seed202.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 202</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id19_seed202.jpg" alt="our - Naruto_id19_seed202.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id19_seed202.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 202</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id20_seed211.jpg" alt="SD - Naruto_id20_seed211.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id20_seed211.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 211</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id20_seed211.jpg" alt="UCE - Naruto_id20_seed211.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id20_seed211.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 211</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id20_seed211.jpg" alt="our - Naruto_id20_seed211.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id20_seed211.jpg</div>
+                    <div class="prompt">"a dark photo of Naruto"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 211</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id21_seed967.jpg" alt="SD - Naruto_id21_seed967.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id21_seed967.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 967</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id21_seed967.jpg" alt="UCE - Naruto_id21_seed967.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id21_seed967.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 967</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id21_seed967.jpg" alt="our - Naruto_id21_seed967.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id21_seed967.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 967</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id22_seed917.jpg" alt="SD - Naruto_id22_seed917.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id22_seed917.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 917</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id22_seed917.jpg" alt="UCE - Naruto_id22_seed917.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id22_seed917.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 917</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id22_seed917.jpg" alt="our - Naruto_id22_seed917.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id22_seed917.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 917</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id23_seed860.jpg" alt="SD - Naruto_id23_seed860.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id23_seed860.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 860</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id23_seed860.jpg" alt="UCE - Naruto_id23_seed860.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id23_seed860.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 860</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id23_seed860.jpg" alt="our - Naruto_id23_seed860.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id23_seed860.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 860</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id24_seed886.jpg" alt="SD - Naruto_id24_seed886.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id24_seed886.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 886</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id24_seed886.jpg" alt="UCE - Naruto_id24_seed886.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id24_seed886.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 886</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id24_seed886.jpg" alt="our - Naruto_id24_seed886.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id24_seed886.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 886</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id25_seed440.jpg" alt="SD - Naruto_id25_seed440.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id25_seed440.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 440</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id25_seed440.jpg" alt="UCE - Naruto_id25_seed440.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id25_seed440.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 440</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id25_seed440.jpg" alt="our - Naruto_id25_seed440.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id25_seed440.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 440</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id26_seed23.jpg" alt="SD - Naruto_id26_seed23.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id26_seed23.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 23</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id26_seed23.jpg" alt="UCE - Naruto_id26_seed23.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id26_seed23.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 23</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id26_seed23.jpg" alt="our - Naruto_id26_seed23.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id26_seed23.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 23</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id27_seed258.jpg" alt="SD - Naruto_id27_seed258.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id27_seed258.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 258</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id27_seed258.jpg" alt="UCE - Naruto_id27_seed258.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id27_seed258.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 258</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id27_seed258.jpg" alt="our - Naruto_id27_seed258.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id27_seed258.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 258</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id28_seed269.jpg" alt="SD - Naruto_id28_seed269.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id28_seed269.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 269</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id28_seed269.jpg" alt="UCE - Naruto_id28_seed269.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id28_seed269.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 269</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id28_seed269.jpg" alt="our - Naruto_id28_seed269.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id28_seed269.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 269</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id29_seed463.jpg" alt="SD - Naruto_id29_seed463.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id29_seed463.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 463</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id29_seed463.jpg" alt="UCE - Naruto_id29_seed463.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id29_seed463.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 463</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id29_seed463.jpg" alt="our - Naruto_id29_seed463.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id29_seed463.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 463</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id30_seed671.jpg" alt="SD - Naruto_id30_seed671.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id30_seed671.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 671</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id30_seed671.jpg" alt="UCE - Naruto_id30_seed671.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id30_seed671.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 671</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id30_seed671.jpg" alt="our - Naruto_id30_seed671.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id30_seed671.jpg</div>
+                    <div class="prompt">"a rendition photo of Naruto"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 671</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id31_seed361.jpg" alt="SD - Naruto_id31_seed361.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id31_seed361.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 361</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id31_seed361.jpg" alt="UCE - Naruto_id31_seed361.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id31_seed361.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 361</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id31_seed361.jpg" alt="our - Naruto_id31_seed361.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id31_seed361.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 361</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id32_seed758.jpg" alt="SD - Naruto_id32_seed758.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id32_seed758.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 758</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id32_seed758.jpg" alt="UCE - Naruto_id32_seed758.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id32_seed758.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 758</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id32_seed758.jpg" alt="our - Naruto_id32_seed758.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id32_seed758.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 758</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id33_seed558.jpg" alt="SD - Naruto_id33_seed558.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id33_seed558.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 558</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id33_seed558.jpg" alt="UCE - Naruto_id33_seed558.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id33_seed558.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 558</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id33_seed558.jpg" alt="our - Naruto_id33_seed558.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id33_seed558.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 558</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id34_seed949.jpg" alt="SD - Naruto_id34_seed949.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id34_seed949.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 949</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id34_seed949.jpg" alt="UCE - Naruto_id34_seed949.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id34_seed949.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 949</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id34_seed949.jpg" alt="our - Naruto_id34_seed949.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id34_seed949.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 949</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id35_seed405.jpg" alt="SD - Naruto_id35_seed405.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id35_seed405.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 405</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id35_seed405.jpg" alt="UCE - Naruto_id35_seed405.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id35_seed405.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 405</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id35_seed405.jpg" alt="our - Naruto_id35_seed405.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id35_seed405.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 405</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id36_seed362.jpg" alt="SD - Naruto_id36_seed362.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id36_seed362.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 362</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id36_seed362.jpg" alt="UCE - Naruto_id36_seed362.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id36_seed362.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 362</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id36_seed362.jpg" alt="our - Naruto_id36_seed362.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id36_seed362.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 362</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id37_seed791.jpg" alt="SD - Naruto_id37_seed791.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id37_seed791.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 791</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id37_seed791.jpg" alt="UCE - Naruto_id37_seed791.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id37_seed791.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 791</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id37_seed791.jpg" alt="our - Naruto_id37_seed791.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id37_seed791.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 791</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id38_seed334.jpg" alt="SD - Naruto_id38_seed334.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id38_seed334.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 334</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id38_seed334.jpg" alt="UCE - Naruto_id38_seed334.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id38_seed334.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 334</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id38_seed334.jpg" alt="our - Naruto_id38_seed334.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id38_seed334.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 334</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id39_seed974.jpg" alt="SD - Naruto_id39_seed974.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id39_seed974.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 974</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id39_seed974.jpg" alt="UCE - Naruto_id39_seed974.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id39_seed974.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 974</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id39_seed974.jpg" alt="our - Naruto_id39_seed974.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id39_seed974.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 974</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id40_seed277.jpg" alt="SD - Naruto_id40_seed277.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id40_seed277.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 277</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id40_seed277.jpg" alt="UCE - Naruto_id40_seed277.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id40_seed277.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 277</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id40_seed277.jpg" alt="our - Naruto_id40_seed277.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id40_seed277.jpg</div>
+                    <div class="prompt">"a bright photo of Naruto"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 277</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id41_seed398.jpg" alt="SD - Naruto_id41_seed398.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id41_seed398.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 398</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id41_seed398.jpg" alt="UCE - Naruto_id41_seed398.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id41_seed398.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 398</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id41_seed398.jpg" alt="our - Naruto_id41_seed398.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id41_seed398.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 398</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id42_seed699.jpg" alt="SD - Naruto_id42_seed699.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id42_seed699.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 699</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id42_seed699.jpg" alt="UCE - Naruto_id42_seed699.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id42_seed699.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 699</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id42_seed699.jpg" alt="our - Naruto_id42_seed699.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id42_seed699.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 699</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id43_seed783.jpg" alt="SD - Naruto_id43_seed783.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id43_seed783.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 783</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id43_seed783.jpg" alt="UCE - Naruto_id43_seed783.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id43_seed783.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 783</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id43_seed783.jpg" alt="our - Naruto_id43_seed783.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id43_seed783.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 783</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id44_seed718.jpg" alt="SD - Naruto_id44_seed718.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id44_seed718.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 718</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id44_seed718.jpg" alt="UCE - Naruto_id44_seed718.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id44_seed718.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 718</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id44_seed718.jpg" alt="our - Naruto_id44_seed718.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id44_seed718.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 718</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id45_seed136.jpg" alt="SD - Naruto_id45_seed136.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id45_seed136.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 136</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id45_seed136.jpg" alt="UCE - Naruto_id45_seed136.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id45_seed136.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 136</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id45_seed136.jpg" alt="our - Naruto_id45_seed136.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id45_seed136.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 136</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id46_seed349.jpg" alt="SD - Naruto_id46_seed349.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id46_seed349.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 349</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id46_seed349.jpg" alt="UCE - Naruto_id46_seed349.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id46_seed349.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 349</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id46_seed349.jpg" alt="our - Naruto_id46_seed349.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id46_seed349.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 349</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id47_seed272.jpg" alt="SD - Naruto_id47_seed272.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id47_seed272.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 272</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id47_seed272.jpg" alt="UCE - Naruto_id47_seed272.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id47_seed272.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 272</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id47_seed272.jpg" alt="our - Naruto_id47_seed272.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id47_seed272.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 272</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id48_seed477.jpg" alt="SD - Naruto_id48_seed477.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id48_seed477.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 477</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id48_seed477.jpg" alt="UCE - Naruto_id48_seed477.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id48_seed477.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 477</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id48_seed477.jpg" alt="our - Naruto_id48_seed477.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id48_seed477.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 477</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id49_seed686.jpg" alt="SD - Naruto_id49_seed686.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id49_seed686.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 686</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id49_seed686.jpg" alt="UCE - Naruto_id49_seed686.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id49_seed686.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 686</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id49_seed686.jpg" alt="our - Naruto_id49_seed686.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id49_seed686.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 686</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id50_seed849.jpg" alt="SD - Naruto_id50_seed849.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id50_seed849.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 849</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id50_seed849.jpg" alt="UCE - Naruto_id50_seed849.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id50_seed849.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 849</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id50_seed849.jpg" alt="our - Naruto_id50_seed849.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id50_seed849.jpg</div>
+                    <div class="prompt">"a photo of dirty Naruto"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 849</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id51_seed905.jpg" alt="SD - Naruto_id51_seed905.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id51_seed905.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Headband and Sage mode"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 905</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id51_seed905.jpg" alt="UCE - Naruto_id51_seed905.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id51_seed905.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Headband and Sage mode"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 905</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id51_seed905.jpg" alt="our - Naruto_id51_seed905.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id51_seed905.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Headband and Sage mode"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 905</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id52_seed826.jpg" alt="SD - Naruto_id52_seed826.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id52_seed826.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Sage mode and Headband"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 826</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id52_seed826.jpg" alt="UCE - Naruto_id52_seed826.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id52_seed826.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Sage mode and Headband"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 826</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id52_seed826.jpg" alt="our - Naruto_id52_seed826.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id52_seed826.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Sage mode and Headband"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 826</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id53_seed837.jpg" alt="SD - Naruto_id53_seed837.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id53_seed837.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Rasengan and Headband"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 837</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id53_seed837.jpg" alt="UCE - Naruto_id53_seed837.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id53_seed837.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Rasengan and Headband"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 837</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id53_seed837.jpg" alt="our - Naruto_id53_seed837.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id53_seed837.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Rasengan and Headband"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 837</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id54_seed766.jpg" alt="SD - Naruto_id54_seed766.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id54_seed766.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Seventh Hokage and Headband"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 766</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id54_seed766.jpg" alt="UCE - Naruto_id54_seed766.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id54_seed766.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Seventh Hokage and Headband"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 766</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id54_seed766.jpg" alt="our - Naruto_id54_seed766.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id54_seed766.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Seventh Hokage and Headband"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 766</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id55_seed932.jpg" alt="SD - Naruto_id55_seed932.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id55_seed932.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, manga and Headband"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 932</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id55_seed932.jpg" alt="UCE - Naruto_id55_seed932.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id55_seed932.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, manga and Headband"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 932</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id55_seed932.jpg" alt="our - Naruto_id55_seed932.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id55_seed932.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, manga and Headband"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 932</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id56_seed478.jpg" alt="SD - Naruto_id56_seed478.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id56_seed478.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, anime and Headband"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 478</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id56_seed478.jpg" alt="UCE - Naruto_id56_seed478.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id56_seed478.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, anime and Headband"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 478</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id56_seed478.jpg" alt="our - Naruto_id56_seed478.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id56_seed478.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, anime and Headband"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 478</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id57_seed206.jpg" alt="SD - Naruto_id57_seed206.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id57_seed206.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Pokémon and Headband"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 206</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id57_seed206.jpg" alt="UCE - Naruto_id57_seed206.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id57_seed206.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Pokémon and Headband"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 206</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id57_seed206.jpg" alt="our - Naruto_id57_seed206.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id57_seed206.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Pokémon and Headband"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 206</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id58_seed125.jpg" alt="SD - Naruto_id58_seed125.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id58_seed125.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Japan and Headband"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 125</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id58_seed125.jpg" alt="UCE - Naruto_id58_seed125.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id58_seed125.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Japan and Headband"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 125</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id58_seed125.jpg" alt="our - Naruto_id58_seed125.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id58_seed125.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Japan and Headband"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 125</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id59_seed506.jpg" alt="SD - Naruto_id59_seed506.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id59_seed506.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Sage mode and Ninja"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 506</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id59_seed506.jpg" alt="UCE - Naruto_id59_seed506.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id59_seed506.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Sage mode and Ninja"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 506</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id59_seed506.jpg" alt="our - Naruto_id59_seed506.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id59_seed506.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Sage mode and Ninja"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 506</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id60_seed717.jpg" alt="SD - Naruto_id60_seed717.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id60_seed717.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Rasengan and Ninja"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 717</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id60_seed717.jpg" alt="UCE - Naruto_id60_seed717.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id60_seed717.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Rasengan and Ninja"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 717</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id60_seed717.jpg" alt="our - Naruto_id60_seed717.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id60_seed717.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Rasengan and Ninja"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 717</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id61_seed662.jpg" alt="SD - Naruto_id61_seed662.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id61_seed662.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Seventh Hokage and Ninja"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 662</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id61_seed662.jpg" alt="UCE - Naruto_id61_seed662.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id61_seed662.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Seventh Hokage and Ninja"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 662</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id61_seed662.jpg" alt="our - Naruto_id61_seed662.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id61_seed662.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Seventh Hokage and Ninja"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 662</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id62_seed445.jpg" alt="SD - Naruto_id62_seed445.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id62_seed445.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 445</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id62_seed445.jpg" alt="UCE - Naruto_id62_seed445.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id62_seed445.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 445</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id62_seed445.jpg" alt="our - Naruto_id62_seed445.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id62_seed445.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 445</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id63_seed834.jpg" alt="SD - Naruto_id63_seed834.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id63_seed834.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 834</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id63_seed834.jpg" alt="UCE - Naruto_id63_seed834.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id63_seed834.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 834</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id63_seed834.jpg" alt="our - Naruto_id63_seed834.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id63_seed834.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 834</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id64_seed544.jpg" alt="SD - Naruto_id64_seed544.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id64_seed544.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 544</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id64_seed544.jpg" alt="UCE - Naruto_id64_seed544.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id64_seed544.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 544</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id64_seed544.jpg" alt="our - Naruto_id64_seed544.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id64_seed544.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 544</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id65_seed933.jpg" alt="SD - Naruto_id65_seed933.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id65_seed933.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 933</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id65_seed933.jpg" alt="UCE - Naruto_id65_seed933.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id65_seed933.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 933</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id65_seed933.jpg" alt="our - Naruto_id65_seed933.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id65_seed933.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 933</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id66_seed142.jpg" alt="SD - Naruto_id66_seed142.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id66_seed142.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, Rasengan and Ninja"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 142</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id66_seed142.jpg" alt="UCE - Naruto_id66_seed142.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id66_seed142.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, Rasengan and Ninja"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 142</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id66_seed142.jpg" alt="our - Naruto_id66_seed142.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id66_seed142.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, Rasengan and Ninja"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 142</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id67_seed813.jpg" alt="SD - Naruto_id67_seed813.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id67_seed813.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, Seventh Hokage and Ninja"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 813</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id67_seed813.jpg" alt="UCE - Naruto_id67_seed813.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id67_seed813.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, Seventh Hokage and Ninja"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 813</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id67_seed813.jpg" alt="our - Naruto_id67_seed813.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id67_seed813.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, Seventh Hokage and Ninja"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 813</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id68_seed703.jpg" alt="SD - Naruto_id68_seed703.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id68_seed703.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 703</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id68_seed703.jpg" alt="UCE - Naruto_id68_seed703.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id68_seed703.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 703</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id68_seed703.jpg" alt="our - Naruto_id68_seed703.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id68_seed703.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 703</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id69_seed678.jpg" alt="SD - Naruto_id69_seed678.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id69_seed678.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 678</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id69_seed678.jpg" alt="UCE - Naruto_id69_seed678.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id69_seed678.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 678</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id69_seed678.jpg" alt="our - Naruto_id69_seed678.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id69_seed678.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 678</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id70_seed385.jpg" alt="SD - Naruto_id70_seed385.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id70_seed385.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 385</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id70_seed385.jpg" alt="UCE - Naruto_id70_seed385.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id70_seed385.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 385</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id70_seed385.jpg" alt="our - Naruto_id70_seed385.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id70_seed385.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 385</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id71_seed899.jpg" alt="SD - Naruto_id71_seed899.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id71_seed899.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 899</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id71_seed899.jpg" alt="UCE - Naruto_id71_seed899.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id71_seed899.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 899</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id71_seed899.jpg" alt="our - Naruto_id71_seed899.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id71_seed899.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Sage mode, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 899</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id72_seed115.jpg" alt="SD - Naruto_id72_seed115.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id72_seed115.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, Seventh Hokage and Ninja"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 115</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id72_seed115.jpg" alt="UCE - Naruto_id72_seed115.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id72_seed115.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, Seventh Hokage and Ninja"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 115</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id72_seed115.jpg" alt="our - Naruto_id72_seed115.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id72_seed115.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, Seventh Hokage and Ninja"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 115</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id73_seed560.jpg" alt="SD - Naruto_id73_seed560.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id73_seed560.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 560</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id73_seed560.jpg" alt="UCE - Naruto_id73_seed560.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id73_seed560.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 560</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id73_seed560.jpg" alt="our - Naruto_id73_seed560.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id73_seed560.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 560</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id74_seed576.jpg" alt="SD - Naruto_id74_seed576.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id74_seed576.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 576</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id74_seed576.jpg" alt="UCE - Naruto_id74_seed576.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id74_seed576.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 576</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id74_seed576.jpg" alt="our - Naruto_id74_seed576.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id74_seed576.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 576</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id75_seed800.jpg" alt="SD - Naruto_id75_seed800.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id75_seed800.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 800</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id75_seed800.jpg" alt="UCE - Naruto_id75_seed800.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id75_seed800.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 800</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id75_seed800.jpg" alt="our - Naruto_id75_seed800.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id75_seed800.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 800</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id76_seed533.jpg" alt="SD - Naruto_id76_seed533.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id76_seed533.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 533</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id76_seed533.jpg" alt="UCE - Naruto_id76_seed533.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id76_seed533.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 533</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id76_seed533.jpg" alt="our - Naruto_id76_seed533.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id76_seed533.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Rasengan, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 533</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id77_seed429.jpg" alt="SD - Naruto_id77_seed429.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id77_seed429.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Seventh Hokage, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 429</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id77_seed429.jpg" alt="UCE - Naruto_id77_seed429.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id77_seed429.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Seventh Hokage, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 429</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id77_seed429.jpg" alt="our - Naruto_id77_seed429.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id77_seed429.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Seventh Hokage, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 429</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id78_seed989.jpg" alt="SD - Naruto_id78_seed989.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id78_seed989.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Seventh Hokage, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 989</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id78_seed989.jpg" alt="UCE - Naruto_id78_seed989.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id78_seed989.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Seventh Hokage, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 989</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id78_seed989.jpg" alt="our - Naruto_id78_seed989.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id78_seed989.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Seventh Hokage, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 989</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id79_seed339.jpg" alt="SD - Naruto_id79_seed339.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id79_seed339.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Seventh Hokage, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 339</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id79_seed339.jpg" alt="UCE - Naruto_id79_seed339.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id79_seed339.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Seventh Hokage, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 339</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id79_seed339.jpg" alt="our - Naruto_id79_seed339.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id79_seed339.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Seventh Hokage, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 339</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id80_seed459.jpg" alt="SD - Naruto_id80_seed459.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id80_seed459.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Seventh Hokage, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 459</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id80_seed459.jpg" alt="UCE - Naruto_id80_seed459.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id80_seed459.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Seventh Hokage, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 459</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id80_seed459.jpg" alt="our - Naruto_id80_seed459.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id80_seed459.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Seventh Hokage, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 459</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id81_seed785.jpg" alt="SD - Naruto_id81_seed785.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id81_seed785.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: manga, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 785</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id81_seed785.jpg" alt="UCE - Naruto_id81_seed785.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id81_seed785.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: manga, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 785</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id81_seed785.jpg" alt="our - Naruto_id81_seed785.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id81_seed785.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: manga, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 785</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id82_seed788.jpg" alt="SD - Naruto_id82_seed788.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id82_seed788.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: manga, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 788</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id82_seed788.jpg" alt="UCE - Naruto_id82_seed788.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id82_seed788.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: manga, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 788</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id82_seed788.jpg" alt="our - Naruto_id82_seed788.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id82_seed788.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: manga, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 788</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id83_seed382.jpg" alt="SD - Naruto_id83_seed382.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id83_seed382.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: manga, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 382</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id83_seed382.jpg" alt="UCE - Naruto_id83_seed382.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id83_seed382.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: manga, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 382</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id83_seed382.jpg" alt="our - Naruto_id83_seed382.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id83_seed382.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: manga, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 382</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id84_seed525.jpg" alt="SD - Naruto_id84_seed525.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id84_seed525.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 525</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id84_seed525.jpg" alt="UCE - Naruto_id84_seed525.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id84_seed525.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 525</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id84_seed525.jpg" alt="our - Naruto_id84_seed525.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id84_seed525.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 525</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id85_seed746.jpg" alt="SD - Naruto_id85_seed746.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id85_seed746.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 746</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id85_seed746.jpg" alt="UCE - Naruto_id85_seed746.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id85_seed746.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 746</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id85_seed746.jpg" alt="our - Naruto_id85_seed746.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id85_seed746.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: anime, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 746</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id86_seed515.jpg" alt="SD - Naruto_id86_seed515.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id86_seed515.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 515</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id86_seed515.jpg" alt="UCE - Naruto_id86_seed515.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id86_seed515.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 515</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id86_seed515.jpg" alt="our - Naruto_id86_seed515.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id86_seed515.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Pokémon, Japan and Ninja"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 515</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id87_seed966.jpg" alt="SD - Naruto_id87_seed966.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id87_seed966.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Headband and Sage mode"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 966</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id87_seed966.jpg" alt="UCE - Naruto_id87_seed966.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id87_seed966.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Headband and Sage mode"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 966</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id87_seed966.jpg" alt="our - Naruto_id87_seed966.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id87_seed966.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Headband and Sage mode"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 966</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id88_seed379.jpg" alt="SD - Naruto_id88_seed379.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id88_seed379.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Sage mode and Headband"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 379</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id88_seed379.jpg" alt="UCE - Naruto_id88_seed379.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id88_seed379.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Sage mode and Headband"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 379</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id88_seed379.jpg" alt="our - Naruto_id88_seed379.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id88_seed379.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Sage mode and Headband"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 379</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id89_seed243.jpg" alt="SD - Naruto_id89_seed243.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id89_seed243.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Rasengan and Headband"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 243</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id89_seed243.jpg" alt="UCE - Naruto_id89_seed243.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id89_seed243.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Rasengan and Headband"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 243</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id89_seed243.jpg" alt="our - Naruto_id89_seed243.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id89_seed243.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Rasengan and Headband"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 243</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id90_seed552.jpg" alt="SD - Naruto_id90_seed552.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id90_seed552.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Seventh Hokage and Headband"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 552</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id90_seed552.jpg" alt="UCE - Naruto_id90_seed552.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id90_seed552.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Seventh Hokage and Headband"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 552</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id90_seed552.jpg" alt="our - Naruto_id90_seed552.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id90_seed552.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Seventh Hokage and Headband"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 552</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id91_seed850.jpg" alt="SD - Naruto_id91_seed850.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id91_seed850.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, manga and Headband"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 850</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id91_seed850.jpg" alt="UCE - Naruto_id91_seed850.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id91_seed850.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, manga and Headband"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 850</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id91_seed850.jpg" alt="our - Naruto_id91_seed850.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id91_seed850.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, manga and Headband"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 850</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id92_seed318.jpg" alt="SD - Naruto_id92_seed318.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id92_seed318.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, anime and Headband"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 318</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id92_seed318.jpg" alt="UCE - Naruto_id92_seed318.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id92_seed318.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, anime and Headband"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 318</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id92_seed318.jpg" alt="our - Naruto_id92_seed318.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id92_seed318.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, anime and Headband"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 318</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id93_seed841.jpg" alt="SD - Naruto_id93_seed841.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id93_seed841.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Pokémon and Headband"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 841</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id93_seed841.jpg" alt="UCE - Naruto_id93_seed841.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id93_seed841.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Pokémon and Headband"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 841</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id93_seed841.jpg" alt="our - Naruto_id93_seed841.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id93_seed841.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Pokémon and Headband"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 841</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id94_seed437.jpg" alt="SD - Naruto_id94_seed437.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id94_seed437.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Japan and Headband"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 437</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id94_seed437.jpg" alt="UCE - Naruto_id94_seed437.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id94_seed437.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Japan and Headband"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 437</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id94_seed437.jpg" alt="our - Naruto_id94_seed437.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id94_seed437.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Ninja, Japan and Headband"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 437</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id95_seed418.jpg" alt="SD - Naruto_id95_seed418.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id95_seed418.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Sage mode and Ninja"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 418</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id95_seed418.jpg" alt="UCE - Naruto_id95_seed418.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id95_seed418.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Sage mode and Ninja"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 418</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id95_seed418.jpg" alt="our - Naruto_id95_seed418.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id95_seed418.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Sage mode and Ninja"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 418</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id96_seed98.jpg" alt="SD - Naruto_id96_seed98.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id96_seed98.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Rasengan and Ninja"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 98</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id96_seed98.jpg" alt="UCE - Naruto_id96_seed98.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id96_seed98.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Rasengan and Ninja"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 98</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id96_seed98.jpg" alt="our - Naruto_id96_seed98.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id96_seed98.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Rasengan and Ninja"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 98</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id97_seed437.jpg" alt="SD - Naruto_id97_seed437.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id97_seed437.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Seventh Hokage and Ninja"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 437</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id97_seed437.jpg" alt="UCE - Naruto_id97_seed437.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id97_seed437.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Seventh Hokage and Ninja"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 437</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id97_seed437.jpg" alt="our - Naruto_id97_seed437.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id97_seed437.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Seventh Hokage and Ninja"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 437</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id98_seed296.jpg" alt="SD - Naruto_id98_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id98_seed296.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 296</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id98_seed296.jpg" alt="UCE - Naruto_id98_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id98_seed296.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 296</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id98_seed296.jpg" alt="our - Naruto_id98_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id98_seed296.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, manga and Ninja"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 296</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id99_seed492.jpg" alt="SD - Naruto_id99_seed492.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id99_seed492.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 492</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id99_seed492.jpg" alt="UCE - Naruto_id99_seed492.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id99_seed492.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 492</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id99_seed492.jpg" alt="our - Naruto_id99_seed492.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id99_seed492.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, anime and Ninja"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 492</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Naruto_id100_seed432.jpg" alt="SD - Naruto_id100_seed432.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id100_seed432.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 432</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Naruto_id100_seed432.jpg" alt="UCE - Naruto_id100_seed432.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id100_seed432.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 432</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Naruto_id100_seed432.jpg" alt="our - Naruto_id100_seed432.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Naruto_id100_seed432.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Headband, Pokémon and Ninja"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 432</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <p>Generated automatically from SD, UCE, and our comparison data</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,3207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batman - SD vs UCE vs our Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header .concept-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .stats {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        .image-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .image-trio {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-container h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .image-container.sd h3 {
+            color: #27ae60;
+        }
+        .image-container.uce h3 {
+            color: #e74c3c;
+        }
+        .image-container.our h3 {
+            color: #9b59b6;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 350px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+        }
+        .image-info {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .image-info .filename {
+            font-size: 14px;
+            color: #666;
+            word-break: break-all;
+            margin-bottom: 5px;
+        }
+        .image-info .prompt {
+            font-size: 13px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        .image-info .details {
+            font-size: 12px;
+            color: #888;
+        }
+        @media (max-width: 1200px) {
+            .image-trio {
+                grid-template-columns: 1fr 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .image-trio {
+                grid-template-columns: 1fr;
+            }
+            .image-container:nth-child(3) {
+                grid-column: auto;
+                max-width: 100%;
+            }
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            color: #666;
+        }
+        .method-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .legend-color.sd { background-color: #27ae60; }
+        .legend-color.uce { background-color: #e74c3c; }
+        .legend-color.our { background-color: #9b59b6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SD vs UCE vs our Image Comparison</h1>
+        <div class="concept-name">Batman</div>
+        <div class="stats">
+            <strong>100 matching image triplets found</strong>
+        </div>
+        <div class="method-legend">
+            <div class="legend-item">
+                <div class="legend-color sd"></div>
+                <span>SD (Original)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color uce"></div>
+                <span>UCE</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color our"></div>
+                <span>Our</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="../index.html" class="nav-button">← Back to All Concepts</a>
+    </div>
+    
+    <div class="image-grid">
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id1_seed788.jpg" alt="SD - Batman_id1_seed788.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id1_seed788.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 788</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id1_seed788.jpg" alt="UCE - Batman_id1_seed788.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id1_seed788.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 788</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id1_seed788.jpg" alt="our - Batman_id1_seed788.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id1_seed788.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 1 | Seed: 788</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id2_seed876.jpg" alt="SD - Batman_id2_seed876.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id2_seed876.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 876</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id2_seed876.jpg" alt="UCE - Batman_id2_seed876.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id2_seed876.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 876</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id2_seed876.jpg" alt="our - Batman_id2_seed876.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id2_seed876.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 2 | Seed: 876</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id3_seed316.jpg" alt="SD - Batman_id3_seed316.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id3_seed316.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 316</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id3_seed316.jpg" alt="UCE - Batman_id3_seed316.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id3_seed316.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 316</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id3_seed316.jpg" alt="our - Batman_id3_seed316.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id3_seed316.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 3 | Seed: 316</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id4_seed670.jpg" alt="SD - Batman_id4_seed670.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id4_seed670.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 670</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id4_seed670.jpg" alt="UCE - Batman_id4_seed670.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id4_seed670.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 670</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id4_seed670.jpg" alt="our - Batman_id4_seed670.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id4_seed670.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 4 | Seed: 670</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id5_seed861.jpg" alt="SD - Batman_id5_seed861.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id5_seed861.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 861</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id5_seed861.jpg" alt="UCE - Batman_id5_seed861.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id5_seed861.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 861</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id5_seed861.jpg" alt="our - Batman_id5_seed861.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id5_seed861.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 5 | Seed: 861</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id6_seed467.jpg" alt="SD - Batman_id6_seed467.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id6_seed467.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 467</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id6_seed467.jpg" alt="UCE - Batman_id6_seed467.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id6_seed467.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 467</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id6_seed467.jpg" alt="our - Batman_id6_seed467.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id6_seed467.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 6 | Seed: 467</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id7_seed404.jpg" alt="SD - Batman_id7_seed404.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id7_seed404.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 404</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id7_seed404.jpg" alt="UCE - Batman_id7_seed404.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id7_seed404.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 404</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id7_seed404.jpg" alt="our - Batman_id7_seed404.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id7_seed404.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 7 | Seed: 404</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id8_seed680.jpg" alt="SD - Batman_id8_seed680.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id8_seed680.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 680</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id8_seed680.jpg" alt="UCE - Batman_id8_seed680.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id8_seed680.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 680</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id8_seed680.jpg" alt="our - Batman_id8_seed680.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id8_seed680.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 8 | Seed: 680</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id9_seed861.jpg" alt="SD - Batman_id9_seed861.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id9_seed861.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 861</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id9_seed861.jpg" alt="UCE - Batman_id9_seed861.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id9_seed861.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 861</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id9_seed861.jpg" alt="our - Batman_id9_seed861.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id9_seed861.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 9 | Seed: 861</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id10_seed568.jpg" alt="SD - Batman_id10_seed568.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id10_seed568.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 568</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id10_seed568.jpg" alt="UCE - Batman_id10_seed568.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id10_seed568.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 568</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id10_seed568.jpg" alt="our - Batman_id10_seed568.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id10_seed568.jpg</div>
+                    <div class="prompt">"a photo of Batman"</div>
+                    <div class="details">Prompt ID: 10 | Seed: 568</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id11_seed637.jpg" alt="SD - Batman_id11_seed637.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id11_seed637.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 637</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id11_seed637.jpg" alt="UCE - Batman_id11_seed637.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id11_seed637.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 637</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id11_seed637.jpg" alt="our - Batman_id11_seed637.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id11_seed637.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 11 | Seed: 637</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id12_seed343.jpg" alt="SD - Batman_id12_seed343.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id12_seed343.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 343</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id12_seed343.jpg" alt="UCE - Batman_id12_seed343.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id12_seed343.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 343</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id12_seed343.jpg" alt="our - Batman_id12_seed343.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id12_seed343.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 12 | Seed: 343</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id13_seed386.jpg" alt="SD - Batman_id13_seed386.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id13_seed386.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 386</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id13_seed386.jpg" alt="UCE - Batman_id13_seed386.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id13_seed386.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 386</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id13_seed386.jpg" alt="our - Batman_id13_seed386.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id13_seed386.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 13 | Seed: 386</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id14_seed347.jpg" alt="SD - Batman_id14_seed347.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id14_seed347.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 347</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id14_seed347.jpg" alt="UCE - Batman_id14_seed347.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id14_seed347.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 347</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id14_seed347.jpg" alt="our - Batman_id14_seed347.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id14_seed347.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 14 | Seed: 347</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id15_seed126.jpg" alt="SD - Batman_id15_seed126.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id15_seed126.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 126</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id15_seed126.jpg" alt="UCE - Batman_id15_seed126.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id15_seed126.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 126</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id15_seed126.jpg" alt="our - Batman_id15_seed126.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id15_seed126.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 15 | Seed: 126</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id16_seed929.jpg" alt="SD - Batman_id16_seed929.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id16_seed929.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 929</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id16_seed929.jpg" alt="UCE - Batman_id16_seed929.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id16_seed929.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 929</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id16_seed929.jpg" alt="our - Batman_id16_seed929.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id16_seed929.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 16 | Seed: 929</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id17_seed187.jpg" alt="SD - Batman_id17_seed187.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id17_seed187.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 187</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id17_seed187.jpg" alt="UCE - Batman_id17_seed187.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id17_seed187.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 187</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id17_seed187.jpg" alt="our - Batman_id17_seed187.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id17_seed187.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 17 | Seed: 187</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id18_seed828.jpg" alt="SD - Batman_id18_seed828.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id18_seed828.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 828</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id18_seed828.jpg" alt="UCE - Batman_id18_seed828.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id18_seed828.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 828</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id18_seed828.jpg" alt="our - Batman_id18_seed828.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id18_seed828.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 18 | Seed: 828</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id19_seed105.jpg" alt="SD - Batman_id19_seed105.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id19_seed105.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 105</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id19_seed105.jpg" alt="UCE - Batman_id19_seed105.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id19_seed105.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 105</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id19_seed105.jpg" alt="our - Batman_id19_seed105.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id19_seed105.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 19 | Seed: 105</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id20_seed155.jpg" alt="SD - Batman_id20_seed155.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id20_seed155.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 155</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id20_seed155.jpg" alt="UCE - Batman_id20_seed155.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id20_seed155.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 155</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id20_seed155.jpg" alt="our - Batman_id20_seed155.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id20_seed155.jpg</div>
+                    <div class="prompt">"a dark photo of Batman"</div>
+                    <div class="details">Prompt ID: 20 | Seed: 155</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id21_seed527.jpg" alt="SD - Batman_id21_seed527.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id21_seed527.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 527</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id21_seed527.jpg" alt="UCE - Batman_id21_seed527.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id21_seed527.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 527</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id21_seed527.jpg" alt="our - Batman_id21_seed527.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id21_seed527.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 21 | Seed: 527</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id22_seed911.jpg" alt="SD - Batman_id22_seed911.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id22_seed911.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 911</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id22_seed911.jpg" alt="UCE - Batman_id22_seed911.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id22_seed911.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 911</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id22_seed911.jpg" alt="our - Batman_id22_seed911.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id22_seed911.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 22 | Seed: 911</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id23_seed179.jpg" alt="SD - Batman_id23_seed179.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id23_seed179.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 179</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id23_seed179.jpg" alt="UCE - Batman_id23_seed179.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id23_seed179.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 179</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id23_seed179.jpg" alt="our - Batman_id23_seed179.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id23_seed179.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 23 | Seed: 179</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id24_seed773.jpg" alt="SD - Batman_id24_seed773.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id24_seed773.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 773</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id24_seed773.jpg" alt="UCE - Batman_id24_seed773.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id24_seed773.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 773</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id24_seed773.jpg" alt="our - Batman_id24_seed773.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id24_seed773.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 24 | Seed: 773</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id25_seed47.jpg" alt="SD - Batman_id25_seed47.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id25_seed47.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 47</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id25_seed47.jpg" alt="UCE - Batman_id25_seed47.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id25_seed47.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 47</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id25_seed47.jpg" alt="our - Batman_id25_seed47.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id25_seed47.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 25 | Seed: 47</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id26_seed488.jpg" alt="SD - Batman_id26_seed488.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id26_seed488.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 488</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id26_seed488.jpg" alt="UCE - Batman_id26_seed488.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id26_seed488.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 488</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id26_seed488.jpg" alt="our - Batman_id26_seed488.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id26_seed488.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 26 | Seed: 488</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id27_seed766.jpg" alt="SD - Batman_id27_seed766.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id27_seed766.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 766</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id27_seed766.jpg" alt="UCE - Batman_id27_seed766.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id27_seed766.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 766</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id27_seed766.jpg" alt="our - Batman_id27_seed766.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id27_seed766.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 27 | Seed: 766</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id28_seed360.jpg" alt="SD - Batman_id28_seed360.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id28_seed360.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 360</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id28_seed360.jpg" alt="UCE - Batman_id28_seed360.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id28_seed360.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 360</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id28_seed360.jpg" alt="our - Batman_id28_seed360.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id28_seed360.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 28 | Seed: 360</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id29_seed519.jpg" alt="SD - Batman_id29_seed519.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id29_seed519.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 519</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id29_seed519.jpg" alt="UCE - Batman_id29_seed519.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id29_seed519.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 519</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id29_seed519.jpg" alt="our - Batman_id29_seed519.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id29_seed519.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 29 | Seed: 519</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id30_seed73.jpg" alt="SD - Batman_id30_seed73.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id30_seed73.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 73</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id30_seed73.jpg" alt="UCE - Batman_id30_seed73.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id30_seed73.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 73</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id30_seed73.jpg" alt="our - Batman_id30_seed73.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id30_seed73.jpg</div>
+                    <div class="prompt">"a rendition photo of Batman"</div>
+                    <div class="details">Prompt ID: 30 | Seed: 73</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id31_seed130.jpg" alt="SD - Batman_id31_seed130.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id31_seed130.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 130</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id31_seed130.jpg" alt="UCE - Batman_id31_seed130.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id31_seed130.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 130</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id31_seed130.jpg" alt="our - Batman_id31_seed130.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id31_seed130.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 31 | Seed: 130</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id32_seed530.jpg" alt="SD - Batman_id32_seed530.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id32_seed530.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 530</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id32_seed530.jpg" alt="UCE - Batman_id32_seed530.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id32_seed530.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 530</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id32_seed530.jpg" alt="our - Batman_id32_seed530.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id32_seed530.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 32 | Seed: 530</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id33_seed721.jpg" alt="SD - Batman_id33_seed721.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id33_seed721.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 721</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id33_seed721.jpg" alt="UCE - Batman_id33_seed721.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id33_seed721.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 721</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id33_seed721.jpg" alt="our - Batman_id33_seed721.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id33_seed721.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 33 | Seed: 721</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id34_seed513.jpg" alt="SD - Batman_id34_seed513.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id34_seed513.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 513</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id34_seed513.jpg" alt="UCE - Batman_id34_seed513.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id34_seed513.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 513</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id34_seed513.jpg" alt="our - Batman_id34_seed513.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id34_seed513.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 34 | Seed: 513</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id35_seed708.jpg" alt="SD - Batman_id35_seed708.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id35_seed708.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 708</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id35_seed708.jpg" alt="UCE - Batman_id35_seed708.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id35_seed708.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 708</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id35_seed708.jpg" alt="our - Batman_id35_seed708.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id35_seed708.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 35 | Seed: 708</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id36_seed350.jpg" alt="SD - Batman_id36_seed350.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id36_seed350.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 350</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id36_seed350.jpg" alt="UCE - Batman_id36_seed350.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id36_seed350.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 350</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id36_seed350.jpg" alt="our - Batman_id36_seed350.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id36_seed350.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 36 | Seed: 350</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id37_seed303.jpg" alt="SD - Batman_id37_seed303.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id37_seed303.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 303</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id37_seed303.jpg" alt="UCE - Batman_id37_seed303.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id37_seed303.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 303</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id37_seed303.jpg" alt="our - Batman_id37_seed303.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id37_seed303.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 37 | Seed: 303</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id38_seed712.jpg" alt="SD - Batman_id38_seed712.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id38_seed712.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 712</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id38_seed712.jpg" alt="UCE - Batman_id38_seed712.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id38_seed712.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 712</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id38_seed712.jpg" alt="our - Batman_id38_seed712.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id38_seed712.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 38 | Seed: 712</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id39_seed770.jpg" alt="SD - Batman_id39_seed770.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id39_seed770.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 770</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id39_seed770.jpg" alt="UCE - Batman_id39_seed770.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id39_seed770.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 770</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id39_seed770.jpg" alt="our - Batman_id39_seed770.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id39_seed770.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 39 | Seed: 770</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id40_seed645.jpg" alt="SD - Batman_id40_seed645.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id40_seed645.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 645</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id40_seed645.jpg" alt="UCE - Batman_id40_seed645.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id40_seed645.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 645</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id40_seed645.jpg" alt="our - Batman_id40_seed645.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id40_seed645.jpg</div>
+                    <div class="prompt">"a bright photo of Batman"</div>
+                    <div class="details">Prompt ID: 40 | Seed: 645</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id41_seed289.jpg" alt="SD - Batman_id41_seed289.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id41_seed289.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 289</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id41_seed289.jpg" alt="UCE - Batman_id41_seed289.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id41_seed289.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 289</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id41_seed289.jpg" alt="our - Batman_id41_seed289.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id41_seed289.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 41 | Seed: 289</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id42_seed588.jpg" alt="SD - Batman_id42_seed588.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id42_seed588.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 588</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id42_seed588.jpg" alt="UCE - Batman_id42_seed588.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id42_seed588.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 588</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id42_seed588.jpg" alt="our - Batman_id42_seed588.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id42_seed588.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 42 | Seed: 588</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id43_seed173.jpg" alt="SD - Batman_id43_seed173.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id43_seed173.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 173</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id43_seed173.jpg" alt="UCE - Batman_id43_seed173.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id43_seed173.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 173</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id43_seed173.jpg" alt="our - Batman_id43_seed173.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id43_seed173.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 43 | Seed: 173</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id44_seed283.jpg" alt="SD - Batman_id44_seed283.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id44_seed283.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 283</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id44_seed283.jpg" alt="UCE - Batman_id44_seed283.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id44_seed283.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 283</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id44_seed283.jpg" alt="our - Batman_id44_seed283.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id44_seed283.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 44 | Seed: 283</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id45_seed220.jpg" alt="SD - Batman_id45_seed220.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id45_seed220.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 220</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id45_seed220.jpg" alt="UCE - Batman_id45_seed220.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id45_seed220.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 220</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id45_seed220.jpg" alt="our - Batman_id45_seed220.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id45_seed220.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 45 | Seed: 220</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id46_seed694.jpg" alt="SD - Batman_id46_seed694.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id46_seed694.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 694</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id46_seed694.jpg" alt="UCE - Batman_id46_seed694.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id46_seed694.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 694</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id46_seed694.jpg" alt="our - Batman_id46_seed694.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id46_seed694.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 46 | Seed: 694</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id47_seed592.jpg" alt="SD - Batman_id47_seed592.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id47_seed592.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 592</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id47_seed592.jpg" alt="UCE - Batman_id47_seed592.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id47_seed592.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 592</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id47_seed592.jpg" alt="our - Batman_id47_seed592.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id47_seed592.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 47 | Seed: 592</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id48_seed697.jpg" alt="SD - Batman_id48_seed697.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id48_seed697.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 697</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id48_seed697.jpg" alt="UCE - Batman_id48_seed697.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id48_seed697.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 697</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id48_seed697.jpg" alt="our - Batman_id48_seed697.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id48_seed697.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 48 | Seed: 697</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id49_seed30.jpg" alt="SD - Batman_id49_seed30.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id49_seed30.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 30</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id49_seed30.jpg" alt="UCE - Batman_id49_seed30.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id49_seed30.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 30</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id49_seed30.jpg" alt="our - Batman_id49_seed30.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id49_seed30.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 49 | Seed: 30</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id50_seed532.jpg" alt="SD - Batman_id50_seed532.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id50_seed532.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 532</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id50_seed532.jpg" alt="UCE - Batman_id50_seed532.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id50_seed532.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 532</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id50_seed532.jpg" alt="our - Batman_id50_seed532.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id50_seed532.jpg</div>
+                    <div class="prompt">"a photo of dirty Batman"</div>
+                    <div class="details">Prompt ID: 50 | Seed: 532</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id51_seed711.jpg" alt="SD - Batman_id51_seed711.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id51_seed711.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, black and Gotham"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 711</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id51_seed711.jpg" alt="UCE - Batman_id51_seed711.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id51_seed711.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, black and Gotham"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 711</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id51_seed711.jpg" alt="our - Batman_id51_seed711.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id51_seed711.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, black and Gotham"</div>
+                    <div class="details">Prompt ID: 51 | Seed: 711</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id52_seed227.jpg" alt="SD - Batman_id52_seed227.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id52_seed227.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, Gotham and black"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 227</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id52_seed227.jpg" alt="UCE - Batman_id52_seed227.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id52_seed227.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, Gotham and black"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 227</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id52_seed227.jpg" alt="our - Batman_id52_seed227.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id52_seed227.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, Gotham and black"</div>
+                    <div class="details">Prompt ID: 52 | Seed: 227</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id53_seed243.jpg" alt="SD - Batman_id53_seed243.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id53_seed243.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, superhero and black"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 243</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id53_seed243.jpg" alt="UCE - Batman_id53_seed243.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id53_seed243.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, superhero and black"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 243</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id53_seed243.jpg" alt="our - Batman_id53_seed243.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id53_seed243.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, superhero and black"</div>
+                    <div class="details">Prompt ID: 53 | Seed: 243</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id54_seed96.jpg" alt="SD - Batman_id54_seed96.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id54_seed96.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, batmobile and black"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 96</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id54_seed96.jpg" alt="UCE - Batman_id54_seed96.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id54_seed96.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, batmobile and black"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 96</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id54_seed96.jpg" alt="our - Batman_id54_seed96.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id54_seed96.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, batmobile and black"</div>
+                    <div class="details">Prompt ID: 54 | Seed: 96</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id55_seed803.jpg" alt="SD - Batman_id55_seed803.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id55_seed803.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, bat symbol and black"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 803</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id55_seed803.jpg" alt="UCE - Batman_id55_seed803.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id55_seed803.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, bat symbol and black"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 803</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id55_seed803.jpg" alt="our - Batman_id55_seed803.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id55_seed803.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, bat symbol and black"</div>
+                    <div class="details">Prompt ID: 55 | Seed: 803</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id56_seed889.jpg" alt="SD - Batman_id56_seed889.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id56_seed889.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, Gotham and black"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 889</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id56_seed889.jpg" alt="UCE - Batman_id56_seed889.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id56_seed889.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, Gotham and black"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 889</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id56_seed889.jpg" alt="our - Batman_id56_seed889.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id56_seed889.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, Gotham and black"</div>
+                    <div class="details">Prompt ID: 56 | Seed: 889</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id57_seed470.jpg" alt="SD - Batman_id57_seed470.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id57_seed470.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, bat ears and black"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 470</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id57_seed470.jpg" alt="UCE - Batman_id57_seed470.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id57_seed470.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, bat ears and black"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 470</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id57_seed470.jpg" alt="our - Batman_id57_seed470.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id57_seed470.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, bat ears and black"</div>
+                    <div class="details">Prompt ID: 57 | Seed: 470</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id58_seed777.jpg" alt="SD - Batman_id58_seed777.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id58_seed777.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 777</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id58_seed777.jpg" alt="UCE - Batman_id58_seed777.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id58_seed777.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 777</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id58_seed777.jpg" alt="our - Batman_id58_seed777.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id58_seed777.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 58 | Seed: 777</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id59_seed654.jpg" alt="SD - Batman_id59_seed654.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id59_seed654.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, superhero and dark"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 654</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id59_seed654.jpg" alt="UCE - Batman_id59_seed654.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id59_seed654.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, superhero and dark"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 654</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id59_seed654.jpg" alt="our - Batman_id59_seed654.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id59_seed654.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, superhero and dark"</div>
+                    <div class="details">Prompt ID: 59 | Seed: 654</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id60_seed140.jpg" alt="SD - Batman_id60_seed140.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id60_seed140.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 140</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id60_seed140.jpg" alt="UCE - Batman_id60_seed140.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id60_seed140.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 140</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id60_seed140.jpg" alt="our - Batman_id60_seed140.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id60_seed140.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 60 | Seed: 140</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id61_seed333.jpg" alt="SD - Batman_id61_seed333.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id61_seed333.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 333</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id61_seed333.jpg" alt="UCE - Batman_id61_seed333.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id61_seed333.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 333</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id61_seed333.jpg" alt="our - Batman_id61_seed333.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id61_seed333.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 61 | Seed: 333</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id62_seed107.jpg" alt="SD - Batman_id62_seed107.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id62_seed107.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 107</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id62_seed107.jpg" alt="UCE - Batman_id62_seed107.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id62_seed107.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 107</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id62_seed107.jpg" alt="our - Batman_id62_seed107.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id62_seed107.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 62 | Seed: 107</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id63_seed969.jpg" alt="SD - Batman_id63_seed969.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id63_seed969.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 969</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id63_seed969.jpg" alt="UCE - Batman_id63_seed969.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id63_seed969.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 969</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id63_seed969.jpg" alt="our - Batman_id63_seed969.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id63_seed969.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 63 | Seed: 969</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id64_seed933.jpg" alt="SD - Batman_id64_seed933.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id64_seed933.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, superhero and dark"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 933</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id64_seed933.jpg" alt="UCE - Batman_id64_seed933.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id64_seed933.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, superhero and dark"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 933</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id64_seed933.jpg" alt="our - Batman_id64_seed933.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id64_seed933.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, superhero and dark"</div>
+                    <div class="details">Prompt ID: 64 | Seed: 933</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id65_seed296.jpg" alt="SD - Batman_id65_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id65_seed296.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 296</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id65_seed296.jpg" alt="UCE - Batman_id65_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id65_seed296.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 296</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id65_seed296.jpg" alt="our - Batman_id65_seed296.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id65_seed296.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 65 | Seed: 296</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id66_seed230.jpg" alt="SD - Batman_id66_seed230.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id66_seed230.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 230</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id66_seed230.jpg" alt="UCE - Batman_id66_seed230.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id66_seed230.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 230</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id66_seed230.jpg" alt="our - Batman_id66_seed230.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id66_seed230.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 66 | Seed: 230</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id67_seed394.jpg" alt="SD - Batman_id67_seed394.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id67_seed394.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 394</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id67_seed394.jpg" alt="UCE - Batman_id67_seed394.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id67_seed394.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 394</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id67_seed394.jpg" alt="our - Batman_id67_seed394.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id67_seed394.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 67 | Seed: 394</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id68_seed208.jpg" alt="SD - Batman_id68_seed208.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id68_seed208.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 208</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id68_seed208.jpg" alt="UCE - Batman_id68_seed208.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id68_seed208.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 208</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id68_seed208.jpg" alt="our - Batman_id68_seed208.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id68_seed208.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 68 | Seed: 208</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id69_seed682.jpg" alt="SD - Batman_id69_seed682.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id69_seed682.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 682</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id69_seed682.jpg" alt="UCE - Batman_id69_seed682.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id69_seed682.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 682</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id69_seed682.jpg" alt="our - Batman_id69_seed682.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id69_seed682.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 69 | Seed: 682</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id70_seed778.jpg" alt="SD - Batman_id70_seed778.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id70_seed778.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 778</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id70_seed778.jpg" alt="UCE - Batman_id70_seed778.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id70_seed778.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 778</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id70_seed778.jpg" alt="our - Batman_id70_seed778.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id70_seed778.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 70 | Seed: 778</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id71_seed835.jpg" alt="SD - Batman_id71_seed835.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id71_seed835.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 835</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id71_seed835.jpg" alt="UCE - Batman_id71_seed835.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id71_seed835.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 835</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id71_seed835.jpg" alt="our - Batman_id71_seed835.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id71_seed835.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 71 | Seed: 835</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id72_seed570.jpg" alt="SD - Batman_id72_seed570.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id72_seed570.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 570</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id72_seed570.jpg" alt="UCE - Batman_id72_seed570.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id72_seed570.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 570</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id72_seed570.jpg" alt="our - Batman_id72_seed570.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id72_seed570.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 72 | Seed: 570</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id73_seed516.jpg" alt="SD - Batman_id73_seed516.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id73_seed516.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: batmobile, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 516</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id73_seed516.jpg" alt="UCE - Batman_id73_seed516.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id73_seed516.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: batmobile, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 516</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id73_seed516.jpg" alt="our - Batman_id73_seed516.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id73_seed516.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: batmobile, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 73 | Seed: 516</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id74_seed81.jpg" alt="SD - Batman_id74_seed81.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id74_seed81.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: batmobile, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 81</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id74_seed81.jpg" alt="UCE - Batman_id74_seed81.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id74_seed81.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: batmobile, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 81</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id74_seed81.jpg" alt="our - Batman_id74_seed81.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id74_seed81.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: batmobile, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 74 | Seed: 81</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id75_seed720.jpg" alt="SD - Batman_id75_seed720.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id75_seed720.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: batmobile, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 720</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id75_seed720.jpg" alt="UCE - Batman_id75_seed720.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id75_seed720.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: batmobile, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 720</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id75_seed720.jpg" alt="our - Batman_id75_seed720.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id75_seed720.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: batmobile, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 75 | Seed: 720</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id76_seed66.jpg" alt="SD - Batman_id76_seed66.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id76_seed66.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: bat symbol, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 66</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id76_seed66.jpg" alt="UCE - Batman_id76_seed66.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id76_seed66.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: bat symbol, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 66</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id76_seed66.jpg" alt="our - Batman_id76_seed66.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id76_seed66.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: bat symbol, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 76 | Seed: 66</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id77_seed53.jpg" alt="SD - Batman_id77_seed53.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id77_seed53.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: bat symbol, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 53</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id77_seed53.jpg" alt="UCE - Batman_id77_seed53.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id77_seed53.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: bat symbol, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 53</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id77_seed53.jpg" alt="our - Batman_id77_seed53.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id77_seed53.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: bat symbol, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 77 | Seed: 53</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id78_seed309.jpg" alt="SD - Batman_id78_seed309.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id78_seed309.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 309</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id78_seed309.jpg" alt="UCE - Batman_id78_seed309.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id78_seed309.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 309</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id78_seed309.jpg" alt="our - Batman_id78_seed309.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id78_seed309.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 78 | Seed: 309</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id79_seed250.jpg" alt="SD - Batman_id79_seed250.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id79_seed250.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, black and Gotham"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 250</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id79_seed250.jpg" alt="UCE - Batman_id79_seed250.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id79_seed250.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, black and Gotham"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 250</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id79_seed250.jpg" alt="our - Batman_id79_seed250.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id79_seed250.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, black and Gotham"</div>
+                    <div class="details">Prompt ID: 79 | Seed: 250</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id80_seed431.jpg" alt="SD - Batman_id80_seed431.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id80_seed431.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, Gotham and black"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 431</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id80_seed431.jpg" alt="UCE - Batman_id80_seed431.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id80_seed431.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, Gotham and black"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 431</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id80_seed431.jpg" alt="our - Batman_id80_seed431.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id80_seed431.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, Gotham and black"</div>
+                    <div class="details">Prompt ID: 80 | Seed: 431</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id81_seed563.jpg" alt="SD - Batman_id81_seed563.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id81_seed563.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, superhero and black"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 563</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id81_seed563.jpg" alt="UCE - Batman_id81_seed563.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id81_seed563.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, superhero and black"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 563</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id81_seed563.jpg" alt="our - Batman_id81_seed563.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id81_seed563.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, superhero and black"</div>
+                    <div class="details">Prompt ID: 81 | Seed: 563</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id82_seed883.jpg" alt="SD - Batman_id82_seed883.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id82_seed883.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, batmobile and black"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 883</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id82_seed883.jpg" alt="UCE - Batman_id82_seed883.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id82_seed883.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, batmobile and black"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 883</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id82_seed883.jpg" alt="our - Batman_id82_seed883.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id82_seed883.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, batmobile and black"</div>
+                    <div class="details">Prompt ID: 82 | Seed: 883</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id83_seed957.jpg" alt="SD - Batman_id83_seed957.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id83_seed957.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, bat symbol and black"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 957</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id83_seed957.jpg" alt="UCE - Batman_id83_seed957.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id83_seed957.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, bat symbol and black"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 957</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id83_seed957.jpg" alt="our - Batman_id83_seed957.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id83_seed957.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, bat symbol and black"</div>
+                    <div class="details">Prompt ID: 83 | Seed: 957</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id84_seed252.jpg" alt="SD - Batman_id84_seed252.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id84_seed252.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, Gotham and black"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 252</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id84_seed252.jpg" alt="UCE - Batman_id84_seed252.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id84_seed252.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, Gotham and black"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 252</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id84_seed252.jpg" alt="our - Batman_id84_seed252.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id84_seed252.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, Gotham and black"</div>
+                    <div class="details">Prompt ID: 84 | Seed: 252</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id85_seed481.jpg" alt="SD - Batman_id85_seed481.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id85_seed481.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, bat ears and black"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 481</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id85_seed481.jpg" alt="UCE - Batman_id85_seed481.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id85_seed481.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, bat ears and black"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 481</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id85_seed481.jpg" alt="our - Batman_id85_seed481.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id85_seed481.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: dark, bat ears and black"</div>
+                    <div class="details">Prompt ID: 85 | Seed: 481</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id86_seed120.jpg" alt="SD - Batman_id86_seed120.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id86_seed120.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 120</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id86_seed120.jpg" alt="UCE - Batman_id86_seed120.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id86_seed120.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 120</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id86_seed120.jpg" alt="our - Batman_id86_seed120.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id86_seed120.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 86 | Seed: 120</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id87_seed260.jpg" alt="SD - Batman_id87_seed260.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id87_seed260.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, superhero and dark"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 260</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id87_seed260.jpg" alt="UCE - Batman_id87_seed260.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id87_seed260.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, superhero and dark"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 260</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id87_seed260.jpg" alt="our - Batman_id87_seed260.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id87_seed260.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, superhero and dark"</div>
+                    <div class="details">Prompt ID: 87 | Seed: 260</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id88_seed189.jpg" alt="SD - Batman_id88_seed189.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id88_seed189.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 189</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id88_seed189.jpg" alt="UCE - Batman_id88_seed189.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id88_seed189.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 189</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id88_seed189.jpg" alt="our - Batman_id88_seed189.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id88_seed189.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 88 | Seed: 189</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id89_seed314.jpg" alt="SD - Batman_id89_seed314.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id89_seed314.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 314</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id89_seed314.jpg" alt="UCE - Batman_id89_seed314.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id89_seed314.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 314</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id89_seed314.jpg" alt="our - Batman_id89_seed314.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id89_seed314.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 89 | Seed: 314</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id90_seed338.jpg" alt="SD - Batman_id90_seed338.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id90_seed338.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 338</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id90_seed338.jpg" alt="UCE - Batman_id90_seed338.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id90_seed338.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 338</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id90_seed338.jpg" alt="our - Batman_id90_seed338.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id90_seed338.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 90 | Seed: 338</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id91_seed593.jpg" alt="SD - Batman_id91_seed593.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id91_seed593.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 593</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id91_seed593.jpg" alt="UCE - Batman_id91_seed593.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id91_seed593.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 593</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id91_seed593.jpg" alt="our - Batman_id91_seed593.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id91_seed593.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: black, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 91 | Seed: 593</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id92_seed984.jpg" alt="SD - Batman_id92_seed984.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id92_seed984.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, superhero and dark"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 984</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id92_seed984.jpg" alt="UCE - Batman_id92_seed984.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id92_seed984.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, superhero and dark"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 984</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id92_seed984.jpg" alt="our - Batman_id92_seed984.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id92_seed984.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, superhero and dark"</div>
+                    <div class="details">Prompt ID: 92 | Seed: 984</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id93_seed145.jpg" alt="SD - Batman_id93_seed145.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id93_seed145.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 145</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id93_seed145.jpg" alt="UCE - Batman_id93_seed145.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id93_seed145.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 145</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id93_seed145.jpg" alt="our - Batman_id93_seed145.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id93_seed145.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 93 | Seed: 145</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id94_seed91.jpg" alt="SD - Batman_id94_seed91.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id94_seed91.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 91</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id94_seed91.jpg" alt="UCE - Batman_id94_seed91.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id94_seed91.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 91</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id94_seed91.jpg" alt="our - Batman_id94_seed91.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id94_seed91.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 94 | Seed: 91</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id95_seed549.jpg" alt="SD - Batman_id95_seed549.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id95_seed549.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 549</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id95_seed549.jpg" alt="UCE - Batman_id95_seed549.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id95_seed549.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 549</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id95_seed549.jpg" alt="our - Batman_id95_seed549.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id95_seed549.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 95 | Seed: 549</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id96_seed809.jpg" alt="SD - Batman_id96_seed809.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id96_seed809.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 809</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id96_seed809.jpg" alt="UCE - Batman_id96_seed809.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id96_seed809.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 809</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id96_seed809.jpg" alt="our - Batman_id96_seed809.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id96_seed809.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: Gotham, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 96 | Seed: 809</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id97_seed430.jpg" alt="SD - Batman_id97_seed430.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id97_seed430.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 430</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id97_seed430.jpg" alt="UCE - Batman_id97_seed430.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id97_seed430.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 430</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id97_seed430.jpg" alt="our - Batman_id97_seed430.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id97_seed430.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, batmobile and dark"</div>
+                    <div class="details">Prompt ID: 97 | Seed: 430</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id98_seed654.jpg" alt="SD - Batman_id98_seed654.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id98_seed654.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 654</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id98_seed654.jpg" alt="UCE - Batman_id98_seed654.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id98_seed654.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 654</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id98_seed654.jpg" alt="our - Batman_id98_seed654.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id98_seed654.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, bat symbol and dark"</div>
+                    <div class="details">Prompt ID: 98 | Seed: 654</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id99_seed877.jpg" alt="SD - Batman_id99_seed877.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id99_seed877.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 877</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id99_seed877.jpg" alt="UCE - Batman_id99_seed877.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id99_seed877.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 877</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id99_seed877.jpg" alt="our - Batman_id99_seed877.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id99_seed877.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, Gotham and dark"</div>
+                    <div class="details">Prompt ID: 99 | Seed: 877</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-trio">
+            <div class="image-container sd">
+                <h3>SD (Original)</h3>
+                <img src="./data/sd/Batman_id100_seed802.jpg" alt="SD - Batman_id100_seed802.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id100_seed802.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 802</div>
+                </div>
+            </div>
+            <div class="image-container uce">
+                <h3>UCE</h3>
+                <img src="./data/uce/Batman_id100_seed802.jpg" alt="UCE - Batman_id100_seed802.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id100_seed802.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 802</div>
+                </div>
+            </div>
+            <div class="image-container our">
+                <h3>Our</h3>
+                <img src="./data/our/Batman_id100_seed802.jpg" alt="our - Batman_id100_seed802.jpg" onerror="this.style.display='none'">
+                <div class="image-info">
+                    <div class="filename">Batman_id100_seed802.jpg</div>
+                    <div class="prompt">"a photo of a character relate to keywords: superhero, bat ears and dark"</div>
+                    <div class="details">Prompt ID: 100 | Seed: 802</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <p>Generated automatically from SD, UCE, and our comparison data</p>
+    </div>
+</body>
+</html>
