@@ -4,7 +4,7 @@ import pandas as pd
 from pathlib import Path
 
 
-PUBLIC_URL = "https://www.dropbox.com/scl/fo/67lupmpbty4jgovpl2mm3/ADEbYnFbqFVVosNgtQH80QA?rlkey=f6mj267ogod40m38vixzi5gyd&st=kvvp9re9&dl=0"
+PUBLIC_URL = "https://raw.githubusercontent.com/tuananhbui89/Erasing-Visual-Concept/main/visualizations/"
 LOCAL_PATH = "./"
 
 def get_image_url_prefix(use_online_hosting=None):
@@ -501,7 +501,7 @@ def main():
     
     # Determine hosting mode - auto-detect or allow manual override
     # You can modify this logic or add command line arguments as needed
-    use_online_hosting = False  # Auto-detect
+    use_online_hosting = True  # Auto-detect
     
     # Optional: Check for command line argument
     import sys
